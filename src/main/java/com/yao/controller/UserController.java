@@ -1,0 +1,54 @@
+package com.yao.controller;
+
+import com.yao.biz.UserService;
+import com.yao.model.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@Controller
+public class UserController {
+    @Resource
+    private UserService userService;
+    @RequestMapping("/userRegPage")
+    public String registerPage() throws Exception{
+        return "registerPage";
+    }
+
+    @RequestMapping("/ajaxForRegist")
+    public void ajaxForRegist(User user, HttpServletResponse response) throws Exception{
+        System.out.println(user);
+        User user1 = userService.findUser(user);
+        if (null==user1){
+            response.getWriter().print("yes");
+        }else {
+            response.getWriter().print("no");
+        }
+    }
+    @RequestMapping("/userRegister")
+    public String userRegister(User user) throws Exception{
+        user.setuType(1);
+        if (userService.saveUser(user)){
+            System.out.println("success");
+            return "forward:/index";
+        }else {
+            System.out.println("failure");
+            return "forward:/index";
+        }
+    }
+
+    @RequestMapping("/userLogin")
+    public String userLogin(User user, HttpSession session) throws Exception{
+        System.out.println(user);
+        User user1 = userService.loginUser(user);
+        if (null!=user1){
+            session.setAttribute("user",user1);
+            return "guestPage";
+        }else{
+            return "../../index";
+        }
+    }
+}
