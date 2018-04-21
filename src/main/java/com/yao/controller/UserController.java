@@ -21,11 +21,13 @@ public class UserController {
     @RequestMapping("/ajaxForRegist")
     public void ajaxForRegist(User user, HttpServletResponse response) throws Exception{
         System.out.println(user);
+        /*boolean result = false;
+        AjaxResponseMsg*/
         User user1 = userService.findUser(user);
-        if (null==user1){
-            response.getWriter().print("yes");
+        if (null!=user1 && !"".equals(user1)){
+            response.getWriter().print(0);
         }else {
-            response.getWriter().print("no");
+            response.getWriter().print(1);
         }
     }
     @RequestMapping("/userRegister")
