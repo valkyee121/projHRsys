@@ -8,13 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c686f232-01ea-427b-a810-03993e7e3fa8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.easyui.mobile.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/UserController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/UserController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/UserController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/registerPage.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/registerPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/resources/js/jquery.easyui.mobile.js" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -94,8 +87,8 @@
       <file leaf-file-name="registerPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2915">
-              <caret line="147" column="11" lean-forward="false" selection-start-line="147" selection-start-column="11" selection-end-line="147" selection-end-column="11" />
+            <state relative-caret-position="-1999">
+              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -209,8 +202,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="236" />
-    <option name="y" value="5" />
+    <option name="x" value="29" />
     <option name="width" value="1805" />
     <option name="height" value="982" />
   </component>
@@ -574,15 +566,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524126771781</updated>
-      <workItem from="1524126775650" duration="55956000" />
+      <workItem from="1524126775650" duration="56080000" />
     </task>
+    <task id="LOCAL-00001" summary="用户注册登录完成">
+      <created>1524286575422</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524286575424</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55956000" />
+    <option name="totallyTimeSpent" value="56080000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="236" y="5" width="1805" height="982" extended-state="0" />
+    <frame x="29" y="0" width="1805" height="982" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -623,6 +623,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="用户注册登录完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户注册登录完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -932,8 +936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2915">
-          <caret line="147" column="11" lean-forward="false" selection-start-line="147" selection-start-column="11" selection-end-line="147" selection-end-column="11" />
+        <state relative-caret-position="-1999">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
