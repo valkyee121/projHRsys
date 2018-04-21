@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c686f232-01ea-427b-a810-03993e7e3fa8" name="Default" comment="" />
+    <list default="true" id="c686f232-01ea-427b-a810-03993e7e3fa8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,8 +88,8 @@
       <file leaf-file-name="registerPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1999">
-              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="269">
+              <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -199,7 +202,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="29" />
     <option name="width" value="1805" />
     <option name="height" value="982" />
@@ -564,7 +567,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524126771781</updated>
-      <workItem from="1524126775650" duration="56421000" />
+      <workItem from="1524126775650" duration="56871000" />
     </task>
     <task id="LOCAL-00001" summary="用户注册登录完成">
       <created>1524286575422</created>
@@ -577,10 +580,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56421000" />
+    <option name="totallyTimeSpent" value="56871000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="0" width="1805" height="982" extended-state="1" />
+    <frame x="29" y="0" width="1805" height="982" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -934,8 +937,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1999">
-          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        <state relative-caret-position="269">
+          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

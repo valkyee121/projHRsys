@@ -145,6 +145,7 @@
                 $.messager.alert('Info', data, 'info');
                 messager.progress('close');
             }
+
         });
 </script>
 </body>
