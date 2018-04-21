@@ -47,6 +47,7 @@
                 </div>
             </form>
         </div>
+        <a href="backToIndex">back</a>
     </div>
     <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
         页脚
@@ -133,7 +134,7 @@
         }
 
         $('#ff').form({
-            /*url:'http://localhost:8088/userRegister',*/
+            /*url:'http://localhost:8088/userRegiste afterPropertiesSet() on bean with namer',*/
             onSubmit:function(){
                 var isValid = $(this).form('validate');
                 if (!isValid){
@@ -142,8 +143,9 @@
                 return isValid;
             },
             success:function(data){
-                $.messager.alert('Info', data, 'info');
-                messager.progress('close');
+                /*$.messager.alert('Info', data, 'info');*/
+                /*messager.progress('close');*/
+                location.replace('${pageContext.request.contextPath}/index.jsp');
             }
 
         });

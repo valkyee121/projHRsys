@@ -13,7 +13,18 @@
         INSERT INTO T_HRSYS_USER (U_EMAIL, U_PASS, U_TYPE) VALUES (#{uEmail},#{uPass},#{uType})
     </insert>
     <update id="updateUser">
-
+        UPDATE T_HRSYS_USER
+        <set>
+            <choose>
+                <when test="uPass!=null and uPass!=''">
+                    U_PASS = #{uPass}
+                </when>
+                <when test="uType!=0 and uType!=''">
+                    U_TYPE = #{uType}
+                </when>
+            </choose>
+        </set>
+        WHERE U_ID=#{uid}
     </update>
     <delete id="deleteUser"></delete>
     <select id="findUser" resultMap="findUserMap">

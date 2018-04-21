@@ -17,7 +17,10 @@ public class UserController {
     public String registerPage() throws Exception{
         return "registerPage";
     }
-
+    @RequestMapping("/backToIndex")
+    public String backToIndex() throws Exception{
+        return "../../index";
+    }
     @RequestMapping("/ajaxForRegist")
     public void ajaxForRegist(User user, HttpServletResponse response) throws Exception{
         System.out.println(user);
@@ -35,10 +38,10 @@ public class UserController {
         user.setuType(1);
         if (userService.saveUser(user)){
             System.out.println("success");
-            return "forward:/index";
+            return "../../index";
         }else {
             System.out.println("failure");
-            return "forward:/index";
+            return "../../index";
         }
     }
 
@@ -46,10 +49,13 @@ public class UserController {
     public String userLogin(User user, HttpSession session) throws Exception{
         System.out.println(user);
         User user1 = userService.loginUser(user);
-        if (null!=user1){
+        if (null!=user1 && user1.getuType()==1){
             session.setAttribute("user",user1);
             return "guestPage";
-        }else{
+        }else if (null!=user1 && user1.getuType()==0){
+            session.setAttribute("user",user1);
+            return "managerPage";
+        }else {
             return "../../index";
         }
     }

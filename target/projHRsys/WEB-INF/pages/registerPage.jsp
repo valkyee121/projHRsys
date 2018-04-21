@@ -47,13 +47,12 @@
                 </div>
             </form>
         </div>
+        <a href="backToIndex">back</a>
     </div>
     <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
         页脚
     </div>
     <script type="text/javascript">
-        var mailResult = false;
-        var passResult = false;
         /*密码一致性验证*/
         $.extend($.fn.validatebox.defaults.rules, {
             confirmPass: {
@@ -75,6 +74,7 @@
                 message:'密码格式非法'
             }
         })
+
         /*邮箱重复验证*/
        $.extend($.fn.validatebox.defaults.rules,{
            myvalidate:{
@@ -115,7 +115,6 @@
                        });
                    })*/
                    console.log(result);
-                   /*return result;*/
                },
                message: '用户名已经占用'
            }
@@ -126,7 +125,6 @@
                 type:'post',
                 async:false,
                 url:'ajaxForRegist',
-                /*data:{"uEmail":$("input[name='uEmail']").val().trim()},*/
                 data:{"uEmail":value},
                 success:function (data) {
                     result = data;
@@ -136,7 +134,7 @@
         }
 
         $('#ff').form({
-            /*url:'http://localhost:8088/userRegister',*/
+            /*url:'http://localhost:8088/userRegiste afterPropertiesSet() on bean with namer',*/
             onSubmit:function(){
                 var isValid = $(this).form('validate');
                 if (!isValid){
@@ -145,20 +143,12 @@
                 return isValid;
             },
             success:function(data){
-                $.messager.alert('Info', data, 'info');
-                messager.progress('close');
+                /*$.messager.alert('Info', data, 'info');*/
+                /*messager.progress('close');*/
+                location.replace('${pageContext.request.contextPath}/index.jsp');
             }
+
         });
-        /*function checkAll() {
-            var oL = document.getElementById('register');
-            /!*console.log(mailResult);*!/
-            console.log(passResult);
-            if (mailResult&&passResult){
-                oL.removeAttribute("disabled");
-            }else {
-                oL.setAttribute("disabled","true");
-            }
-        }*/
 </script>
 </body>
 </html>

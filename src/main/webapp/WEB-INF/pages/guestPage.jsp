@@ -29,6 +29,7 @@
     <div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
         <%--LOGIN--%>
         <h2>用户信息</h2>
+
         <div style="margin:20px 0;"></div>
     </div>
     <%--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">

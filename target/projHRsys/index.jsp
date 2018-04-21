@@ -54,7 +54,14 @@
         页脚
     </div>
     <div data-options="region:'center',title:'招聘资讯'">
-        sssssssssssssssss
+
+        <ul class="easyui-datalist"  >
+
+            <li value="AL"><a href="#">Alabama</a></li>
+        </ul>
     </div>
+    <script type="text/javascript">
+
+    </script>
 </body>
 </html>
