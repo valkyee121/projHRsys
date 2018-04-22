@@ -6,12 +6,15 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/springMVC-servlet.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/demo.css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/themes" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/demo.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/easyloader.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery-3.1.0.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery.easyui.min.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery.easyui.mobile.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/locale" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/src" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/themes" charset="GBK" />
   </component>
 </project>

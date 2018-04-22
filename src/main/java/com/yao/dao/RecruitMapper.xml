@@ -16,14 +16,15 @@
     <update id="updateRecruit"></update>
     <delete id="deleteRecruit"></delete>
     <select id="findRecruit" resultType="com.yao.model.Recruit"></select>
-    <select id="listAll" statementType="CALLABLE">
+    <select id="listAll" statementType="CALLABLE" resultType="Recruit">
         {call PAGING_CURSOR(
-        #{tableName, mode=IN,OracleTypes=VARCHAR},
-        #{pageSize, mode=IN,OracleTypes=NUMBER},
-        #{pageNow, mode=IN,OracleTypes=NUMBER},
-        #{result, mode=OUT,OracleTypes=CURSOR,resultMap=findRecruit},
-        #{rows, mode=OUT,OracleTypes=NUMBER},
-        #{pageCount, mode=OUT,OracleTypes=NUMBER}
+        #{tableName, mode=IN,jdbcType=VARCHAR},
+        #{sqlWhere, mode=IN,jdbcType=VARCHAR},
+        #{pageSize, mode=IN,jdbcType=INTEGER},
+        #{pageNow, mode=IN,jdbcType=INTEGER},
+        #{result, mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=findRecruit},
+        #{rows, mode=OUT,jdbcType=INTEGER},
+        #{pageCount, mode=OUT,jdbcType=INTEGER}
         )}
     </select>
 </mapper>

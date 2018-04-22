@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yao.dao.RecruitMapper">
+    <resultMap id="findRecruit" type="Recruit">
+        <id property="riid" column="ri_id"/>
+        <result property="riName" column="ri_name"/>
+        <result property="riCompany" column="ri_company"/>
+        <result property="riSalary" column="ri_salary"/>
+        <result property="riDuty" column="ri_duty"/>
+        <result property="riDesired" column="ri_desired"/>
+        <result property="riAddtion" column="ri_addtion"/>
+        <result property="riLocation" column="ri_location"/>
+        <result property="riStatus" column="ri_status"/>
+    </resultMap>
     <insert id="saveRecruit"></insert>
     <update id="updateRecruit"></update>
     <delete id="deleteRecruit"></delete>
     <select id="findRecruit" resultType="com.yao.model.Recruit"></select>
-    <select id="listAll" resultType="com.yao.model.Recruit"></select>
+    <select id="listAll" statementType="CALLABLE" resultType="Recruit">
+        {call PAGING_CURSOR(
+        #{tableName, mode=IN,jdbcType=VARCHAR},
+        #{sqlWhere, mode=IN,jdbcType=VARCHAR},
+        #{pageSize, mode=IN,jdbcType=INTEGER},
+        #{pageNow, mode=IN,jdbcType=INTEGER},
+        #{result, mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=findRecruit},
+        #{rows, mode=OUT,jdbcType=INTEGER},
+        #{pageCount, mode=OUT,jdbcType=INTEGER}
+        )}
+    </select>
 </mapper>

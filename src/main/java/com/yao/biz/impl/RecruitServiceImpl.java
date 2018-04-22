@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class RecruitServiceImpl implements RecruitService {
     @Resource
@@ -32,7 +34,7 @@ public class RecruitServiceImpl implements RecruitService {
     }
 
     @Override
-    public List<Recruit> listAll(Recruit recruit) {
-        return recruitMapper.listAll(recruit);
+    public List<Recruit> listAll(Map map) {
+        return recruitMapper.listAll(map);
     }
 }
