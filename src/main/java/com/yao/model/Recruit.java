@@ -1,6 +1,8 @@
 package com.yao.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Recruit implements Serializable {
     private int riid;
@@ -12,6 +14,7 @@ public class Recruit implements Serializable {
     private String riAddtion;
     private String riLocation;
     private int riStatus;
+    private List<Resume> resumes = new ArrayList<Resume>();
 
     public int getRiid() {
         return riid;
@@ -83,6 +86,14 @@ public class Recruit implements Serializable {
 
     public void setRiStatus(int riStatus) {
         this.riStatus = riStatus;
+    }
+
+    public List<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<Resume> resumes) {
+        this.resumes = resumes;
     }
 
     @Override

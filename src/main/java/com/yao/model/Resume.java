@@ -1,7 +1,9 @@
 package com.yao.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Resume implements Serializable{
     private int resuID;
@@ -12,7 +14,9 @@ public class Resume implements Serializable{
     private int resuCell;
     private String resuInfo;
     private int resuStatus;
-    private User user;
+    private String resuEmail;
+    private int uid;
+    private List<Recruit> recruits = new ArrayList<Recruit>();
 
     public int getResuID() {
         return resuID;
@@ -78,12 +82,28 @@ public class Resume implements Serializable{
         this.resuStatus = resuStatus;
     }
 
-    public User getUser() {
-        return user;
+    public String getResuEmail() {
+        return resuEmail;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setResuEmail(String resuEmail) {
+        this.resuEmail = resuEmail;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public List<Recruit> getRecruits() {
+        return recruits;
+    }
+
+    public void setRecruits(List<Recruit> recruits) {
+        this.recruits = recruits;
     }
 
     @Override
@@ -97,6 +117,8 @@ public class Resume implements Serializable{
                 ", resuCell=" + resuCell +
                 ", resuInfo='" + resuInfo + '\'' +
                 ", resuStatus=" + resuStatus +
+                ", resuEmail='" + resuEmail + '\'' +
+                ", uid=" + uid +
                 '}';
     }
 }

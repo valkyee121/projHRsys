@@ -9,7 +9,7 @@ public class User implements Serializable{
     private String uEmail;
     private String uPass;
     private int uType;
-    private List<Resume> resumes = new ArrayList<Resume>();
+    private Resume resume;
 
     public int getUid() {
         return uid;
@@ -43,12 +43,12 @@ public class User implements Serializable{
         this.uType = uType;
     }
 
-    public List<Resume> getResumes() {
-        return resumes;
+    public Resume getResume() {
+        return resume;
     }
 
-    public void setResumes(List<Resume> resumes) {
-        this.resumes = resumes;
+    public void setResume(Resume resume) {
+        this.resume = resume;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class User implements Serializable{
                 ", uEmail='" + uEmail + '\'' +
                 ", uPass='" + uPass + '\'' +
                 ", uType=" + uType +
-                ", resumes=" + resumes +
+                ", resume=" + resume +
                 '}';
     }
 }

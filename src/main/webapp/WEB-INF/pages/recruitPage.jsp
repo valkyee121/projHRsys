@@ -32,6 +32,36 @@
     <div style="margin:20px 0;"></div>
     <div style="margin-bottom:10px">
         <p>${user.uEmail}</p>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <td>${myResume.resume.resuName}</td>
+            </tr>
+            <tr>
+                <th>性别</th>
+                <td>${myResume.resume.resuSex}</td>
+            </tr>
+            <tr>
+                <th>出生年月</th>
+                <td>${myResume.resume.resuBirth}</td>
+            </tr>
+            <tr>
+                <th>所在城市</th>
+                <td>${myResume.resume.resuCity}</td>
+            </tr>
+            <tr>
+                <th>联系电话</th>
+                <td>${myResume.resume.resuCell}</td>
+            </tr>
+            <tr>
+                <th>邮箱地址</th>
+                <td>${myResume.resume.resuEmail}</td>
+            </tr>
+            <tr>
+                <th>其他信息</th>
+                <td>${myResume.resume.resuInfo}</td>
+            </tr>
+        </table>
     </div>
 </div>
 <div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
@@ -42,9 +72,9 @@
     <p></p>
     <div style="margin:20px 0;"></div>
     <div <%--class="easyui-dialog"--%>class="easyui-panel" style="width:400px;padding:50px 60px; position: absolute;left: 50%;top: 50%; transform: translate(-50%,-50%);">
-        <form id="ff" method="post" action="userRegister">
-
+        <form id="ff" method="post" action="applyThisJob">
             <table cellpadding="0" cellspacing="0" border="1">
+                <input type="hidden" name="riid" value="${thisRecruit.riid}">
                 <tr>
                     <th>招聘信息标题</th>
                     <td>${thisRecruit.riName}</td>
@@ -74,6 +104,7 @@
                     <td>${thisRecruit.riLocation}</td>
                 </tr>
             </table>
+            <input type="submit" value="申请该职位">
         </form>
     </div>
     <a href="backToIndex">back</a>

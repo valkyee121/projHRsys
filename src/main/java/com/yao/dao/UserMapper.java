@@ -7,5 +7,6 @@ public interface UserMapper {
     boolean updateUser (User user);
     boolean deleteUser (User user);
     User findUser (User user);
+    User findUserResume (User user);
     User loginUser (User user);
 }

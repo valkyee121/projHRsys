@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserResume(User user) {
+        return userMapper.findUserResume(user);
+    }
+
+    @Override
     public User loginUser(User user) {
         return userMapper.loginUser(user);
     }

@@ -2,11 +2,13 @@ package com.yao.biz.impl;
 
 import com.yao.biz.ResumeService;
 import com.yao.dao.ResumeMapper;
+import com.yao.model.Recruit;
 import com.yao.model.Resume;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ResumeServiceImpl implements ResumeService {
@@ -33,7 +35,15 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public List<Resume> listMyResume(Resume resume) {
-        return resumeMapper.listMyResume(resume);
+    public List<Resume> listMyPost(Resume resume) {
+        return resumeMapper.listMyPost(resume);
     }
+
+
+    @Override
+    public boolean postResume(int ruseid, int riid) {
+        return resumeMapper.postResume(ruseid,riid);
+    }
+
+
 }

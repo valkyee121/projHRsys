@@ -26,14 +26,45 @@
 <%--MAINPAGE--%>
     <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
         导航栏
-        <a href="">我的简历</a>
+        <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
+        <a href="myApplypage">我的职位申请</a>
     </div>
     <div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
         <%--LOGIN--%>
         <h2>用户信息</h2>
         <div style="margin:20px 0;"></div>
         <div style="margin-bottom:10px">
-            <p>${user.uEmail}</p>
+            <p>${sessionScope.user.uEmail}</p>
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <td>${myResume.resume.resuName}</td>
+                </tr>
+                <tr>
+                    <th>性别</th>
+                    <td>${myResume.resume.resuSex}</td>
+                </tr>
+                <tr>
+                    <th>出生年月</th>
+                    <td>${myResume.resume.resuBirth}</td>
+                </tr>
+                <tr>
+                    <th>所在城市</th>
+                    <td>${myResume.resume.resuCity}</td>
+                </tr>
+                <tr>
+                    <th>联系电话</th>
+                    <td>${myResume.resume.resuCell}</td>
+                </tr>
+                <tr>
+                    <th>邮箱地址</th>
+                    <td>${myResume.resume.resuEmail}</td>
+                </tr>
+                <tr>
+                    <th>其他信息</th>
+                    <td>${myResume.resume.resuInfo}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <%--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
@@ -57,7 +88,6 @@
         </div>
     </div>
 <script type="text/javascript">
-
     Load();
     function Load() {
         $.post("listAllRecruit",null,function (result) {
@@ -88,7 +118,7 @@
                     for (var i=0;i<recruit.length;i++){
                         table.append(
                             $("<tr><td>"+
-                                "<a href='#?riName=recruit[i].riName'>"+
+                                "<a href='findThisRecruit?riid="+recruit[i].riid+"'>"+
                                 recruit[i].riName
                                 +"</a></td><td>" +
                                 recruit[i].riCompany

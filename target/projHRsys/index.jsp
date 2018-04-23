@@ -73,7 +73,6 @@
         </div>
     </div>
     <script type="text/javascript">
-
         Load();
         function Load() {
             $.post("listAllRecruit",null,function (result) {

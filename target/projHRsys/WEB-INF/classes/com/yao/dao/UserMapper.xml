@@ -8,6 +8,17 @@
         <result property="uEmail" column="u_email"/>
         <result property="uPass" column="u_pass"/>
         <result property="uType" column="u_type"/>
+        <association property="resume" javaType="Resume">
+            <id property="resuID" column="resu_id"/>
+            <result property="resuName" column="resu_name"/>
+            <result property="resuSex" column="resu_sex"/>
+            <result property="resuBirth" column="resu_birth"/>
+            <result property="resuCity" column="resu_city"/>
+            <result property="resuCell" column="resu_cell"/>
+            <result property="resuInfo" column="resu_info"/>
+            <result property="resuEmail" column="resu_email"/>
+            <result property="resuStatus" column="resu_status"/>
+        </association>
     </resultMap>
     <insert id="saveUser">
         INSERT INTO T_HRSYS_USER (U_EMAIL, U_PASS, U_TYPE) VALUES (#{uEmail},#{uPass},#{uType})
@@ -32,5 +43,11 @@
     </select>
     <select id="loginUser" resultMap="findUserMap">
         SELECT * FROM T_HRSYS_USER WHERE U_EMAIL=#{uEmail} AND U_PASS=#{uPass}
+    </select>
+    <select id="findUserResume" resultMap="findUserMap">
+        SELECT u.U_ID, u.U_EMAIL,
+        resu.RESU_ID, resu.RESU_NAME, resu.RESU_SEX, resu.RESU_BIRTH, resu.RESU_CITY,
+        resu.RESU_CELL, resu.RESU_INFO, resu.RESU_EMAIL,resu.RESU_STATUS
+        FROM T_HRSYS_USER u JOIN T_HRSYS_RESUME resu ON u.U_ID=resu.RESU_UID WHERE u.U_ID=#{uid}
     </select>
 </mapper>
