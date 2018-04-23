@@ -119,6 +119,7 @@ public class Resume implements Serializable{
                 ", resuStatus=" + resuStatus +
                 ", resuEmail='" + resuEmail + '\'' +
                 ", uid=" + uid +
+                ", recruits=" + recruits +
                 '}';
     }
 }

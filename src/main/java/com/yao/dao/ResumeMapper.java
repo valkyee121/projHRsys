@@ -11,6 +11,6 @@ public interface ResumeMapper {
     boolean updateResume (Resume resume);
     boolean deleteResume (Resume resume);
     Resume findThisResume (Resume resume);
-    List<Resume> listMyPost (Resume resume);
-    boolean postResume (int ruseid, int riid);
+    List<Resume> listMyPost (int resuid, int poStat);
+    boolean postResume (int riid,int ruseid, int poStat);
 }

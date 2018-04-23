@@ -35,14 +35,14 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public List<Resume> listMyPost(Resume resume) {
-        return resumeMapper.listMyPost(resume);
+    public List<Resume> listMyPost(int resuid, int poStat) {
+        return resumeMapper.listMyPost(resuid, poStat);
     }
 
 
     @Override
-    public boolean postResume(int ruseid, int riid) {
-        return resumeMapper.postResume(ruseid,riid);
+    public boolean postResume(int riid,int ruseid,int poStat) {
+        return resumeMapper.postResume(riid,ruseid,poStat);
     }
 
 

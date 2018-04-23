@@ -5,11 +5,13 @@ import com.yao.biz.UserService;
 import com.yao.model.Recruit;
 import com.yao.model.Resume;
 import com.yao.model.User;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -42,11 +44,11 @@ public class ResumeController {
     }
 
     @RequestMapping("/applyThisJob")
-    public String applyThisJob(HttpSession session, Recruit recruit) throws Exception{
+    public String applyThisJob(HttpSession session, Recruit recruit, HttpServletRequest request) throws Exception{
         User user = userService.findUserResume((User) session.getAttribute("user"));
         if (null!=user && !"".equals(user)){
             System.out.println(recruit);
-            resumeService.postResume(user.getResume().getResuID(),recruit.getRiid());
+            resumeService.postResume(recruit.getRiid(),user.getResume().getResuID(),0);
             return "../../index";
         }else {
             System.out.println("请先填写简历");
@@ -55,12 +57,24 @@ public class ResumeController {
     }
 
     @RequestMapping("/ajaxListMyApply")
-    public void ajaxListMyApply(HttpSession session, HttpServletRequest request, Resume resume) throws Exception{
-        User user = (User) session.getAttribute("user");
-        System.out.println(user);
+    public void ajaxListMyApply(HttpSession session, HttpServletRequest request, HttpServletResponse response, Resume resume) throws Exception{
+        User user =
+        userService.findUserResume((User) session.getAttribute("user"));
+        int postStatus = Integer.parseInt(request.getParameter("postStatus"));
         resume.setUid(user.getUid());
-        List<Resume> resumeList = resumeService.listMyPost(resume);
+        List<Resume> resumeList = resumeService.listMyPost(user.getUid(),postStatus);
+        for (Resume r:resumeList){
+            System.out.println(r);
+        }
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("resultList",resumeList);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        System.out.println("**************");
+        System.out.println(user);
         System.out.println(resumeList);
+        System.out.println("**************");
+
        /* String sql = "";
         int pageNo = 1;
         Map<String,Object> param = new HashMap<String, Object>();
