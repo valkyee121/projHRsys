@@ -1,12 +1,15 @@
 package com.yao.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User implements Serializable{
     private int uid;
     private String uEmail;
     private String uPass;
     private int uType;
+    private List<Resume> resumes = new ArrayList<Resume>();
 
     public int getUid() {
         return uid;
@@ -40,6 +43,14 @@ public class User implements Serializable{
         this.uType = uType;
     }
 
+    public List<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<Resume> resumes) {
+        this.resumes = resumes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -47,6 +58,7 @@ public class User implements Serializable{
                 ", uEmail='" + uEmail + '\'' +
                 ", uPass='" + uPass + '\'' +
                 ", uType=" + uType +
+                ", resumes=" + resumes +
                 '}';
     }
 }

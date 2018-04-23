@@ -2,6 +2,7 @@ package com.yao.controller;
 
 import com.yao.biz.RecruitService;
 import com.yao.model.Recruit;
+import com.yao.model.User;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,5 +52,15 @@ public class RecruitController {
         out.print(json);*/
         model.addAttribute("pageNo",curPage);
         model.addAttribute("totalPages",totalPages);
+    }
+
+    @RequestMapping("/findThisRecruit")
+    public String findThisRecruit(HttpSession session, Recruit recruit, Model model) throws Exception{
+        User user = (User) session.getAttribute("user");
+        System.out.println(recruit);
+        recruit.setRiStatus(1);
+        recruit = recruitService.findRecruit(recruit);
+        model.addAttribute("thisRecruit",recruit);
+        return "recruitPage";
     }
 }

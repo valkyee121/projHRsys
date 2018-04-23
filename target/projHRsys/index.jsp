@@ -104,7 +104,7 @@
                         for (var i=0;i<recruit.length;i++){
                             table.append(
                                 $("<tr><td>"+
-                                    "<a href='#?riName=recruit[i].riName'>"+
+                                    "<a href='findThisRecruit?riid="+recruit[i].riid+"'>"+
                                     recruit[i].riName
                                     +"</a></td><td>" +
                                     recruit[i].riCompany

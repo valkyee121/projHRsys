@@ -47,7 +47,6 @@ public class UserController {
 
     @RequestMapping("/userLogin")
     public String userLogin(User user, HttpSession session) throws Exception{
-        System.out.println(user);
         User user1 = userService.loginUser(user);
         if (null!=user1 && user1.getuType()==1){
             session.setAttribute("user",user1);

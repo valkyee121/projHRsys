@@ -15,7 +15,9 @@
     <insert id="saveRecruit"></insert>
     <update id="updateRecruit"></update>
     <delete id="deleteRecruit"></delete>
-    <select id="findRecruit" resultType="com.yao.model.Recruit"></select>
+    <select id="findRecruit" resultMap="findRecruit">
+        SELECT * FROM T_HRSYS_RECRUITINF WHERE RI_ID=#{riid} AND RI_STATUS=#{riStatus}
+    </select>
     <select id="listAll" statementType="CALLABLE" resultType="Recruit">
         {call PAGING_CURSOR(
         #{tableName, mode=IN,jdbcType=VARCHAR},

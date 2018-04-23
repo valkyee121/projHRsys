@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yao.dao.ResumeMapper">
+    <resultMap id="findResumeMap" type="Resume">
+        <id property="resuID" column="resu_id"/>
+        <result property="resuName" column="resu_name"/>
+        <result property="resuSex" column="resu_sex"/>
+        <result property="resuBirth" column="resu_birth"/>
+        <result property="resuCity" column="resu_city"/>
+        <result property="resuCell" column="resu_cell"/>
+        <result property="resuInfo" column="resu_info"/>
+        <result property="resuStatus" column="resu_status"/>
+    </resultMap>
+    <insert id="saveResume"></insert>
+    <update id="updateResume"></update>
+    <delete id="deleteResume"></delete>
+    <select id="findThisResume" resultType="com.yao.model.Resume"></select>
+    <select id="listMyResume" resultType="com.yao.model.Resume"></select>
+</mapper>

@@ -14,9 +14,9 @@
 <head>
     <base href="<%=basePath%>"/>
     <title>UserRegist</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="resources/js/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="resources/js/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
