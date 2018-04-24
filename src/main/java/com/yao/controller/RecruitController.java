@@ -24,8 +24,89 @@ public class RecruitController {
     public String testPage() throws Exception{
         return "testPage";
     }
+    @RequestMapping("/recruitAddPage")
+    public String recruitAddPage() throws Exception{
+        return "recruitAdd";
+    }
+    /**
+     *
+     * @param request
+     * @param recruit
+     * @param model
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/listAllRecruit")
     public void listAllRecruit(HttpServletRequest request, Recruit recruit, Model model, HttpServletResponse response) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        String sql = "";
+        int pageNo = 1;
+        Map<String,Object> param = new HashMap<String, Object>();
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        String strPageNo = request.getParameter("pageIndex");
+        if (null!=strPageNo && !"".equals(strPageNo)){
+            pageNo = Integer.parseInt(strPageNo);
+        }
+        param.put("tableName","T_HRSYS_RECRUITINF");
+        param.put("sqlWhere",sql);
+        param.put("pageSize",10);
+        param.put("pageNow",pageNo);
+        recruitService.listAll(param);
+        List<Recruit> recruitList = (List<Recruit>) param.get("result");
+
+        int curPage = (Integer) param.get("pageNow");
+        int totalRows = (Integer) param.get("rows"); //总记录条数
+        int totalPages = (Integer) param.get("pageCount"); //总页数
+        jsonObj.put("resultList",recruitList);
+        jsonObj.put("totalpage",totalPages);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        System.out.println(json);
+        /*PrintWriter out = response.getWriter();
+        out.print(json);*/
+        model.addAttribute("pageNo",curPage);
+        model.addAttribute("totalPages",totalPages);
+    }
+
+    /**
+     *
+     * @param session
+     * @param recruit
+     * @param model
+     * @param response
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/findThisRecruit")
+    public String findThisRecruit(HttpSession session, Recruit recruit, Model model, HttpServletResponse response, HttpServletRequest request) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        User user = (User) session.getAttribute("user");
+        System.out.println(recruit);
+        recruit.setRiStatus(1);
+        recruit = recruitService.findRecruit(recruit);
+        model.addAttribute("thisRecruit",recruit);
+        return "recruitPage";
+    }
+
+    /**
+     * 管理员招聘信息
+     * @param request
+     * @param recruit
+     * @param model
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/recruitManag")
+    public String recruitManag(HttpServletRequest request, Recruit recruit, Model model, HttpServletResponse response) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         String sql = "";
         int pageNo = 1;
         Map<String,Object> param = new HashMap<String, Object>();
@@ -52,15 +133,33 @@ public class RecruitController {
         out.print(json);*/
         model.addAttribute("pageNo",curPage);
         model.addAttribute("totalPages",totalPages);
+        return "recruitManager";
     }
 
-    @RequestMapping("/findThisRecruit")
-    public String findThisRecruit(HttpSession session, Recruit recruit, Model model) throws Exception{
-        User user = (User) session.getAttribute("user");
+    /**
+     *
+     * @param recruit
+     * @param request
+     * @param response
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/recruitModManag")
+    public String recruitModManag(Recruit recruit,HttpServletRequest request, HttpServletResponse response, Model model) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         System.out.println(recruit);
         recruit.setRiStatus(1);
         recruit = recruitService.findRecruit(recruit);
         model.addAttribute("thisRecruit",recruit);
-        return "recruitPage";
+        return "recruitMod";
+    }
+
+    @RequestMapping("/recruitSaveManag")
+    public String recruitSaveManag(Recruit recruit) throws Exception{
+
+        return "/recruitAddPage";
     }
 }

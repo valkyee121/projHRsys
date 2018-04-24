@@ -61,11 +61,17 @@
         WHERE RESU_EMAIL=#{resuEmail}
     </update>
     <delete id="deleteResume"></delete>
-    <select id="findThisResume" resultType="com.yao.model.Resume"></select>
+    <select id="findThisResume" resultMap="resumeRecruitMap">
+        SELECT re.*, rs.*FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID = re.RI_ID
+        WHERE rs.RESU_ID=#{arg0} AND re.RI_ID=#{arg1}
+    </select>
     <select id="listMyPost" resultMap="resumeRecruitMap">
         SELECT re.* FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID=re.RI_ID
         WHERE rs.RESU_UID=#{arg0} AND po.POST_STATUS=#{arg1}
-
+    </select>
+    <select id="listAllPost" resultMap="resumeRecruitMap">
+        SELECT re.*,rs.* FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID=re.RI_ID
+        WHERE po.POST_STATUS=#{arg0}
     </select>
     <insert id="postResume">
         INSERT INTO T_HRSYS_POSTINTER (POST_RI_ID, POST_RESU_ID, POST_STATUS)

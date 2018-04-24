@@ -7,6 +7,7 @@ import com.yao.model.Resume;
 import com.yao.model.User;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -28,6 +29,18 @@ public class ResumeController {
     public String myApplypage() throws Exception{
         return "myApplication";
     }
+    @RequestMapping("/postResumePage")
+    public String postResumePage() throws Exception{
+        return "postResumePage";
+    }
+    /**
+     * 个人简历添加
+     * @param user
+     * @param resume
+     * @param session
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/saveMyResume")
     public String saveMyResume(User user, Resume resume, HttpSession session) throws Exception{
         user = (User) session.getAttribute("user");
@@ -43,8 +56,19 @@ public class ResumeController {
         /*return ;*/
     }
 
+    /**
+     * 游客申请职位
+     * @param session
+     * @param recruit
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/applyThisJob")
-    public String applyThisJob(HttpSession session, Recruit recruit, HttpServletRequest request) throws Exception{
+    public String applyThisJob(HttpSession session, Recruit recruit, HttpServletRequest request, HttpServletResponse response) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         User user = userService.findUserResume((User) session.getAttribute("user"));
         if (null!=user && !"".equals(user)){
             System.out.println(recruit);
@@ -56,8 +80,19 @@ public class ResumeController {
         }
     }
 
+    /**
+     * 游客投递简历状态
+     * @param session
+     * @param request
+     * @param response
+     * @param resume
+     * @throws Exception
+     */
     @RequestMapping("/ajaxListMyApply")
     public void ajaxListMyApply(HttpSession session, HttpServletRequest request, HttpServletResponse response, Resume resume) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         User user =
         userService.findUserResume((User) session.getAttribute("user"));
         int postStatus = Integer.parseInt(request.getParameter("postStatus"));
@@ -91,5 +126,34 @@ public class ResumeController {
         List<Resume> resumeList = (List<Resume>) param.get("result");
         System.out.println(resumeList);*/
 
+    }
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/ajaxPostResume")
+    public void ajaxPostResume(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        int postStatus = Integer.parseInt(request.getParameter("postStatus"));
+        List<Resume> resumeList = resumeService.listAllPost(postStatus);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("resultList",resumeList);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
+
+    @RequestMapping("/checkUserPost")
+    public String checkUserPost(HttpServletRequest request, Model model) throws Exception{
+        int postRsId = Integer.parseInt(request.getParameter("postRsId"));
+        int postReId = Integer.parseInt(request.getParameter("postReId"));
+        Resume resume = resumeService.findThisResume(postRsId,postReId);
+        System.out.println(resume);
+        model.addAttribute("userPostReRs",resume);
+        return "checkUserPost";
     }
 }
