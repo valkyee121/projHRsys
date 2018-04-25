@@ -9,6 +9,7 @@ public interface InterViewMapper {
     boolean saveInterView (InterView interView);
     boolean updateInterView (InterView interView);
     boolean deleteInterView (InterView interView);
-    InterView findThisIV (InterView interView);
-    List<InterView> listAll (Map map);
+    InterView findThisIV (int resuID, int reID);
+    InterView finfIvById (InterView interView);
+    List<InterView> listAll (int resuID);
 }

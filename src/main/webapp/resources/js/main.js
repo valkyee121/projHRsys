@@ -48,6 +48,21 @@ $(function () {
             }
             ]
         },{
+            text : "组织架构",
+            state : "closed",
+            children : [{
+                text : "部门管理",
+                attributes : {
+                    url : "deptManager"
+                }
+            }, {
+                text : "职位管理",
+                attributes : {
+                    url : ""
+                }
+            }
+            ]
+        },{
             text : "员工信息",
             state : "closed",
             children : [{

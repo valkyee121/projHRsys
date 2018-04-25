@@ -2,6 +2,7 @@ package com.yao.controller;
 
 import com.yao.biz.ResumeService;
 import com.yao.biz.UserService;
+import com.yao.model.InterView;
 import com.yao.model.Recruit;
 import com.yao.model.Resume;
 import com.yao.model.User;
@@ -72,7 +73,7 @@ public class ResumeController {
         User user = userService.findUserResume((User) session.getAttribute("user"));
         if (null!=user && !"".equals(user)){
             System.out.println(recruit);
-            resumeService.postResume(recruit.getRiid(),user.getResume().getResuID(),0);
+            resumeService.savePostResume(recruit.getRiid(),user.getResume().getResuID(),0);
             return "../../index";
         }else {
             System.out.println("请先填写简历");
@@ -105,11 +106,6 @@ public class ResumeController {
         jsonObj.put("resultList",resumeList);
         JSONObject json = new JSONObject(jsonObj);
         response.getWriter().print(json);
-        System.out.println("**************");
-        System.out.println(user);
-        System.out.println(resumeList);
-        System.out.println("**************");
-
        /* String sql = "";
         int pageNo = 1;
         Map<String,Object> param = new HashMap<String, Object>();
@@ -152,8 +148,24 @@ public class ResumeController {
         int postRsId = Integer.parseInt(request.getParameter("postRsId"));
         int postReId = Integer.parseInt(request.getParameter("postReId"));
         Resume resume = resumeService.findThisResume(postRsId,postReId);
+        if (resume.getInternalPost().getPostStatus()<1){
+            resumeService.updatePostResume(postReId,postRsId,1);
+        }
         System.out.println(resume);
         model.addAttribute("userPostReRs",resume);
         return "checkUserPost";
+    }
+
+    @RequestMapping("/rejectPost")
+    public void rejectPost(HttpServletRequest request, Model model, InterView iv) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        int resuID = Integer.parseInt(request.getParameter("resumeID"));
+        int recruID = Integer.parseInt(request.getParameter("recruitID"));
+        Resume resume = resumeService.findThisResume(resuID,recruID);
+        if (resume.getInternalPost().getPostStatus()!=2){
+            if (resumeService.updatePostResume(recruID,resuID,3)){
+                System.out.println("淘汰");
+            }
+        }
     }
 }

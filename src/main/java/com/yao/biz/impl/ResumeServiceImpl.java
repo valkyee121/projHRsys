@@ -46,8 +46,13 @@ public class ResumeServiceImpl implements ResumeService {
 
 
     @Override
-    public boolean postResume(int riid,int ruseid,int poStat) {
-        return resumeMapper.postResume(riid,ruseid,poStat);
+    public boolean savePostResume(int riid,int ruseid,int poStat) {
+        return resumeMapper.savePostResume(riid,ruseid,poStat);
+    }
+
+    @Override
+    public boolean updatePostResume(int riid, int ruseid, int poStat) {
+        return resumeMapper.updatePostResume(riid,ruseid,poStat);
     }
 
 

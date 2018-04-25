@@ -16,6 +16,9 @@
 
     <!--With Recruit-->
     <resultMap id="resumeRecruitMap" type="Resume" extends="findResumeMap">
+        <association property="internalPost" javaType="InternalPost">
+            <result property="postStatus" column="POST_STATUS"/>
+        </association>
         <collection property="recruits" ofType="Recruit">
             <id property="riid" column="ri_id"/>
             <result property="riName" column="ri_name"/>
@@ -62,7 +65,7 @@
     </update>
     <delete id="deleteResume"></delete>
     <select id="findThisResume" resultMap="resumeRecruitMap">
-        SELECT re.*, rs.*FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID = re.RI_ID
+        SELECT re.*, rs.*, po.POST_STATUS FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID = re.RI_ID
         WHERE rs.RESU_ID=#{arg0} AND re.RI_ID=#{arg1}
     </select>
     <select id="listMyPost" resultMap="resumeRecruitMap">
@@ -73,8 +76,13 @@
         SELECT re.*,rs.* FROM T_HRSYS_RESUME rs JOIN T_HRSYS_POSTINTER po ON rs.RESU_ID=po.POST_RESU_ID JOIN T_HRSYS_RECRUITINF re ON po.POST_RI_ID=re.RI_ID
         WHERE po.POST_STATUS=#{arg0}
     </select>
-    <insert id="postResume">
+    <insert id="savePostResume">
         INSERT INTO T_HRSYS_POSTINTER (POST_RI_ID, POST_RESU_ID, POST_STATUS)
         VALUES (#{arg0},#{arg1},#{arg2})
     </insert>
+    <update id="updatePostResume">
+        UPDATE T_HRSYS_POSTINTER
+        SET POST_STATUS=#{arg2}
+        WHERE POST_RI_ID=#{arg0} AND POST_RESU_ID=#{arg1}
+    </update>
 </mapper>

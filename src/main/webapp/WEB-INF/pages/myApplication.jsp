@@ -27,7 +27,8 @@
 <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
     导航栏
     <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
-    <a href="#">我的职位申请</a>
+    <a href="myApplypage">我的职位申请</a>
+    <a href="interViewPage">我的面试</a>
 </div>
 <div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
     <%--LOGIN--%>
@@ -125,8 +126,6 @@
             }
         })
     })
-
-
 
 </script>
 </body>

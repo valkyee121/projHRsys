@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class InterView implements Serializable{
     private int jivID;
-    private int jivResuID;
-    private int jivReID;
+    private Resume resume;          //简历一对多 （一）
+    private Recruit recruit;        //招聘信息一对多   （一）
     private Date jivDate;
     private String jivLocal;
-    private int jinStatus;
+    private int jivStatus;
 
     public int getJivID() {
         return jivID;
@@ -19,20 +19,20 @@ public class InterView implements Serializable{
         this.jivID = jivID;
     }
 
-    public int getJivResuID() {
-        return jivResuID;
+    public Resume getResume() {
+        return resume;
     }
 
-    public void setJivResuID(int jivResuID) {
-        this.jivResuID = jivResuID;
+    public void setResume(Resume resume) {
+        this.resume = resume;
     }
 
-    public int getJivReID() {
-        return jivReID;
+    public Recruit getRecruit() {
+        return recruit;
     }
 
-    public void setJivReID(int jivReID) {
-        this.jivReID = jivReID;
+    public void setRecruit(Recruit recruit) {
+        this.recruit = recruit;
     }
 
     public Date getJivDate() {
@@ -51,23 +51,23 @@ public class InterView implements Serializable{
         this.jivLocal = jivLocal;
     }
 
-    public int getJinStatus() {
-        return jinStatus;
+    public int getJivStatus() {
+        return jivStatus;
     }
 
-    public void setJinStatus(int jinStatus) {
-        this.jinStatus = jinStatus;
+    public void setJivStatus(int jinStatus) {
+        this.jivStatus = jinStatus;
     }
 
     @Override
     public String toString() {
         return "InterView{" +
                 "jivID=" + jivID +
-                ", jivResuID=" + jivResuID +
-                ", jivReID=" + jivReID +
+                ", resume=" + resume +
+                ", recruit=" + recruit +
                 ", jivDate=" + jivDate +
                 ", jivLocal='" + jivLocal + '\'' +
-                ", jinStatus=" + jinStatus +
+                ", jivStatus=" + jivStatus +
                 '}';
     }
 }

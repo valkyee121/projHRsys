@@ -15,6 +15,7 @@ public class Recruit implements Serializable {
     private String riLocation;
     private int riStatus;
     private List<Resume> resumes = new ArrayList<Resume>();
+    private List<InterView> interViews = new ArrayList<InterView>();
 
     public int getRiid() {
         return riid;
@@ -94,6 +95,14 @@ public class Recruit implements Serializable {
 
     public void setResumes(List<Resume> resumes) {
         this.resumes = resumes;
+    }
+
+    public List<InterView> getInterViews() {
+        return interViews;
+    }
+
+    public void setInterViews(List<InterView> interViews) {
+        this.interViews = interViews;
     }
 
     @Override

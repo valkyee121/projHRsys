@@ -16,7 +16,9 @@ public class Resume implements Serializable{
     private int resuStatus;
     private String resuEmail;
     private int uid;
+    private InternalPost internalPost;
     private List<Recruit> recruits = new ArrayList<Recruit>();
+    private List<InterView> interViews = new ArrayList<InterView>();
 
     public int getResuID() {
         return resuID;
@@ -106,6 +108,22 @@ public class Resume implements Serializable{
         this.recruits = recruits;
     }
 
+    public InternalPost getInternalPost() {
+        return internalPost;
+    }
+
+    public void setInternalPost(InternalPost internalPost) {
+        this.internalPost = internalPost;
+    }
+
+    public List<InterView> getInterViews() {
+        return interViews;
+    }
+
+    public void setInterViews(List<InterView> interViews) {
+        this.interViews = interViews;
+    }
+
     @Override
     public String toString() {
         return "Resume{" +
@@ -119,6 +137,7 @@ public class Resume implements Serializable{
                 ", resuStatus=" + resuStatus +
                 ", resuEmail='" + resuEmail + '\'' +
                 ", uid=" + uid +
+                ", internalPost=" + internalPost +
                 ", recruits=" + recruits +
                 '}';
     }

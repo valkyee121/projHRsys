@@ -28,12 +28,17 @@ public class InterViewServiceImpl implements InterViewService {
     }
 
     @Override
-    public InterView findThisIV(InterView interView) {
-        return interViewMapper.findThisIV(interView);
+    public InterView findThisIV(int resuID, int reID) {
+        return interViewMapper.findThisIV(resuID,reID);
     }
 
     @Override
-    public List<InterView> listAll(Map map) {
-        return interViewMapper.listAll(map);
+    public InterView finfIvById(InterView interView) {
+        return interViewMapper.finfIvById(interView);
+    }
+
+    @Override
+    public List<InterView> listAll(int resuID) {
+        return interViewMapper.listAll(resuID);
     }
 }

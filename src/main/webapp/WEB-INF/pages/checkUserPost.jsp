@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: AllenYao
   Date: 2018.04.24
@@ -23,6 +24,10 @@
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
+    <%
+        SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date currentTime = new Date();
+    %>
     <div class="easyui-layout" data-options="fit:true">
         <div data-options="region:'east',split:true" style="width:100px">
             <div style="margin-bottom:20px">
@@ -71,9 +76,66 @@
             </div>
         </div>
         <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
-            <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="javascript:alert('通过筛选')" style="width:80px">邀请面试</a>
-            <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript:alert('未通过')" style="width:80px">拒绝申请</a>
+            <form id="ff" method="post" >
+                <input type="hidden" name="resumeID" value="${userPostReRs.resuID}">
+                <input type="hidden" name="recruitID" value="${userPostReRs.recruits[0].riid}">
+                <div style="text-align:left;margin-bottom:20px">
+                    <input class="easyui-datetimebox" label="Select DateTime:" labelPosition="top" name="jivDate" value="currentTime" style="text-align:left;width:20%;">
+                </div>
+                <div style="text-align:left;margin-bottom:20px">
+                    <input class="easyui-textbox" label="Description:" labelPosition="top" name="jivLocal" multiline="true" style="text-align:left;width:30%;">
+                </div>
+                <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="confirm()" style="width:80px">邀请面试</a>
+                <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" onclick="reject()" style="width:80px">拒绝申请</a>
+            </form>
         </div>
     </div>
+<%--表单提交--%>
+<script type="text/javascript">
+    function confirm() {
+        $.ajax({
+            type: 'post',
+            url :'interViewSave',
+            data: $('#ff').serialize(),
+            success: function (data) {
+                console.log(data);
+            }
+        })
+        /*$('#ff').form('submit','action=interViewSave'),{
+            /!*url: '../pages/interViewSave',*!/
+            onSubmit:function () {
+                var isValid = $(this).form('validate'); //验证表单填写要求
+                if (!isValid){
+                    $.alert('error');
+                    $.messager.show({
+                        title: 'error',
+                        msg: 'error'
+                    });
+                }
+                return isValid; //终止表单提交
+            },
+            success:function (data) {
+                if(data>0){
+                    $.alert('success');
+                    $.messager.show({
+                        title: '提示消息',
+                        msg: '提交成功'
+                    });
+                }
+            }
+        }*/
+    }
+    function reject() {
+        $.ajax({
+            type: 'post',
+            url :'rejectPost',
+            data :$('#ff').serialize(),
+            success: function (data) {
+                console.log(data)
+            }
+        })
+    }
+
+</script>
 </body>
 </html>
