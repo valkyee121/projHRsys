@@ -17,18 +17,17 @@
             <result property="jobStatus" column="JOB_STATUS"/>
         </collection>
     </resultMap>
-    <insert id="saveDept">
-        DECLARE
-        pname T_HRSYS_DEPT.DEPT_NAME%TYPE ;
-        AS
-        BEGIN
-          SELECT DEPT_NAME INTO panme FROM T_HRSYS_DEPT WHERE  DEPT_NAME=#{deptName};
-          IF pname is null then
-          INSERT INTO T_HRSYS_DEPT (DEPT_NAME, DEPT_BUILD_TIME, DEPT_STATUS) VALUES (#{deptName},#{deptBuild},#{deptStatus});
-          end if;
-        END ;
+    <insert id="saveDept" statementType="CALLABLE">
+      {call SAVEDEPT(
+      #{deptName, mode=IN,jdbcType=VARCHAR},
+      #{msg, mode=OUT,jdbcType=INTEGER}
+      )}
     </insert>
-    <update id="updateDept"></update>
+    <update id="updateDept">
+        UPDATE T_HRSYS_DEPT
+        SET DEPT_STATUS=#{deptStatus}
+        WHERE DEPT_ID=#{deptID}
+    </update>
     <delete id="deleteDept"></delete>
     <select id="findDept" resultType="com.yao.model.Department"></select>
     <select id="listAll" statementType="CALLABLE" resultType="Department">

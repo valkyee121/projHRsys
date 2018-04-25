@@ -22,7 +22,6 @@ public class DeptController {
 
     @RequestMapping("/deptManager")
     public String deptManager(HttpServletRequest request, HttpServletResponse response) throws Exception{
-
         return "departPage";
     }
 
@@ -44,12 +43,12 @@ public class DeptController {
         param.put("pageSize",10);
         param.put("pageNow",pageNo);
         deptService.listAll(param);
-        List<Recruit> recruitList = (List<Recruit>) param.get("result");
+        List<Department> departments = (List<Department>) param.get("result");
 
         int curPage = (Integer) param.get("pageNow");
         int totalRows = (Integer) param.get("rows"); //总记录条数
         int totalPages = (Integer) param.get("pageCount"); //总页数
-        jsonObj.put("resultList",recruitList);
+        jsonObj.put("resultList",departments);
         jsonObj.put("totalpage",totalPages);
         JSONObject json = new JSONObject(jsonObj);
         response.getWriter().print(json);
@@ -62,9 +61,26 @@ public class DeptController {
 
     @RequestMapping("/deptSave")
     public void deptSave(Department department, HttpServletRequest request) throws Exception{
+        System.out.println(department);
+        int status = department.getDeptStatus();
         request.setCharacterEncoding("UTF-8");
-        if (deptService.saveDept(department)){
+        Map<String,Object> param = new HashMap<String, Object>();
+        param.put("deptName",department.getDeptName());
+      /*  param.put("deptBuild",department.getDeptBuild());*/
+       /* param.put("deptStatus",1);*/
+        deptService.saveDept(param);
+        int flag = (Integer) param.get("msg");
+        if (flag==1){
             System.out.println("success");
+        }else {
+            System.out.println("error");
         }
+    }
+
+    @RequestMapping("/deptCancel")
+    public void deptCancel(Department department) throws Exception{
+        department.setDeptStatus(0);
+        deptService.updateDept(department);
+        System.out.println(department);
     }
 }

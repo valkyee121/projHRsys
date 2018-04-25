@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER TRIG_DEPT_INSERT_FORBID
+  BEFORE INSERT
+  ON T_HRSYS_DEPT
+  FOR EACH ROW
+  DECLARE
+    v_count NUMBER(2);
+  BEGIN
+    SELECT count(*) INTO v_count FROM T_HRSYS_DEPT WHERE DEPT_NAME=:NEW.DEPT_NAME;
+    IF (v_count>0) THEN
+      raise_application_error(-20005,'部门已存在');
+    END IF;
+  END;
+/
+

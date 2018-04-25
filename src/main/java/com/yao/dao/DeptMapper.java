@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface DeptMapper {
-    boolean saveDept (Department department);
+    boolean saveDept (Map map);
     boolean updateDept (Department department);
     boolean deleteDept (Department department);
     Department findDept (Department department);

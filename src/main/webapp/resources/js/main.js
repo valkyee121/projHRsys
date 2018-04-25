@@ -58,7 +58,7 @@ $(function () {
             }, {
                 text : "职位管理",
                 attributes : {
-                    url : ""
+                    url : "jobManager"
                 }
             }
             ]

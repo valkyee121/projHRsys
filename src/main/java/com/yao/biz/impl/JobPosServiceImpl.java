@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class JobPosServiceImpl implements JobPosService {
     @Resource
     private JobPosMapper jobPosMapper;
     @Override
-    public boolean saveJobPos(JobPosition jp) {
-        return jobPosMapper.saveJobPos(jp);
+    public boolean saveJobPos(Map map) {
+        return jobPosMapper.saveJobPos(map);
     }
 
     @Override
@@ -32,7 +34,7 @@ public class JobPosServiceImpl implements JobPosService {
     }
 
     @Override
-    public List<JobPosition> listAll() {
-        return jobPosMapper.listAll();
+    public List<JobPosition> listAll(Map map) {
+        return jobPosMapper.listAll(map);
     }
 }

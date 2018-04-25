@@ -14,8 +14,8 @@ public class DeptServieImpl implements DeptService {
     @Resource
     private DeptMapper deptMapper;
     @Override
-    public boolean saveDept(Department department) {
-        return deptMapper.saveDept(department);
+    public boolean saveDept(Map map) {
+        return deptMapper.saveDept(map);
     }
 
     @Override
