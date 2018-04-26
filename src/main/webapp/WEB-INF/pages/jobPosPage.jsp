@@ -28,6 +28,7 @@
     <thead>
     <th>职位编号</th>
     <th>职位名称</th>
+    <th>所属部门</th>
     <th>薪酬标准</th>
     <th>状态</th>
     <th>取消职位</th>
@@ -37,16 +38,20 @@
 <form method="post" id="ff">
     <table class="table-7" style="width: 700px">
         <thead>
+        <th>所属部门</th>
         <th>职位名称</th>
         <th>薪酬标准</th>
-        <th>创建职位/th>
+        <th>创建职位</th>
         </thead>
         <tr>
+            <td>
+                <input class="easyui-combobox" onchange="" id="riDept" name="deptID"   style="width:50%;" >
+            </td>
             <td>
                 <input type="text" name="jobName">
             </td>
             <td>
-                <input type="text" name="jobSalary">
+                <input type="number" name="jobSalary">
             </td>
             <td>
                 <input type="button" value="创建" onclick="createJob()">
@@ -59,7 +64,7 @@
 
     $(function () {
         $.ajax({
-            url: 'ajaxListAllDept',
+            url: 'ajaxListDeptWithJob',
             type: 'post',
             dataType: 'json',
             success: function (data) {
@@ -73,19 +78,23 @@
                 /*$("#deptListUl tr").empty();*/
 
                 for (var i=0;i<jobPos.length;i++){
-                    table.append(
-                        $("<tr><td>"+
-                            jobPos[i].jobID
-                            +"</td><td>"+
-                            "<a href='findThisRecruit?riid="+jobPos[i].jobID+"'>"+
-                            jobPos[i].jobName
-                            +"</a></td><td>" +
-                            jobPos[i].jobSalary
-                            +"</td><td>"+
-                            jobPos[i].jobStatus
-                            +"</td><td><input type='button' value='取消' onclick='cancelJob("+jobPos[i].jobID+")'/>"+
-                            +"</td></tr>")
-                    );
+                    for (var j=0;j<jobPos[i].jobPositions.length;j++){
+                        table.append(
+                            $("<tr><td>"+
+                                jobPos[i].jobPositions[j].jobID
+                                +"</td><td>"+
+                                "<a href='findThisRecruit?riid="+jobPos[i].jobPositions[j].jobID+"'>"+
+                                jobPos[i].jobPositions[j].jobName
+                                +"</a></td><td>" +
+                                jobPos[i].deptName
+                                +"</td><td>"+
+                                jobPos[i].jobPositions[j].jobSalary
+                                +"</td><td>"+
+                                jobPos[i].jobPositions[j].jobStatus
+                                +"</td><td><input type='button' value='取消' onclick='cancelJob("+jobPos[i].jobPositions[j].jobID+")'/>"+
+                                +"</td></tr>")
+                        );
+                    }
                 }
             }
         })
@@ -110,6 +119,28 @@
             data: {"jobID":jid},
             success: function (data) {
                 console.log(data);
+            }
+        })
+    }
+
+    /*ajaxDept*/
+    loadDept();
+    function loadDept() {
+        $.ajax({
+            type: 'post',
+            dataType : 'json',
+            data: {"pageIndex": 1},
+            async: false,
+            url : 'ajaxListAllDept',
+            success:function (data) {
+                var dept = data.resultList;
+                for (var i=0;i<dept.length;i++){
+                    $("#riDept").append(
+                        $("<option value='"+dept[i].deptID+"'>" +
+                            dept[i].deptName
+                            +"</option>")
+                    )
+                }
             }
         })
     }

@@ -12,4 +12,5 @@ public interface InterViewService {
     InterView findThisIV (int resuID, int reID);
     InterView finfIvById (InterView interView);
     List<InterView> listAll (int resuID);
+    List<InterView> listByStatus (int status);
 }

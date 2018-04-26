@@ -37,4 +37,9 @@ public class DeptServieImpl implements DeptService {
     public List<DeptMapper> listAll(Map map) {
         return deptMapper.listAll(map);
     }
+
+    @Override
+    public List<DeptMapper> listWithJob() {
+        return deptMapper.listWithJob();
+    }
 }

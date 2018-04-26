@@ -60,7 +60,10 @@ public class UserController {
             session.setAttribute("user",user1);
             return "managerPage";
         }else {
-            return "../../index";
+            User user2 = userService.findUserResume(user1);
+            session.setAttribute("user",user1);
+            session.setAttribute("myResume",user2);
+            return "empInfoPage";
         }
     }
 

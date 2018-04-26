@@ -12,9 +12,22 @@
         <result property="riLocation" column="ri_location"/>
         <result property="riStatus" column="ri_status"/>
     </resultMap>
+
+    <!--WITH JOB AND DEPT-->
+    <resultMap id="RecruitLinkJobDept" type="Recruit" extends="findRecruit">
+        <association property="riDept" javaType="Department">
+            <id property="deptID" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+        </association>
+        <association property="riJob" javaType="JobPosition">
+            <id property="jobID" column="job_id"/>
+            <result property="jobName" column="job_name"/>
+            <result property="jobSalary" column="job_salary"/>
+        </association>
+    </resultMap>
     <insert id="saveRecruit">
-        INSERT INTO T_HRSYS_RECRUITINF (RI_NAME, RI_COMPANY, RI_SALARY, RI_DUTY, RI_DESIRED, RI_ADDTION, RI_LOCATION, RI_STATUS)
-        VALUES (#{riName},#{riCompany},#{riSalary},#{riDuty},#{riDesired},#{riAddtion},#{riLocation},#{riStatus})
+        INSERT INTO T_HRSYS_RECRUITINF (RI_NAME, RI_COMPANY, RI_SALARY, RI_DUTY, RI_DESIRED, RI_ADDTION, RI_LOCATION, RI_STATUS, RI_JOBPOS_ID, RI_DEPT_ID)
+        VALUES (#{riName},#{riCompany},#{riSalary},#{riDuty},#{riDesired},#{riAddtion},#{riLocation},#{riStatus},#{riJob.jobID},#{riDept.deptID})
     </insert>
     <update id="updateRecruit">
         UPDATE T_HRSYS_RECRUITINF
@@ -49,8 +62,9 @@
         WHERE RI_ID=#{riid}
     </update>
     <delete id="deleteRecruit"></delete>
-    <select id="findRecruit" resultMap="findRecruit">
-        SELECT * FROM T_HRSYS_RECRUITINF WHERE RI_ID=#{riid} AND RI_STATUS=#{riStatus}
+    <select id="findRecruit" resultMap="RecruitLinkJobDept">
+        SELECT re.*, dp.*, jb.* FROM T_HRSYS_RECRUITINF re JOIN T_HRSYS_DEPT dp ON re.RI_DEPT_ID=dp.DEPT_ID JOIN T_HRSYS_JOB jb ON re.RI_JOBPOS_ID=jb.JOB_ID
+        WHERE re.RI_ID=#{riid} AND re.RI_STATUS=#{riStatus}
     </select>
     <select id="listAll" statementType="CALLABLE" resultType="Recruit">
         {call PAGING_CURSOR(

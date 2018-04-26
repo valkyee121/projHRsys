@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,15 @@ public class InterViewController {
         return "InterViewPage";
     }
 
+    @RequestMapping("/interViewManag")
+    public String interViewManag() throws Exception{
+        return "interViewManag";
+    }
+
+    @RequestMapping("/newEmployeePage")
+    public String newEmployeePage() throws Exception{
+        return "newEmpSave";
+    }
     /**
      *
      * @param iv
@@ -65,7 +76,7 @@ public class InterViewController {
      * @throws Exception
      */
     @RequestMapping("/ajaxUserInterV")
-    public void listUserInterView(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void ajaxUserInterV(HttpServletRequest request, HttpServletResponse response) throws Exception{
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -89,7 +100,21 @@ public class InterViewController {
         JSONObject json = new JSONObject(jsonObj);
         response.getWriter().print(json);
     }
-
+    @RequestMapping("/ajaxAllInterV")
+    public void ajaxAllInterV(InterView interView,HttpServletRequest request, HttpServletResponse response) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        List<InterView> interViews = interViewService.listByStatus(interView.getJivStatus());
+        System.out.println(interViews);
+        jsonObj.put("resultList",interViews);
+        System.out.println("**************");
+        System.out.println(interViews);
+        System.out.println("**************");
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
     /**
      *
      * @param interView
@@ -118,6 +143,29 @@ public class InterViewController {
         interView.setJivStatus(2);
         InterView interView1 = interViewService.finfIvById(interView);
         if (interView1.getJivStatus()==0){
+            interViewService.updateInterView(interView);
+        }
+    }
+
+    @RequestMapping("/acceptByInterV")
+    public void acceptByInterV(InterView interView, Model model, HttpServletResponse response, HttpSession session) throws Exception{
+        InterView interView1 = interViewService.finfIvById(interView);
+        if (interView1.getJivStatus()==1){
+          /*  model.addAttribute("newEmpInfo",interView1);*/
+            session.setAttribute("newEmpInfo",interView1);
+            System.out.println("****************");
+            System.out.println(interView1);
+            System.out.println("****************");
+            response.getWriter().print("success");
+        }else {
+
+        }
+    }
+    @RequestMapping("/lostByInterV")
+    public void lostByInterV(InterView interView) throws Exception{
+        interView.setJivStatus(4);
+        InterView interView1 = interViewService.finfIvById(interView);
+        if (interView1.getJivStatus()==1){
             interViewService.updateInterView(interView);
         }
     }

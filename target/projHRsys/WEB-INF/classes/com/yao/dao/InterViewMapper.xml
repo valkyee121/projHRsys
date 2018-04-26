@@ -9,14 +9,40 @@
         <association property="resume" javaType="Resume">
             <id property="resuID" column="resu_id"/>
             <result property="resuName" column="resu_name"/>
+            <result property="resuSex" column="resu_sex"/>
+            <result property="resuBirth" column="resu_birth"/>
+            <result property="resuCity" column="resu_city"/>
+            <result property="resuEmail" column="resu_email"/>
         </association>
         <association property="recruit" javaType="Recruit">
             <id property="riid" column="ri_id"/>
             <result property="riName" column="ri_name"/>
             <result property="riCompany" column="ri_company"/>
             <result property="riSalary" column="ri_salary"/>
+            <association property="riDept" javaType="Department">
+                <id property="deptID" column="dept_id"/>
+                <result property="deptName" column="dept_name"/>
+            </association>
+            <association property="riJob" javaType="JobPosition">
+                <id property="jobID" column="job_id"/>
+                <result property="jobName" column="job_name"/>
+                <result property="jobSalary" column="job_salary"/>
+            </association>
         </association>
     </resultMap>
+
+    <!---->
+   <!-- <resultMap id="ivLinkRecruit" type="Recruit" extends="findIVMap">
+        <association property="riDept" javaType="Department">
+            <id property="deptID" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+        </association>
+        <association property="riJob" javaType="JobPosition">
+            <id property="jobID" column="job_id"/>
+            <result property="jobName" column="job_name"/>
+            <result property="jobSalary" column="job_salary"/>
+        </association>
+    </resultMap>-->
     <insert id="saveInterView">
         INSERT INTO T_HRSYS_INTERVIEW (JIV_RESUME_ID, JIV_RECRUIT_ID, JIV_DATE, JIV_LOCATION, JIV_STATUS)
         VALUES (#{resume.resuID},#{recruit.riid},#{jivDate},#{jivLocal},#{jivStatus})
@@ -42,7 +68,13 @@
         WHERE iv.JIV_RESUME_ID=#{arg0}
     </select>
     <select id="finfIvById" resultMap="findIVMap">
-         SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, re.* FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
+          SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, rs.RESU_SEX,rs.RESU_BIRTH,rs.RESU_CITY,rs.RESU_EMAIL,re.RI_ID, re.RI_NAME, re.RI_COMPANY, re.RI_SALARY, dp.DEPT_ID, jb.JOB_ID, jb.JOB_SALARY FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
+        JOIN T_HRSYS_JOB jb ON jb.JOB_ID=re.RI_JOBPOS_ID JOIN T_HRSYS_DEPT dp ON dp.DEPT_ID=re.RI_DEPT_ID
         WHERE iv.JIV_ID=#{jivID}
+    </select>
+    <select id="listByStatus" resultMap="findIVMap">
+        SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, re.RI_ID, re.RI_NAME, re.RI_COMPANY, re.RI_SALARY, dp.DEPT_NAME, jb.JOB_NAME, jb.JOB_SALARY FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
+        JOIN T_HRSYS_JOB jb ON jb.JOB_ID=re.RI_JOBPOS_ID JOIN T_HRSYS_DEPT dp ON dp.DEPT_ID=re.RI_DEPT_ID
+        WHERE iv.JIV_STATUS=#{arg0}
     </select>
 </mapper>

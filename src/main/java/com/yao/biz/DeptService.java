@@ -12,4 +12,5 @@ public interface DeptService {
     boolean deleteDept (Department department);
     Department findDept (Department department);
     List<DeptMapper> listAll (Map map);
+    List<DeptMapper> listWithJob ();
 }

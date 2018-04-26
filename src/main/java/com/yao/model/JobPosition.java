@@ -9,7 +9,7 @@ public class JobPosition implements Serializable {
     private String jobName;
     private double jobSalary;
     private int jobStatus;
-    private List<Department> departments = new ArrayList<Department>();
+    private Department department;
     public int getJobID() {
         return jobID;
     }
@@ -42,19 +42,19 @@ public class JobPosition implements Serializable {
         this.jobStatus = jobStatus;
     }
 
-    public List<Department> getDepartments() {
-        return departments;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartments(List<Department> departments) {
-        this.departments = departments;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
     public String toString() {
         return "JobPosition{" +
                 "jobID=" + jobID +
-                ", jobName='" + jobName + '\'' +
+                ", jobName='" + jobName +
                 ", jobSalary=" + jobSalary +
                 ", jobStatus=" + jobStatus +
                 '}';

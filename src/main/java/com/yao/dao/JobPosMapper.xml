@@ -9,18 +9,19 @@
     </resultMap>
 
     <!--With DEPT-->
-    <resultMap id="jobPosLinkDept" type="JobPosition" extends="findJobPosMap">
+   <!-- <resultMap id="jobPosLinkDept" type="JobPosition" extends="findJobPosMap">
         <collection property="departments" ofType="Department">
             <id property="deptID" column="dept_id"/>
             <result property="deptName" column="dept_name"/>
             <result property="deptBuild" column="dept_build_time"/>
             <result property="deptStatus" column="dept_status"/>
         </collection>
-    </resultMap>
-    <insert id="saveJobPos">
+    </resultMap>-->
+    <insert id="saveJobPos" statementType="CALLABLE">
         {call SAVEJOB(
         #{jobName, mode=IN,jdbcType=VARCHAR},
         #{jobSal, mode=IN,jdbcType=DOUBLE},
+        #{jobDept, mode=IN,jdbcType=INTEGER},
         #{msg, mode=OUT,jdbcType=INTEGER}
         )}
     </insert>

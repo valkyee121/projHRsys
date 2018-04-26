@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yao.dao.EmpMapper">
+    <insert id="saveEmp">
+        INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS)
+        VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus})
+    </insert>
+    <update id="updateEmp"></update>
+    <delete id="deleteEmp"></delete>
+    <select id="findEmp" resultType="com.yao.model.Employee"></select>
+    <select id="listAllEmp" resultType="com.yao.model.Employee"></select>
+</mapper>

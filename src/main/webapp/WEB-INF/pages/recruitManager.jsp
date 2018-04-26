@@ -66,7 +66,7 @@
                     /*清除列表内容*/
                     $("#recruitListUl tr").remove();
                     /*填入内容*/
-                    table.append(
+                    /*table.append(
                         $("<tr><th>序号"+
 
                             +"</th><th>标题"+
@@ -81,7 +81,7 @@
 
                             +"</th></tr>"
                         )
-                    );
+                    );*/
                     for (var i=0;i<recruit.length;i++){
                         table.append(
                             $("<tr><td>"+

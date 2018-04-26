@@ -84,8 +84,16 @@
                     <td>${thisRecruit.riCompany}</td>
                 </tr>
                 <tr>
+                    <th>所属部门</th>
+                    <td>${thisRecruit.riDept.deptName}</td>
+                </tr>
+                <tr>
+                    <th>职位职位</th>
+                    <td>${thisRecruit.riJob.jobName}</td>
+                </tr>
+                <tr>
                     <th>职位薪酬</th>
-                    <td>${thisRecruit.riSalary}</td>
+                    <td>${thisRecruit.riJob.jobSalary}</td>
                 </tr>
                 <tr>
                     <th>职位职责</th>

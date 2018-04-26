@@ -41,4 +41,9 @@ public class InterViewServiceImpl implements InterViewService {
     public List<InterView> listAll(int resuID) {
         return interViewMapper.listAll(resuID);
     }
+
+    @Override
+    public List<InterView> listByStatus(int status) {
+        return interViewMapper.listByStatus(status);
+    }
 }

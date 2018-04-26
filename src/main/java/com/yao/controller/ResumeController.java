@@ -70,15 +70,22 @@ public class ResumeController {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        User user = userService.findUserResume((User) session.getAttribute("user"));
-        if (null!=user && !"".equals(user)){
-            System.out.println(recruit);
-            resumeService.savePostResume(recruit.getRiid(),user.getResume().getResuID(),0);
-            return "../../index";
+        User user1 = (User) session.getAttribute("user");
+        if (null!=user1 && !"".equals(user1)){
+            User user = userService.findUserResume(user1);
+            if (null!=user && !"".equals(user)){
+                System.out.println(recruit);
+                resumeService.savePostResume(recruit.getRiid(),user.getResume().getResuID(),0);
+                return "../../index";
+            }else {
+                System.out.println("请先填写简历");
+                return "forward:/userMyResume";
+            }
         }else {
-            System.out.println("请先填写简历");
-            return "forward:/userMyResume";
+            System.out.println("请先登录游客帐号");
+            return "../../index";
         }
+
     }
 
     /**

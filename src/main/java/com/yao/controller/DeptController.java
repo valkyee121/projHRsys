@@ -1,6 +1,7 @@
 package com.yao.controller;
 
 import com.yao.biz.DeptService;
+import com.yao.dao.DeptMapper;
 import com.yao.model.Department;
 import com.yao.model.Recruit;
 import org.json.JSONObject;
@@ -25,6 +26,13 @@ public class DeptController {
         return "departPage";
     }
 
+    /**
+     *
+     * @param model
+     * @param request
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/ajaxListAllDept")
     public void ajaxListAllDept(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
         request.setCharacterEncoding("UTF-8");
@@ -40,7 +48,7 @@ public class DeptController {
         }
         param.put("tableName","T_HRSYS_DEPT");
         param.put("sqlWhere",sql);
-        param.put("pageSize",10);
+        param.put("pageSize",100);
         param.put("pageNow",pageNo);
         deptService.listAll(param);
         List<Department> departments = (List<Department>) param.get("result");
@@ -59,6 +67,25 @@ public class DeptController {
         model.addAttribute("totalPages",totalPages);
     }
 
+    @RequestMapping("/ajaxListDeptWithJob")
+    public void ajaxListDeptWithJob(HttpServletResponse response, HttpServletRequest request) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        List<DeptMapper> departments =  deptService.listWithJob();
+        System.out.println(departments);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("resultList",departments);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
+
+    /**
+     *
+     * @param department
+     * @param request
+     * @throws Exception
+     */
     @RequestMapping("/deptSave")
     public void deptSave(Department department, HttpServletRequest request) throws Exception{
         System.out.println(department);

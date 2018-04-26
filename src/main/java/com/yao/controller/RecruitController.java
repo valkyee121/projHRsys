@@ -1,6 +1,8 @@
 package com.yao.controller;
 
 import com.yao.biz.RecruitService;
+import com.yao.model.Department;
+import com.yao.model.JobPosition;
 import com.yao.model.Recruit;
 import com.yao.model.User;
 import org.json.JSONObject;
@@ -89,6 +91,7 @@ public class RecruitController {
         System.out.println(recruit);
         recruit.setRiStatus(1);
         recruit = recruitService.findRecruit(recruit);
+        System.out.println(recruit);
         model.addAttribute("thisRecruit",recruit);
         return "recruitPage";
     }
@@ -158,8 +161,15 @@ public class RecruitController {
     }
 
     @RequestMapping("/recruitSaveManag")
-    public String recruitSaveManag(Recruit recruit) throws Exception{
-
+    public String recruitSaveManag(Recruit recruit, Department dt, JobPosition jp, HttpServletRequest request) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        recruit.setRiJob(jp);
+        recruit.setRiDept(dt);
+        recruit.setRiStatus(1);
+        System.out.println(recruit);
+        if (recruitService.saveRecruit(recruit)){
+            System.out.println("success");
+        }
         return "/recruitAddPage";
     }
 }

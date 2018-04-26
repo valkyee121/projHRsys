@@ -41,4 +41,7 @@
         #{pageCount, mode=OUT,jdbcType=INTEGER}
         )}
     </select>
+    <select id="listWithJob" resultMap="deptLinkJobMap">
+        SELECT dp.DEPT_ID, dp.DEPT_NAME, jb.JOB_ID, jb.JOB_NAME, jb.JOB_SALARY, jb.JOB_STATUS FROM T_HRSYS_DEPT dp JOIN T_HRSYS_JOB jb ON dp.DEPT_ID=jb.JOB_DEPT_ID
+    </select>
 </mapper>

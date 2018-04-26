@@ -14,6 +14,8 @@ public class Recruit implements Serializable {
     private String riAddtion;
     private String riLocation;
     private int riStatus;
+    private JobPosition riJob;
+    private Department riDept;
     private List<Resume> resumes = new ArrayList<Resume>();
     private List<InterView> interViews = new ArrayList<InterView>();
 
@@ -89,6 +91,22 @@ public class Recruit implements Serializable {
         this.riStatus = riStatus;
     }
 
+    public JobPosition getRiJob() {
+        return riJob;
+    }
+
+    public void setRiJob(JobPosition riJob) {
+        this.riJob = riJob;
+    }
+
+    public Department getRiDept() {
+        return riDept;
+    }
+
+    public void setRiDept(Department riDept) {
+        this.riDept = riDept;
+    }
+
     public List<Resume> getResumes() {
         return resumes;
     }
@@ -117,6 +135,8 @@ public class Recruit implements Serializable {
                 ", riAddtion='" + riAddtion + '\'' +
                 ", riLocation='" + riLocation + '\'' +
                 ", riStatus=" + riStatus +
+                ", riJob=" + riJob +
+                ", riDept=" + riDept +
                 '}';
     }
 }

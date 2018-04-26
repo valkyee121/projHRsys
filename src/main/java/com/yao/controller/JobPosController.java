@@ -39,7 +39,7 @@ public class JobPosController {
         }
         param.put("tableName","T_HRSYS_JOB");
         param.put("sqlWhere",sql);
-        param.put("pageSize",10);
+        param.put("pageSize",100);
         param.put("pageNow",pageNo);
         jobPosService.listAll(param);
         List<JobPosition> jobPositions = (List<JobPosition>) param.get("result");
@@ -59,14 +59,17 @@ public class JobPosController {
     }
 
     @RequestMapping("/jobSave")
-    public void deptSave(JobPosition jobPosition, HttpServletRequest request) throws Exception{
-        System.out.println(jobPosition);
-        int status = jobPosition.getJobStatus();
+    public void deptSave(Department department,JobPosition jobPosition, HttpServletRequest request) throws Exception{
         request.setCharacterEncoding("UTF-8");
+        System.out.println(jobPosition);
+        jobPosition.setDepartment(department);
+        int status = jobPosition.getJobStatus();
         Map<String,Object> param = new HashMap<String, Object>();
         param.put("jobName",jobPosition.getJobName());
-          param.put("jobSal",jobPosition.getJobSalary());
+        param.put("jobSal",jobPosition.getJobSalary());
+        param.put("jobDept",department.getDeptID());
         /* param.put("deptStatus",1);*/
+        System.out.println(param);
         jobPosService.saveJobPos(param);
         int flag = (Integer) param.get("msg");
         if (flag==1){

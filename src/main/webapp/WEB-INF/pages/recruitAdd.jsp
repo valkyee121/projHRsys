@@ -27,7 +27,7 @@
 <p>This example shows how to define a textbox for the user to enter multi-line text input.</p>
 <div style="margin:20px 0;"></div>
 <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
-    <form id="ff" class="easyui-form" method="post" action="saveRecruit" data-options="novalidate:true">
+    <form id="ff" class="easyui-form" method="post" action="recruitSaveManag" data-options="novalidate:true">
 
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="riName"  label="标题:" labelPosition="top" style="width:100%;">
@@ -37,6 +37,12 @@
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="riSalary"  label="薪酬标准:" labelPosition="top" style="width:100%;">
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-combobox" onchange="" id="riDept" name="deptID" label="所属部门:" labelPosition="top"  style="width:50%;" >
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-combobox" onchange="" id="riJob" name="jobID" label="所属职位:" labelPosition="top"  style="width:50%;" >
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="riDuty"  label="岗位职责:" labelPosition="top" multiline="true" style="width:100%;height:120px">
@@ -68,6 +74,49 @@
     }
     function clearForm(){
         $('#ff').form('clear');
+    }
+
+    /*ajaxDept*/
+    loadDept();
+    function loadDept() {
+        $.ajax({
+            type: 'post',
+            dataType : 'json',
+            data: {"pageIndex": 1},
+            async: false,
+            url : 'ajaxListAllDept',
+            success:function (data) {
+                var dept = data.resultList;
+                for (var i=0;i<dept.length;i++){
+                    $("#riDept").append(
+                        $("<option value='"+dept[i].deptID+"'>" +
+                            dept[i].deptName
+                            +"</option>")
+                    )
+                }
+            }
+        })
+    }
+    /*ajaxJob*/
+    loadJob();
+    function loadJob() {
+        $.ajax({
+            type: 'post',
+            dataType : 'json',
+            data: {"pageIndex": 1},
+            async: false,
+            url : 'ajaxListAllJob',
+            success:function (data) {
+                var job = data.resultList;
+                for (var i=0;i<job.length;i++){
+                    $("#riJob").append(
+                        $("<option value='"+job[i].jobID+"'>" +
+                            job[i].jobName
+                            +"</option>")
+                    )
+                }
+            }
+        })
     }
 </script>
 </body>

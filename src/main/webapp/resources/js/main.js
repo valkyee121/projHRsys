@@ -41,9 +41,9 @@ $(function () {
                     url : "postResumePage"
                 }
             }, {
-                text : "#",
+                text : "面试安排",
                 attributes : {
-                    url : ""
+                    url : "interViewManag"
                 }
             }
             ]
