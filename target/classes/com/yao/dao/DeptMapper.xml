@@ -29,7 +29,10 @@
         WHERE DEPT_ID=#{deptID}
     </update>
     <delete id="deleteDept"></delete>
-    <select id="findDept" resultType="com.yao.model.Department"></select>
+    <select id="findDept" resultMap="deptLinkJobMap">
+        SELECT dp.DEPT_ID, dp.DEPT_NAME, jb.JOB_ID, jb.JOB_NAME, jb.JOB_SALARY FROM T_HRSYS_DEPT dp JOIN T_HRSYS_JOB jb ON dp.DEPT_ID=jb.JOB_DEPT_ID
+        WHERE dp.DEPT_ID=#{deptID}
+    </select>
     <select id="listAll" statementType="CALLABLE" resultType="Department">
         {call PAGING_CURSOR(
         #{tableName, mode=IN,jdbcType=VARCHAR},

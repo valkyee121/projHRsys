@@ -80,6 +80,22 @@ public class DeptController {
         response.getWriter().print(json);
     }
 
+    @RequestMapping("/ajaxFindJobByDept")
+    public void ajaxFindJobByDept(HttpServletRequest request, HttpServletResponse response, Department department) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        System.out.println(department);
+        if (department.getDeptID()==0){
+            department.setDeptID(1);
+        }
+        Department department1 = deptService.findDept(department);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("result",department1);
+        System.out.println(department1);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
     /**
      *
      * @param department

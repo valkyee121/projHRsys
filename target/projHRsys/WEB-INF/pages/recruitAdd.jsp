@@ -39,10 +39,10 @@
             <input class="easyui-textbox" name="riSalary"  label="薪酬标准:" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-combobox" onchange="" id="riDept" name="deptID" label="所属部门:" labelPosition="top"  style="width:50%;" >
+            <input class="easyui-combobox" id="riDept" name="deptID" label="所属部门:" labelPosition="top"  style="width:50%;" >
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-combobox" onchange="" id="riJob" name="jobID" label="所属职位:" labelPosition="top"  style="width:50%;" >
+            <select class="easyui-combobox"  id="riJob" name="jobID"  label="所属职位:" labelPosition="top"  style="width:50%;" />
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="riDuty"  label="岗位职责:" labelPosition="top" multiline="true" style="width:100%;height:120px">
@@ -98,26 +98,43 @@
         })
     }
     /*ajaxJob*/
-    loadJob();
-    function loadJob() {
-        $.ajax({
-            type: 'post',
-            dataType : 'json',
-            data: {"pageIndex": 1},
-            async: false,
-            url : 'ajaxListAllJob',
-            success:function (data) {
-                var job = data.resultList;
-                for (var i=0;i<job.length;i++){
-                    $("#riJob").append(
-                        $("<option value='"+job[i].jobID+"'>" +
-                            job[i].jobName
-                            +"</option>")
-                    )
-                }
+    /*loadJob();*/
+    /*$("input[name='deptID']").bind("change",function () {*/
+ /*   function loadJob() {*/
+        $("#riDept").combobox({
+            onChange:function (n,o) {
+                $.ajax({
+                    type: 'post',
+                    dataType : 'json',
+                    data: {"deptID":n},
+                    async: false,
+                    url : 'ajaxFindJobByDept',
+                    success:function (data) {
+                        var job = data.result.jobPositions;
+                        $("#riJob").combobox({
+                            data: job,
+                            valueField:'jobID',
+                            textField:'jobName'
+                        })
+                   /*     $("#riJob").empty();
+                        for (var i=0;i<job.length;i++){
+                            console.log(job[i]);
+                             $("#riJob").append(
+                                 $("<option value='"+job[i].jobID+"'>" +
+                                     job[i].jobName
+                                     +"</option>")
+                             )
+                        }*/
+                    }
+                })
             }
         })
-    }
+ /*   }*/
+    /*function findJob() {
+        var deptID = $("#riDept").val();
+        console.log(deptID)
+
+    }*/
 </script>
 </body>
 </html>
