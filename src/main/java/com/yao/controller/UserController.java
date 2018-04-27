@@ -63,7 +63,7 @@ public class UserController {
             User user2 = userService.findUserResume(user1);
             session.setAttribute("user",user1);
             session.setAttribute("myResume",user2);
-            return "empInfoPage";
+            return "empMainPage";
         }
     }
 

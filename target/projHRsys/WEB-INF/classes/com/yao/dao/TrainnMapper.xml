@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yao.dao.TrainnMapper">
+    <resultMap id="findTrainn" type="Trainn">
+        <id property="trID" column="tr_id"/>
+        <result property="trTitle" column="tr_title"/>
+        <result property="trContent" column="tr_content"/>
+        <result property="trBegin" column="tr_begin_time"/>
+        <result property="trEnd" column="tr_end_time"/>
+        <result property="trLocal" column="tr_location"/>
+        <result property="trStatus" column="tr_status"/>
+    </resultMap>
+    <resultMap id="trainnLinkEmp" type="Trainn">
+        <collection property="employees" ofType="Employee">
+            <id property="empID" column="emp_id"/>
+            <result property="empName" column="emp_name"/>
+            <result property="empEmail" column="emp_email"/>
+            <association property="empDept" javaType="Department">
+
+            </association>
+            <association property="empJob" javaType="JobPosition">
+
+            </association>
+        </collection>
+    </resultMap>
+    <insert id="saveTrainn">
+        INSERT INTO T_HRSYS_TRAINN (TR_TITLE, TR_CONTENT, TR_BEGIN_TIME, TR_END_TIME, TR_LOCATION, TR_STATUS)
+        VALUES (#{trTitle},#{trContent},#{trBegin},#{trEnd},#{trLocal},#{trStatus})
+    </insert>
+    <update id="updateTrainn"></update>
+    <delete id="deleteTrainn"></delete>
+    <select id="findTrain" resultType="com.yao.model.Trainn"></select>
+    <select id="listAll" resultMap="findTrainn">
+        SELECT * FROM T_HRSYS_TRAINN
+    </select>
+</mapper>

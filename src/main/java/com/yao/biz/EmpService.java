@@ -9,5 +9,5 @@ public interface EmpService {
     boolean updateEmp (Employee employee);
     boolean deleteEmp (Employee employee);
     Employee findEmp (Employee employee);
-    List<Employee> listAllEmp ();
+    List<Employee> listAllEmp (Employee employee);
 }

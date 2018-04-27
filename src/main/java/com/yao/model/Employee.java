@@ -14,6 +14,7 @@ public class Employee implements Serializable {
     private JobPosition empJob;
     private int empAttend;
     private int empStatus;
+    private Date empHireDate;
 
     public int getEmpID() {
         return empID;
@@ -95,6 +96,14 @@ public class Employee implements Serializable {
         this.empStatus = empStatus;
     }
 
+    public Date getEmpHireDate() {
+        return empHireDate;
+    }
+
+    public void setEmpHireDate(Date empHireDate) {
+        this.empHireDate = empHireDate;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -108,6 +117,7 @@ public class Employee implements Serializable {
                 ", empJob=" + empJob +
                 ", empAttend=" + empAttend +
                 ", empStatus=" + empStatus +
+                ", empHireDate=" + empHireDate +
                 '}';
     }
 }

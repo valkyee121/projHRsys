@@ -32,7 +32,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public List<Employee> listAllEmp() {
-        return empMapper.listAllEmp();
+    public List<Employee> listAllEmp(Employee employee) {
+        return empMapper.listAllEmp(employee);
     }
 }

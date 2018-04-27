@@ -63,17 +63,17 @@ $(function () {
             }
             ]
         },{
-            text : "员工信息",
+            text : "员工管理",
             state : "closed",
             children : [{
-                text : "#",
+                text : "员工信息",
                 attributes : {
-                    url : ""
+                    url : "empInfoPage"
                 }
             }, {
-                text : "#",
+                text : "培训管理",
                 attributes : {
-                    url : ""
+                    url : "trainnManaPage"
                 }
             }
             ]

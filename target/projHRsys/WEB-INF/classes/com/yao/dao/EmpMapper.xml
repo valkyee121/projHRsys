@@ -1,12 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yao.dao.EmpMapper">
+    <resultMap id="findAll" type="Employee">
+        <id property="empID" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empBirth" column="emp_birth"/>
+        <result property="empCity" column="emp_city"/>
+        <result property="empEmail" column="emp_email"/>
+        <result property="empAttend" column="emp_attend"/>
+        <result property="empStatus" column="emp_status"/>
+    </resultMap>
+
+    <!--with Job and Dept-->
+    <resultMap id="empLinkdDeptJob" type="Employee" extends="findAll">
+        <association property="empDept" javaType="Department">
+            <id property="deptID" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+        </association>
+        <association property="empJob" javaType="JobPosition">
+            <id property="jobID" column="job_id"/>
+            <result property="jobName" column="job_name"/>
+            <result property="jobSalary" column="job_salary"/>
+        </association>
+    </resultMap>
     <insert id="saveEmp">
-        INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS)
-        VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus})
+        INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS, EMP_HIRE_DATE)
+        VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus},sysdate)
     </insert>
-    <update id="updateEmp"></update>
+    <update id="updateEmp">
+        UPDATE T_HRSYS_EMP
+        <set>
+            <if test="empDept.deptID!=null">
+                EMP_DEPT_ID=#{empDept.deptID},
+            </if>
+            <if test="empJob.jobID!=null">
+                EMP_JOB_ID=#{empJob.jobID},
+            </if>
+            <if test="empAttend!=null and empAttend!=''">
+                EMP_ATTEND=#{empAttend},
+            </if>
+            <if test="empStatus!=null and empStatus!=''">
+                EMP_STATUS=#{empStatus}
+            </if>
+        </set>
+        WHERE EMP_ID=#{empID}
+    </update>
     <delete id="deleteEmp"></delete>
-    <select id="findEmp" resultType="com.yao.model.Employee"></select>
-    <select id="listAllEmp" resultType="com.yao.model.Employee"></select>
+    <select id="findEmp" resultMap="empLinkdDeptJob">
+        SELECT e.*, d.*, j.* FROM T_HRSYS_EMP e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
+        WHERE e.EMP_ID=#{empID}
+    </select>
+    <select id="listAllEmp" resultMap="empLinkdDeptJob">
+        SELECT e.*, d.*, j.* FROM T_HRSYS_EMP e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
+        WHERE 1=1 AND  e.EMP_DEPT_ID=#{empDept.deptID}
+    </select>
 </mapper>
