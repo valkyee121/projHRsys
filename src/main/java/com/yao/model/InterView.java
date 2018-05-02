@@ -1,5 +1,7 @@
 package com.yao.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ public class InterView implements Serializable{
     private int jivID;
     private Resume resume;          //简历一对多 （一）
     private Recruit recruit;        //招聘信息一对多   （一）
+    /*@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
     private Date jivDate;
     private String jivLocal;
     private int jivStatus;

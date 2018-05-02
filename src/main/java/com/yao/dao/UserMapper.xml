@@ -35,7 +35,7 @@
                 </when>
             </choose>
         </set>
-        WHERE U_ID=#{uid}
+        WHERE U_EMAIL=#{uEmail}
     </update>
     <delete id="deleteUser"></delete>
     <select id="findUser" resultMap="findUserMap">

@@ -1,12 +1,17 @@
 package com.yao.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Employee implements Serializable {
     private int empID;
     private String empName;
     private int empSex;
+    /*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
     private Date empBirth;
     private String empCity;
     private String empEmail;
@@ -14,7 +19,10 @@ public class Employee implements Serializable {
     private JobPosition empJob;
     private int empAttend;
     private int empStatus;
+   /* @DateTimeFormat(pattern = "yyyy-MM-dd")*/
     private Date empHireDate;
+    private Double empSal;
+    private List<Trainn> trainns = new ArrayList<>();
 
     public int getEmpID() {
         return empID;
@@ -104,6 +112,22 @@ public class Employee implements Serializable {
         this.empHireDate = empHireDate;
     }
 
+    public Double getEmpSal() {
+        return empSal;
+    }
+
+    public void setEmpSal(Double empSal) {
+        this.empSal = empSal;
+    }
+
+    public List<Trainn> getTrainns() {
+        return trainns;
+    }
+
+    public void setTrainns(List<Trainn> trainns) {
+        this.trainns = trainns;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -118,6 +142,8 @@ public class Employee implements Serializable {
                 ", empAttend=" + empAttend +
                 ", empStatus=" + empStatus +
                 ", empHireDate=" + empHireDate +
+                ", empSal=" + empSal +
+                ", trainns=" + trainns +
                 '}';
     }
 }

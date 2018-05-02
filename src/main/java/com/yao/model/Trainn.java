@@ -1,5 +1,7 @@
 package com.yao.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,11 +11,15 @@ public class Trainn implements Serializable {
     private int trID;
     private String trTitle;
     private String trContent;
+    /*@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
     private Date trBegin;
+    /*@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
     private Date trEnd;
     private String trLocal;
     private int trStatus;
     private List<Employee> employees = new ArrayList<Employee>();
+
+
     public int getTrID() {
         return trID;
     }

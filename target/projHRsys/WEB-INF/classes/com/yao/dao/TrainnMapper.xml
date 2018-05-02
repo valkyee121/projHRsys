@@ -15,22 +15,68 @@
             <id property="empID" column="emp_id"/>
             <result property="empName" column="emp_name"/>
             <result property="empEmail" column="emp_email"/>
-            <association property="empDept" javaType="Department">
-
+           <!-- <association property="empDept" javaType="Department">
+                <id property="deptID" column="DEPT_ID"/>
+                <result property="deptName" column="DEPT_NAME"/>
             </association>
             <association property="empJob" javaType="JobPosition">
-
-            </association>
+                <id property="jobID" column="JOB_ID"/>
+                <result property="jobName" column="JOB_NAME"/>
+            </association>-->
         </collection>
     </resultMap>
     <insert id="saveTrainn">
         INSERT INTO T_HRSYS_TRAINN (TR_TITLE, TR_CONTENT, TR_BEGIN_TIME, TR_END_TIME, TR_LOCATION, TR_STATUS)
         VALUES (#{trTitle},#{trContent},#{trBegin},#{trEnd},#{trLocal},#{trStatus})
     </insert>
-    <update id="updateTrainn"></update>
+    <insert id="saveTrEmp" parameterType="list">
+        BEGIN
+        <foreach collection="arg0" item="item" index="index" separator=";">
+            INSERT INTO T_HRSYS_TDINTER (TD_EMP_ID, TD_TR_ID) VALUES (
+            ${item}
+            ,${arg1}
+            )
+        </foreach>
+        ;END ;
+    </insert>
+    <update id="updateTrainn">
+        UPDATE T_HRSYS_TRAINN
+        <set>
+            <choose>
+                <when test="trTitle!=null and trTitle!=''">
+                    TR_TITLE = #{trTitle}
+                </when>
+                <when test="trContent!=null and trContent!=''">
+                    TR_CONTENT = #{trContent}
+                </when>
+                <when test="trBegin!=null">
+                    TR_BEGIN_TIME = #{trBegin}
+                </when>
+                <when test="trEnd!=null">
+                    TR_END_TIME = #{trEnd}
+                </when>
+                <when test="trLocal!=null and trLocal!=''">
+                    TR_LOCATION = #{trLocal}
+                </when>
+            </choose>
+        </set>
+        WHERE TR_ID=#{trID}
+    </update>
     <delete id="deleteTrainn"></delete>
-    <select id="findTrain" resultType="com.yao.model.Trainn"></select>
-    <select id="listAll" resultMap="findTrainn">
-        SELECT * FROM T_HRSYS_TRAINN
+    <select id="findTrain" resultMap="findTrainn">
+        SELECT * FROM T_HRSYS_TRAINN WHERE TR_ID=#{trID}
+    </select>
+    <select id="listPast" statementType="CALLABLE" resultType="com.yao.model.Trainn">
+        {call PASTTRAINN(
+        #{result, mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=findTrainn}
+        )}
+    </select>
+    <select id="listCurr" resultMap="findTrainn">
+       SELECT TR_ID, TR_TITLE, TR_CONTENT, TR_BEGIN_TIME, TR_END_TIME, TR_LOCATION, TR_STATUS
+       FROM T_HRSYS_TRAINN WHERE TR_BEGIN_TIME>=sysdate
+    </select>
+    <select id="findWithEmp" resultMap="trainnLinkEmp">
+        SELECT E.EMP_ID, E.EMP_NAME, E.EMP_DEPT_ID, E.EMP_JOB_ID FROM T_HRSYS_TRAINN t JOIN T_HRSYS_TDINTER tht ON t.TR_ID = tht.TD_TR_ID JOIN T_HRSYS_EMP E ON tht.TD_EMP_ID = E.EMP_ID
+        WHERE t.TR_ID=#{trID}
     </select>
 </mapper>

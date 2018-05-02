@@ -1,5 +1,7 @@
 package com.yao.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.List;
 public class Department implements Serializable {
     private int deptID;
     private String deptName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date deptBuild;
     private int deptStatus;
     private List<JobPosition> jobPositions = new ArrayList<JobPosition>();

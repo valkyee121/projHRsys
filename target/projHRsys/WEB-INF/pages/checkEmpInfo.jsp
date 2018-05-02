@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: AllenYao
@@ -23,7 +24,7 @@
 </head>
 <body>
 <div style="margin:20px 0;"></div>
-<div class="easyui-panel" style="width:100%;max-width:600px;padding:30px 60px;">
+<div class="easyui-panel" style="width:100%;max-width:500px;padding:30px 60px;">
     <div>
         <input class="easyui-textbox"  name="empName" value="${empInfo.empName}" readonly label="姓名:" labelPosition="top" style="width:50%;">
     </div>
@@ -31,7 +32,7 @@
         <input class="easyui-textbox"  name="empSex" value="${empInfo.empSex}" readonly label="性别:" labelPosition="top" style="width:50%;">
     </div>
     <div>
-        <input class="easyui-textbox"  name="empBirth" value="${empInfo.empBirth}" readonly label="出生日期:" labelPosition="top" style="width:50%;">
+        <input class="easyui-textbox"  name="empBirth" value="<fmt:formatDate value='${empInfo.empBirth}' type="date" pattern="yyyy-MM-dd"/> " readonly label="出生日期:" labelPosition="top" style="width:50%;">
     </div>
     <div>
         <input class="easyui-textbox"  name="empCity" value="${empInfo.empCity}" readonly label="所在城市:" labelPosition="top" style="width:50%;">
@@ -49,6 +50,9 @@
         <div>
             <input class="easyui-combobox"  name="jobID" id="riJob" required  prompt="${empInfo.empJob.jobName}" label="所属职位:" labelPosition="top" style="width:50%;">
         </div>
+        <div  style="text-align:left;padding:5px 0 0;">
+            <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="confirm()" style="width:80px">确认调岗</a>
+        </div>
     </form>
     <div>
         <input class="easyui-textbox"  name="jobSalary" value="${empInfo.empJob.jobSalary}" readonly label="岗位工资:" labelPosition="top" style="width:50%;">
@@ -62,9 +66,7 @@
 
     </form>
 
-    <div  style="text-align:right;padding:5px 0 0;">
-        <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="confirm()" style="width:80px">确认调岗</a>
-    </div>
+
 </div>
 
 <script type="text/javascript">

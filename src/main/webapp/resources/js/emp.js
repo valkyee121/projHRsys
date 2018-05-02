@@ -23,7 +23,7 @@ $(function () {
             children : [{
                 text : "查看/编辑个人信息",
                 attributes : {
-                    url : "#"
+                    url : "empMyDetails"
                 }
             }, {
                 text : "NULL",
@@ -38,7 +38,7 @@ $(function () {
             children : [{
                 text : "查看培训",
                 attributes : {
-                    url : "#"
+                    url : "trainnPage"
                 }
             }, {
                 text : "NULL",
@@ -53,7 +53,7 @@ $(function () {
             children : [{
                 text : "员工通讯表",
                 attributes : {
-                    url : "#"
+                    url : "addrPage"
                 }
             }, {
                 text : "NULL",
@@ -78,17 +78,17 @@ $(function () {
             }
             ]
         },{
-            text : "考勤打开",
+            text : "考勤打卡",
             state : "closed",
             children : [{
                 text : "每日考勤",
                 attributes : {
-                    url : ""
+                    url : "empAttend"
                 }
             }, {
                 text : "历史考勤记录",
                 attributes : {
-                    url : ""
+                    url : "hisAttePage"
                 }
             }
             ]

@@ -1,6 +1,8 @@
 package com.yao.controller;
 
+import com.yao.biz.EmpService;
 import com.yao.biz.UserService;
+import com.yao.model.Employee;
 import com.yao.model.Resume;
 import com.yao.model.User;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private EmpService empService;
     @RequestMapping("/userRegPage")
     public String registerPage() throws Exception{
         return "registerPage";
@@ -48,7 +52,7 @@ public class UserController {
     }
 
     @RequestMapping("/userLogin")
-    public String userLogin(User user, HttpSession session) throws Exception{
+    public String userLogin(User user, HttpSession session, Employee employee) throws Exception{
         User user1 = userService.loginUser(user);
         if (null!=user1 && user1.getuType()==1){
             System.out.println("userLog:"+user1);
@@ -62,7 +66,10 @@ public class UserController {
         }else {
             User user2 = userService.findUserResume(user1);
             session.setAttribute("user",user1);
+            employee.setEmpEmail(user1.getuEmail());
+            Employee employee1 = empService.findEmp(employee);
             session.setAttribute("myResume",user2);
+            session.setAttribute("myEmpInfo",employee1);
             return "empMainPage";
         }
     }

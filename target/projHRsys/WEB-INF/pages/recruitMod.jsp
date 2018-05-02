@@ -27,7 +27,7 @@
 <p>This example shows how to define a textbox for the user to enter multi-line text input.</p>
 <div style="margin:20px 0;"></div>
 <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
-    <form id="ff" class="easyui-form" method="post" action="saveRecruit" data-options="novalidate:true">
+    <form id="ff" class="easyui-form" method="post" action="#" data-options="novalidate:true">
     <div>
         <input type="hidden" name="riid" value="${thisRecruit.riid}">
     </div>

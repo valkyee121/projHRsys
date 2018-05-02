@@ -10,6 +10,7 @@
         <result property="empEmail" column="emp_email"/>
         <result property="empAttend" column="emp_attend"/>
         <result property="empStatus" column="emp_status"/>
+        <result property="empSal" column="emp_salary"/>
     </resultMap>
 
     <!--with Job and Dept-->
@@ -24,9 +25,20 @@
             <result property="jobSalary" column="job_salary"/>
         </association>
     </resultMap>
+    <!--with Trainning-->
+    <resultMap id="empLinkTrain" type="Employee" extends="findAll">
+        <collection property="trainns" ofType="Trainn">
+            <id property="trID" column="tr_id"/>
+            <result property="trTitle" column="tr_title"/>
+            <result property="trContent" column="tr_content"/>
+            <result property="trBegin" column="tr_begin_time"/>
+            <result property="trEnd" column="tr_end_time"/>
+            <result property="trLocal" column="tr_location"/>
+        </collection>
+    </resultMap>
     <insert id="saveEmp">
-        INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS, EMP_HIRE_DATE)
-        VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus},sysdate)
+        INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS, EMP_HIRE_DATE,EMP_SALARY)
+        VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus},sysdate,#{empSal})
     </insert>
     <update id="updateEmp">
         UPDATE T_HRSYS_EMP
@@ -46,13 +58,48 @@
         </set>
         WHERE EMP_ID=#{empID}
     </update>
+    <update id="updateBasis">
+        UPDATE T_HRSYS_EMP
+        <set>
+            <if test="empName!=null and empName!=''">
+                EMP_NAME=#{empName},
+            </if>
+            <if test="empSex!=null and empSex!=''">
+                EMP_SEX=#{empSex},
+            </if>
+            <if test="empBirth!=null">
+                EMP_BIRTH=#{empBirth},
+            </if>
+            <if test="empCity!=null and empCity!=''">
+                EMP_CITY=#{empCity},
+            </if>
+            <if test="empAttend!=null and empAttend!=''">
+                EMP_ATTEND=#{empAttend}
+            </if>
+        </set>
+        WHERE EMP_ID=#{empID}
+    </update>
     <delete id="deleteEmp"></delete>
     <select id="findEmp" resultMap="empLinkdDeptJob">
         SELECT e.*, d.*, j.* FROM T_HRSYS_EMP e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
-        WHERE e.EMP_ID=#{empID}
+        <where>
+            <choose>
+                <when test="empID!=null and empID!=''">
+                    e.EMP_ID=#{empID}
+                </when>
+                <when test="empEmail!=null and empEmail!=''">
+                    e.EMP_EMAIL=#{empEmail}
+                </when>
+            </choose>
+        </where>
+
     </select>
     <select id="listAllEmp" resultMap="empLinkdDeptJob">
         SELECT e.*, d.*, j.* FROM T_HRSYS_EMP e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
         WHERE 1=1 AND  e.EMP_DEPT_ID=#{empDept.deptID}
+    </select>
+    <select id="findWithTr" resultMap="empLinkTrain">
+        SELECT e.EMP_ID, tr.* FROM T_HRSYS_EMP e JOIN T_HRSYS_TDINTER THT ON e.EMP_ID = THT.TD_EMP_ID JOIN T_HRSYS_TRAINN tr ON THT.TD_TR_ID=tr.TR_ID
+        WHERE e.EMP_ID=#{empID}
     </select>
 </mapper>

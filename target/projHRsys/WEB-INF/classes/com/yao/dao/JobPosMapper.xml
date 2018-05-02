@@ -40,7 +40,9 @@
         WHERE JOB_ID = #{jobID}
     </update>
     <delete id="deleteJobPos"></delete>
-    <select id="findJobPos" resultMap="findJobPosMap"></select>
+    <select id="findJobPos" resultMap="findJobPosMap">
+        SELECT * FROM T_HRSYS_JOB WHERE JOB_ID=#{jobID}
+    </select>
     <select id="listAll" statementType="CALLABLE" resultType="JobPosition">
       {call PAGING_CURSOR(
         #{tableName, mode=IN,jdbcType=VARCHAR},

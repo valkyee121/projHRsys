@@ -1,3 +1,5 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 <%--
   Created by IntelliJ IDEA.
   User: AllenYao
@@ -46,7 +48,7 @@
     </div>
     <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;height: 150px">
         <div class="easyui-panel" >
-            <form method="post" id="ff">
+            <form id="ff">
                 <table class="table-7" >
                     <thead>
                     <th>标题</th>
@@ -57,26 +59,27 @@
                     </thead>
                     <tr>
                         <td>
-                            <input type="text" name="trTitle">
+                            <input class="easyui-textbox" name="trTitle" required>
                         </td>
                         <td>
-                            <input  class="easyui-textbox" name="trContent" data-options="multiline:true" style="height: 80px">
+                            <input  class="easyui-textbox" name="trContent" data-options="multiline:true" style="width: 200px;height: 80px">
                         </td>
                         <td style="margin-bottom:20px">
 
-                            <input class="easyui-datetimebox" name="trBegin" value="10/11/2015 2:3:56"  style="width:100%;">
+                            <input class="easyui-datetimebox" name="trBegin"  <%--data-options="formatter:ww4,parser:w4"--%> required style="width:100%;">
+                          <%--  <input type="datetime-local" name="trBegin" required>--%>
 
                         </td>
                         <td style="margin-bottom:20px">
 
-                            <input class="easyui-datetimebox"  name="trEnd" value="10/11/2015 2:3:56"  style="width:100%;">
-
+                            <input class="easyui-datetimebox"  name="trEnd" <%-- data-options="formatter:ww4,parser:w4"--%> required style="width:100%;">
+                     <%--       <input type="datetime-local" name="trEnd" required>--%>
                         </td>
                         <td>
-                            <input type="text" name="trLocal">
+                            <input class="easyui-textbox" name="trLocal" required>
                         </td>
                         <td>
-                            <input type="button" value="创建" onclick="createTr()">
+                            <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="createTr()" style="width:80px">创建</a>
                         </td>
                     </tr>
                 </table>
@@ -88,59 +91,100 @@
 <script type="text/javascript">
 
     function createTr() {
-        $.ajax({
-            type: 'post',
-            url: 'newTrainSave',
-            data: $('#ff').serialize(),
-            success: function (data) {
-                console.log(data);
+        $('#ff').form('submit', {
+            onSubmit: function () {
+                return $(this).form('enableValidation').form('validate');
+            },
+            success: function () {
+                $.ajax({
+                    type: 'post',
+                    url: 'newTrainSave',
+                    data: $('#ff').serialize(),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
             }
         })
     }
 
+    $("#trStatus").bind("change",function () {
+        var trStatus = $(this).val();
+        $("#trainnListUl tr td").empty();
+           console.log(trStatus);
+        $.ajax({
+            url: 'ajaxListTrainn',
+            type: 'post',
+            data: {"trStatus": trStatus},
+            dataType: 'json',
+            success: function (data) {
+                var train = data.result;
+                console.log(train);
+                /*var intPageIndex = parseInt(pageIndex);*/
+                /*显示数据列表*/
+                var table = $("#trainnListUl");
+
+                for (var i=0;i<train.length;i++){
+                    table.append(
+                        $("<tr><td>"+
+                            train[i].trID
+                            +"</td><td>"+
+                            "<a href='findTrainn?trID="+train[i].trID+"'>"+
+                            train[i].trTitle
+                            +"</a></td><td>" +
+                            train[i].trContent
+                            +"</td><td>"+
+                            getTaskTime(train[i].trBegin)
+                            +"</td><td>"+
+                            getTaskTime(train[i].trEnd)
+                            +"</td><td>"+
+                            train[i].trLocal
+                           /* +"</td><td><input type='button' value='取消' onclick='cancelDept("#")'/>"+*/
+                            +"</td></tr>")
+                    );
+                }
+            }
+        })
+    })
     /*dateformat*/
-    function myformatter(date){
-        var y = date.getFullYear();
-        var m = date.getMonth()+1;
-        var d = date.getDate();
-        return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
-    }
-    function myparser(s){
-        if (!s) return new Date();
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0],10);
-        var m = parseInt(ss[1],10);
-        var d = parseInt(ss[2],10);
-        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-            return new Date(y,m-1,d);
-        } else {
-            return new Date();
+
+    function getTaskTime(strDate) {
+        if(null==strDate || ""==strDate){
+            return "";
         }
-    }
-    /*function myformatter(date){
+        var dateStr=strDate.trim().split(" ");
+        var strGMT = dateStr[0]+" "+dateStr[1]+" "+dateStr[2]+" "+dateStr[5]+" "+dateStr[3]+" GMT+0800";
+        var date = new Date(Date.parse(strGMT));
         var y = date.getFullYear();
-        var m = date.getMonth()+1;
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
         var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
         var h = date.getHours();
-        var mm = date.getMinutes();
-        var s = date.getSeconds();
-        return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d)+' '+(h<10?('0'+h):h)+':'+(mm<10?('0'+mm):mm)+':'+(s<10?('0'+s):s);
-    }
-    function myparser(s){
-        if (!s) return new Date();
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0],10);
-        var m = parseInt(ss[1],10);
-        var d = parseInt(ss[2],10);
-        var h = parseInt(ss[3],10);
-        var mm = parseInt(ss[4],10);
-        var s = parseInt(ss[5],10);
-        if (!isNaN(y) && !isNaN(m) && !isNaN(d) && !isNaN(h) && !isNaN(mm) && !isNaN(s)){
-            return new Date(y,m-1,d);
-        } else {
-            return new Date();
-        }
+        var minute = date.getMinutes();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        var second = date.getSeconds();
+        second = second < 10 ? ('0' + second) : second;
+
+        return y+"-"+m+"-"+d+" "+h+":"+minute+":"+second;
+    };
+    /*Date.prototype.format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours()-14, //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
     }*/
+
+
 </script>
 </body>
 </html>

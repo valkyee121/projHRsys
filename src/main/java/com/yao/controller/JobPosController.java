@@ -85,4 +85,16 @@ public class JobPosController {
         jobPosService.updateJobPos(jobPosition);
         System.out.println(jobPosition);
     }
+
+    @RequestMapping("/ajaxFindJob")
+    public void ajaxFindJob(HttpServletResponse response,JobPosition jobPosition) throws Exception{
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        System.out.println(jobPosition);
+        JobPosition jobPosition1 = jobPosService.findJobPos(jobPosition);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("result",jobPosition1);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
 }

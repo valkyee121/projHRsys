@@ -76,7 +76,6 @@
                 console.log(emp);
                 var table = $("#empListUl");
                 for (var i=0;i<emp.length;i++){
-
                     console.log(emp[i]);
                     table.append(
                         $("<tr><td>"+

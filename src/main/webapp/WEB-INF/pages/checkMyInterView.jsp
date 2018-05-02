@@ -50,7 +50,7 @@
             <input class="easyui-textbox" label="工作地点:" value="${myInterV.recruit.riLocation}"labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" label="面试时间：" value="${myInterV.jivDate}" labelPosition="top" readonly style="width:100%;">
+            <input class="easyui-textbox" label="面试时间：" value="<fmt:formatDate value='${myInterV.jivDate}' type="date" pattern="yyyy-MM-dd"/> " labelPosition="top" readonly style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" label="面试地点：" value="${myInterV.jivLocal}" labelPosition="top" readonly style="width:100%;">

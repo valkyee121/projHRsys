@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,10 @@ public class EmpController {
     public String empInfoPage() throws Exception{
         return "empInfoMana";
     }
-
+    @RequestMapping("/trainnPage")
+    public String trainnPage() throws Exception{
+        return "myTrainnPage";
+    }
     /**
      *
      * @param user
@@ -43,12 +47,10 @@ public class EmpController {
         employee.setEmpJob(jobPosition);
         employee.setEmpDept(department);
         user.setuEmail(employee.getEmpEmail());
-        System.out.println(department);
-        System.out.println(jobPosition);
-        System.out.println(employee);
         if (empService.saveEmp(employee)){
             user.setuType(2);
             interView.setJivStatus(5);
+            System.out.println(user);
             userService.updateUser(user);
             interViewService.updateInterView(interView);
         }
@@ -84,6 +86,14 @@ public class EmpController {
         return "checkEmpInfo";
     }
 
+    @RequestMapping("/empMyDetails")
+    public String empMyDetails(HttpSession session, Model model, Employee employee) throws Exception{
+        employee = (Employee) session.getAttribute("myEmpInfo");
+        Employee employee1 = empService.findEmp(employee);
+        model.addAttribute("empInfo",employee1);
+        return "myEmpInfo";
+    }
+
     @RequestMapping("/updateDeptByMana")
     public void updateDeptByMana(Employee employee,Department department,JobPosition jobPosition) throws Exception{
         System.out.println(department);
@@ -94,7 +104,26 @@ public class EmpController {
             empService.updateEmp(employee);
             System.out.println(employee);
         }
-
     }
 
+    @RequestMapping("/updateBasisInfo")
+    public void updateBasisInfo(Employee employee) throws Exception{
+        System.out.println(employee);
+        if (employee!=null){
+            empService.updateBasis(employee);
+        }
+    }
+
+    @RequestMapping("/ajaxMyTrainn")
+    public void ajaxMyTrainn(HttpSession session,HttpServletResponse response) throws Exception{
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        Employee employee = (Employee) session.getAttribute("myEmpInfo");
+        Employee employee1 = empService.findWithTr(employee.getEmpID());
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("result",employee1);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        System.out.println(employee1);
+    }
 }

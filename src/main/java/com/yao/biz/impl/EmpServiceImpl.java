@@ -22,6 +22,11 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
+    public boolean updateBasis(Employee employee) {
+        return empMapper.updateBasis(employee);
+    }
+
+    @Override
     public boolean deleteEmp(Employee employee) {
         return empMapper.deleteEmp(employee);
     }
@@ -29,6 +34,11 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public Employee findEmp(Employee employee) {
         return empMapper.findEmp(employee);
+    }
+
+    @Override
+    public Employee findWithTr(int empID) {
+        return empMapper.findWithTr(empID);
     }
 
     @Override

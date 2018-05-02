@@ -26,6 +26,11 @@ public class DeptController {
         return "departPage";
     }
 
+    @RequestMapping("/addrPage")
+    public String addrPage() throws Exception{
+        return "addrBookPage";
+    }
+
     /**
      *
      * @param model
@@ -126,4 +131,6 @@ public class DeptController {
         deptService.updateDept(department);
         System.out.println(department);
     }
+
+
 }

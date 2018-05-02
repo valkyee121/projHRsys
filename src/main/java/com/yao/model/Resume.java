@@ -1,5 +1,7 @@
 package com.yao.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +11,7 @@ public class Resume implements Serializable{
     private int resuID;
     private String resuName;
     private int resuSex;
+    /*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
     private Date resuBirth;
     private String resuCity;
     private int resuCell;
