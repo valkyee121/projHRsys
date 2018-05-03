@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
+    <%--<script type="text/javascript" src="resources/js/jquery-3.1.0.js"></script>--%>
 </head>
 <body>
 <div style="margin:20px 0;"></div>
@@ -81,7 +82,10 @@
                     url: 'updateDeptByMana',
                     data: $('#ff').serialize(),
                     success: function (data) {
-                        console.log(data);
+                        alert("更新成功")
+                    },error:function(xhr){
+                        alert(xhr.responseText);
+                        alert("更新失败")
                     }
                 })
             }

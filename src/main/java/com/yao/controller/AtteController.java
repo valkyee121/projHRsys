@@ -39,8 +39,15 @@ public class AtteController {
         return "HistoryAttePage";
     }
 
+    /**
+     *
+     * @param session
+     * @param attend
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/saveAtteToday")
-    public void saveAtteToday(HttpSession session, Attend attend) throws Exception{
+    public String saveAtteToday(HttpSession session, Attend attend) throws Exception{
         Employee employee = (Employee) session.getAttribute("myEmpInfo");
         System.out.println(employee);
         attend.setAtteEmpID(employee.getEmpID());
@@ -48,6 +55,7 @@ public class AtteController {
         attend.setAtteBegin(now);
         System.out.println(attend);
         atteService.saveAtte(attend);
+        return "redirect:/empAttend";
     }
 
     @RequestMapping("/updateAtteToday")
@@ -83,7 +91,13 @@ public class AtteController {
     public void todayHour(HttpSession session, Attend attend, Bonus bonus) throws Exception{
         Employee employee = (Employee) session.getAttribute("myEmpInfo");
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        attend.setAtteEmpID(employee.getEmpID());
+
+        attend.setAtteEmpID(employee.getEmpID());                   //当月第一条打卡记录，清除上月考勤天数
+        List<Attend> attends = atteService.listThisMon(attend);
+        if (attends.size()<=1){
+            employee.setEmpAttend(0);
+        }
+
         Attend attend1 = atteService.findThisAtte(attend);
         String beginTime = sdf.format(attend1.getAtteBegin());         //实际考勤时间
         String endTime = sdf.format(attend1.getAtteEnd());
@@ -148,6 +162,7 @@ public class AtteController {
             bonusService.saveBonus(bonus);
         }
         System.out.println(hours);
+        return;
     }
 
     @RequestMapping("/historyAtte")

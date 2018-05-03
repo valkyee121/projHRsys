@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,15 +96,18 @@ public class EmpController {
     }
 
     @RequestMapping("/updateDeptByMana")
-    public void updateDeptByMana(Employee employee,Department department,JobPosition jobPosition) throws Exception{
+    public String updateDeptByMana(Employee employee,Department department,JobPosition jobPosition, Model model, HttpServletResponse response ) throws Exception{
         System.out.println(department);
         System.out.println(jobPosition);
+        PrintWriter out = response.getWriter();
         if (department!=null && jobPosition!=null){
             employee.setEmpDept(department);
             employee.setEmpJob(jobPosition);
             empService.updateEmp(employee);
             System.out.println(employee);
+            model.addAttribute("msg","更新成功");
         }
+        return "redirect:/empInfoPage";
     }
 
     @RequestMapping("/updateBasisInfo")
@@ -114,6 +118,12 @@ public class EmpController {
         }
     }
 
+    /**
+     *
+     * @param session
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/ajaxMyTrainn")
     public void ajaxMyTrainn(HttpSession session,HttpServletResponse response) throws Exception{
         response.setCharacterEncoding("UTF-8");
@@ -126,4 +136,6 @@ public class EmpController {
         response.getWriter().print(json);
         System.out.println(employee1);
     }
+
+
 }

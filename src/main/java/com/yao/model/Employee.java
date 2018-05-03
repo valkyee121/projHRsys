@@ -23,6 +23,7 @@ public class Employee implements Serializable {
     private Date empHireDate;
     private Double empSal;
     private List<Trainn> trainns = new ArrayList<>();
+    private List<Bonus> bonuses = new ArrayList<>();
 
     public int getEmpID() {
         return empID;
@@ -128,6 +129,14 @@ public class Employee implements Serializable {
         this.trainns = trainns;
     }
 
+    public List<Bonus> getBonuses() {
+        return bonuses;
+    }
+
+    public void setBonuses(List<Bonus> bonuses) {
+        this.bonuses = bonuses;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -144,6 +153,7 @@ public class Employee implements Serializable {
                 ", empHireDate=" + empHireDate +
                 ", empSal=" + empSal +
                 ", trainns=" + trainns +
+                ", bonuses=" + bonuses +
                 '}';
     }
 }

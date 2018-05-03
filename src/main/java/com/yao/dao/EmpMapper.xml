@@ -36,6 +36,16 @@
             <result property="trLocal" column="tr_location"/>
         </collection>
     </resultMap>
+    <!--with Bonus-->
+    <resultMap id="empLinkBonus" type="Employee" extends="findAll">
+        <collection property="bonuses" ofType="Bonus">
+            <id property="bmID" column="bm_id"/>
+            <result property="bmMoney" column="bm_money"/>
+            <result property="bmDate" column="bm_date"/>
+            <result property="bmDetail" column="bm_detail"/>
+            <result property="bmStatus" column="bm_status"/>
+        </collection>
+    </resultMap>
     <insert id="saveEmp">
         INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS, EMP_HIRE_DATE,EMP_SALARY)
         VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus},sysdate,#{empSal})
@@ -43,12 +53,17 @@
     <update id="updateEmp">
         UPDATE T_HRSYS_EMP
         <set>
-            <if test="empDept.deptID!=null">
-                EMP_DEPT_ID=#{empDept.deptID},
+            <if test="empDept!=null">
+                <if test="empDept.deptID!=null and empDept.deptID!=''">
+                    EMP_DEPT_ID=#{empDept.deptID},
+                </if>
             </if>
-            <if test="empJob.jobID!=null">
-                EMP_JOB_ID=#{empJob.jobID},
+            <if test="empJob!=null">
+                <if test="empJob.jobID!=null and empJob.jobID!=''">
+                    EMP_JOB_ID=#{empJob.jobID},
+                </if>
             </if>
+
             <if test="empAttend!=null and empAttend!=''">
                 EMP_ATTEND=#{empAttend},
             </if>
@@ -101,5 +116,8 @@
     <select id="findWithTr" resultMap="empLinkTrain">
         SELECT e.EMP_ID, tr.* FROM T_HRSYS_EMP e JOIN T_HRSYS_TDINTER THT ON e.EMP_ID = THT.TD_EMP_ID JOIN T_HRSYS_TRAINN tr ON THT.TD_TR_ID=tr.TR_ID
         WHERE e.EMP_ID=#{empID}
+    </select>
+    <select id="findWithBM" resultMap="empLinkBonus">
+
     </select>
 </mapper>

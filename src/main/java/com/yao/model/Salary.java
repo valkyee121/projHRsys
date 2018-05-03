@@ -11,12 +11,13 @@ public class Salary implements Serializable {
     private double salBasis;
     private double salBonus;
     private double salOT;
-    private double salBMMoney;
+    private double salPunish;
     private double salSocial;
-    private double recon;
+    private double salRecon;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date salDate;
     private int salStatus;
+    private double salTotal;
 
     public int getSalID() {
         return salID;
@@ -58,12 +59,12 @@ public class Salary implements Serializable {
         this.salOT = salOT;
     }
 
-    public double getSalBMMoney() {
-        return salBMMoney;
+    public double getSalPunish() {
+        return salPunish;
     }
 
-    public void setSalBMMoney(double salBMMoney) {
-        this.salBMMoney = salBMMoney;
+    public void setSalPunish(double salPunish) {
+        this.salPunish = salPunish;
     }
 
     public double getSalSocial() {
@@ -74,12 +75,12 @@ public class Salary implements Serializable {
         this.salSocial = salSocial;
     }
 
-    public double getRecon() {
-        return recon;
+    public double getSalRecon() {
+        return salRecon;
     }
 
-    public void setRecon(double recon) {
-        this.recon = recon;
+    public void setSalRecon(double salRecon) {
+        this.salRecon = salRecon;
     }
 
     public Date getSalDate() {
@@ -98,6 +99,14 @@ public class Salary implements Serializable {
         this.salStatus = salStatus;
     }
 
+    public double getSalTotal() {
+        return salTotal;
+    }
+
+    public void setSalTotal(double salTotal) {
+        this.salTotal = salTotal;
+    }
+
     @Override
     public String toString() {
         return "Salary{" +
@@ -106,11 +115,12 @@ public class Salary implements Serializable {
                 ", salBasis=" + salBasis +
                 ", salBonus=" + salBonus +
                 ", salOT=" + salOT +
-                ", salBMMoney=" + salBMMoney +
+                ", salPunish=" + salPunish +
                 ", salSocial=" + salSocial +
-                ", recon=" + recon +
+                ", salRecon=" + salRecon +
                 ", salDate=" + salDate +
                 ", salStatus=" + salStatus +
+                ", salTotal=" + salTotal +
                 '}';
     }
 }

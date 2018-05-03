@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yao.dao.BonusMapper">
+    <resultMap id="findBonusMap" type="Bonus">
+        <id property="bmID" column="bm_id"/>
+        <result property="bmEmpID" column="bm_emp_id"/>
+        <result property="bmMoney" column="bm_money"/>
+        <result property="bmDate" column="bm_date"/>
+        <result property="bmDetail" column="bm_detail"/>
+        <result property="bmStatus" column="bm_status"/>
+    </resultMap>
     <insert id="saveBonus">
         INSERT INTO T_HRSYS_BM (BM_EMP_ID, BM_MONEY, BM_DATE, BM_DETAIL, BM_STATUS)
         VALUES (#{bmEmpID},#{bmMoney},sysdate,#{bmDetail},#{bmStatus})
@@ -8,5 +16,7 @@
     <update id="updateBonus"></update>
     <delete id="deleteBonus"></delete>
     <select id="findThis" resultType="com.yao.model.Bonus"></select>
-    <select id="listBonusMon" resultType="com.yao.model.Bonus"></select>
+    <select id="listBonusMon" resultMap="findBonusMap">
+        SELECT * FROM T_HRSYS_BM WHERE BM_EMP_ID=#{bmEmpID} AND TO_CHAR(BM_DATE,'yyyy-MM')=TO_CHAR(#{bmDate},'yyyy-MM')
+    </select>
 </mapper>

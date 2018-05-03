@@ -24,7 +24,7 @@
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
-<div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+<div class="easyui-panel" style="width:20%;max-width:400px;padding:30px 60px;">
     <div style="margin-bottom:20px">
         <form id="ff" method="post">
             <input class="easyui-datebox" id="checkMon" name="checkMon" label="Customized Format:" labelPosition="top" data-options="formatter:myformatter,parser:myparser" style="width:100%;">

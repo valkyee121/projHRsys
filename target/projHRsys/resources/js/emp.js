@@ -73,7 +73,7 @@ $(function () {
             }, {
                 text : "奖惩明细",
                 attributes : {
-                    url : ""
+                    url : "myBonus"
                 }
             }
             ]

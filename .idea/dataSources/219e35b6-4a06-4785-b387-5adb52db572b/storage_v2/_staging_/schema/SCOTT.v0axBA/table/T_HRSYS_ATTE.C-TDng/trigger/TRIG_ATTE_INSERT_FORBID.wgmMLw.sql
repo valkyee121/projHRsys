@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER TRIG_ATTE_INSERT_FORBID
+  BEFORE INSERT
+  ON T_HRSYS_ATTE
+  FOR EACH ROW
+  DECLARE
+    v_count NUMBER(2);
+    BEGIN
+    SELECT count(*) INTO v_count FROM T_HRSYS_ATTE WHERE ATTE_EMP_ID=:NEW.ATTE_EMP_ID AND TO_CHAR(ATTE_BEGIN_TIME,'yyyy-MM-dd')=TO_CHAR(:NEW.ATTE_BEGIN_TIME,'yyyy-MM-dd');
+    IF (v_count>0) THEN
+      raise_application_error(-20010,'今日已打卡上班');
+    END IF;
+  END;
+/
+

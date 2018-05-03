@@ -11,5 +11,7 @@ public interface EmpMapper {
     boolean deleteEmp (Employee employee);
     Employee findEmp (Employee employee);
     Employee findWithTr (int empID);
+    Employee findWithBM (int empID);
     List<Employee> listAllEmp (Employee employee);
+
 }
