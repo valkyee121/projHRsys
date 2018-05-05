@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yao.dao.SalaryMapper">
-    <insert id="saveSalary"></insert>
+    <resultMap id="findSalMap" type="Salary">
+        <id property="salID" column="sal_id"/>
+        <result property="salEmpID" column="sal_emp_id"/>
+        <result property="salBasis" column="sal_basis"/>
+        <result property="salBonus" column="sal_bonus"/>
+        <result property="salOT" column="sal_overtime"/>
+        <result property="salPunish" column="sal_punish"/>
+        <result property="salSocial" column="sal_social"/>
+        <result property="salRecon" column="sal_reconsider"/>
+        <result property="salDate" column="sal_date"/>
+        <result property="salStatus" column="sal_status"/>
+        <result property="salTotal" column="sal_total"/>
+    </resultMap>
+    <insert id="saveSalary">
+        INSERT INTO T_HRSYS_SALARY (SAL_EMP_ID, SAL_BASIS, SAL_BONUS, SAL_OVERTIME, SAL_PUNISH, SAL_SOCIAL, SAL_RECONSIDER, SAL_DATE, SAL_STATUS, SAL_TOTAL)
+        VALUES (#{salEmpID},#{salBasis},#{salBonus},#{salOT},#{salPunish},#{salSocial},#{salRecon},#{salDate},#{salStatus},#{salTotal})
+    </insert>
     <update id="updateSalary"></update>
     <delete id="deleteSalary"></delete>
     <select id="findThis" resultType="com.yao.model.Salary"></select>

@@ -9,6 +9,7 @@ import com.yao.model.Employee;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -55,8 +56,14 @@ public class AtteController {
         attend.setAtteBegin(now);
         System.out.println(attend);
         atteService.saveAtte(attend);
-        return "redirect:/empAttend";
+        List<Attend> attends = atteService.listThisMon(attend);     //每月第一次打卡，进行上月工资结算
+        if (attends.size()<=1){
+            return "redirect:/saveSalary";
+        }else {
+            return "redirect:/empAttend";
+        }
     }
+
 
     @RequestMapping("/updateAtteToday")
     public String updateAtteToday(HttpSession session,Attend attend) throws Exception{
@@ -88,6 +95,7 @@ public class AtteController {
      * @throws Exception
      */
     @RequestMapping("/todayHour")
+    /*@ResponseBody*/
     public void todayHour(HttpSession session, Attend attend, Bonus bonus) throws Exception{
         Employee employee = (Employee) session.getAttribute("myEmpInfo");
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
