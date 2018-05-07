@@ -54,9 +54,10 @@ public class JobPosition implements Serializable {
     public String toString() {
         return "JobPosition{" +
                 "jobID=" + jobID +
-                ", jobName='" + jobName +
+                ", jobName='" + jobName + '\'' +
                 ", jobSalary=" + jobSalary +
                 ", jobStatus=" + jobStatus +
+                ", department=" + department +
                 '}';
     }
 }

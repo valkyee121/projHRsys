@@ -7,88 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c686f232-01ea-427b-a810-03993e7e3fa8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/DmsService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/RecoService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/DmsServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/RecoServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/DmsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/RecoController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/DmsMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/DmsMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/RecoMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/RecoMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/model/Dimission.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/yao/model/Reconsider.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empDmsMana.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empHistSalary.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empRecoPage.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myDimissPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/projHRsys_war.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b/storage_v2/_src_/schema/SCOTT.v0axBA.meta" afterPath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b/storage_v2/_src_/schema/SCOTT.v0axBA.meta" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b/storage_v2/_src_/schema/SCOTT.v0axBA.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/219e35b6-4a06-4785-b387-5adb52db572b/storage_v2/_src_/schema/SCOTT.v0axBA.zip" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_2_4.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/projHRsys_war.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/projHRsys_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/projHRsys_war_exploded.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/biz/EmpService.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/EmpService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/EmpServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/EmpServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/BonusController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/BonusController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/EmpController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/EmpController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/InterViewController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/InterViewController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/SalaryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/SalaryController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/BonusMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/BonusMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/projHRsys.iml" afterPath="$PROJECT_DIR$/projHRsys.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/biz/JobPosService.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/JobPosService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/JobPosServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/JobPosServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/dao/SalaryMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/yao/dao/SalaryMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/model/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/model/Employee.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/model/Resume.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/model/Resume.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkEmpInfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkEmpInfo.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkUserPost.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkUserPost.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empAttendPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empAttendPage.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yao/model/JobPosition.java" afterPath="$PROJECT_DIR$/src/main/java/com/yao/model/JobPosition.java" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResumePage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResumePage.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/trainnManaPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/trainnManaPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/emp.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/emp.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/main.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/biz/EmpService.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/biz/EmpService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/biz/impl/EmpServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/biz/impl/EmpServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/AtteController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/AtteController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/BonusController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/BonusController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/EmpController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/EmpController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/SalaryController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/SalaryController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/BonusMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/BonusMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/EmpMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/EmpMapper.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/EmpMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/EmpMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/SalaryMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/SalaryMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/model/Employee.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/model/Employee.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/model/Resume.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/model/Resume.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/EmpService.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/EmpService.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/impl/EmpServiceImpl.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/impl/EmpServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/AtteController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/AtteController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/BonusController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/BonusController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/EmpController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/EmpController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/SalaryController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/SalaryController.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/BonusMapper.xml" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/BonusMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/EmpMapper.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/EmpMapper.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/EmpMapper.xml" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/EmpMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/SalaryMapper.xml" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/SalaryMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/Employee.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/Employee.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/Resume.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/Resume.class" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/checkEmpInfo.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/checkEmpInfo.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/checkUserPost.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/checkUserPost.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/empAttendPage.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/empAttendPage.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/biz/JobPosService.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/biz/JobPosService.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/biz/impl/JobPosServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/biz/impl/JobPosServiceImpl.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/controller/JobPosController.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/controller/JobPosController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/JobPosMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/JobPosMapper.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/dao/JobPosMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/yao/dao/JobPosMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yao/model/JobPosition.class" afterPath="$PROJECT_DIR$/target/classes/com/yao/model/JobPosition.class" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/JobPosService.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/JobPosService.class" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/impl/JobPosServiceImpl.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/biz/impl/JobPosServiceImpl.class" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/JobPosController.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/controller/JobPosController.class" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/JobPosMapper.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/JobPosMapper.class" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/JobPosMapper.xml" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/dao/JobPosMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/JobPosition.class" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/classes/com/yao/model/JobPosition.class" />
       <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/jobPosPage.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/jobPosPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/myResumePage.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/myResumePage.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/trainnManaPage.jsp" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/pages/trainnManaPage.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/projHRsys/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/resources/js/emp.js" afterPath="$PROJECT_DIR$/target/projHRsys/resources/js/emp.js" />
-      <change beforePath="$PROJECT_DIR$/target/projHRsys/resources/js/main.js" afterPath="$PROJECT_DIR$/target/projHRsys/resources/js/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -191,30 +135,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmpController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/EmpController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="129" column="7" lean-forward="false" selection-start-line="129" selection-start-column="7" selection-end-line="130" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobPosController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="97" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EmpMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
+            <state relative-caret-position="-1498">
               <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
               <folding>
                 <marker date="1525671972000" expanded="true" signature="3608:3909" ph="INSERT INTO T_HRSYS_EMP... " />
@@ -235,60 +159,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="departPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-707">
-              <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="53" selection-end-column="21" />
-              <folding>
-                <element signature="e#2025#2697#0#HTML" expanded="false" />
-                <element signature="e#5223#9405#0#HTML" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recruitAdd.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1085">
-              <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DeptController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="120" column="8" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="48" />
+            <state relative-caret-position="162">
+              <caret line="137" column="8" lean-forward="true" selection-start-line="137" selection-start-column="8" selection-end-line="138" selection-end-column="59" />
               <folding>
-                <element signature="e#5551#5567#0" expanded="true" />
+                <element signature="e#4056#4072#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="T_HRSYS_DEPT" pinned="false" current-in-tab="true">
-        <entry file="das://table:/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/SCOTT.T_HRSYS_DEPT">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="JobPosController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="74" column="59" lean-forward="false" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1287#1303#0" expanded="true" />
+                <element signature="e#3053#3069#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeptMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml">
+      <file leaf-file-name="jobPosPage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="418">
+              <caret line="166" column="55" lean-forward="false" selection-start-line="166" selection-start-column="55" selection-end-line="166" selection-end-column="55" />
               <folding>
-                <marker date="1525679222000" expanded="true" signature="1156:1245" ph="UPDATE T_HRSYS_DEPT... " />
-                <marker date="1525679222000" expanded="true" signature="1297:1353" ph="DELETE FROM T_HRSYS_DEPT... " />
-                <marker date="1525679222000" expanded="true" signature="1430:1605" ph="SELECT dp.DE... T_HRSYS_DEPT" />
-                <marker date="1525679222000" expanded="true" signature="2189:2344" ph="SELECT dp.DE... T_HRSYS_DEPT" />
+                <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -297,13 +200,24 @@
       <file leaf-file-name="JobPosMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+            <state relative-caret-position="304">
+              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
               <folding>
-                <marker date="1525678970000" expanded="true" signature="1263:1653" ph="UPDATE T_HRSYS_JOB... " />
-                <marker date="1525678970000" expanded="true" signature="1707:1730" ph="DELETE FROM T_HRSYS_JOB... " />
-                <marker date="1525678970000" expanded="true" signature="2124:2171" ph="SELECT * FRO... T_HRSYS_JOB" />
+                <marker date="1525708014000" expanded="true" signature="1259:1775" ph="UPDATE T_HRSYS_JOB... " />
+                <marker date="1525708014000" expanded="true" signature="1829:1852" ph="DELETE FROM T_HRSYS_JOB... " />
+                <marker date="1525708014000" expanded="true" signature="2246:2293" ph="SELECT * FRO... T_HRSYS_JOB" />
+                <marker date="1525708014000" expanded="true" signature="2369:2490" ph="SELECT j.*, T_HRSYS_JOB" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobPosition.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/JobPosition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -365,6 +279,7 @@
       <find>width</find>
       <find>target</find>
       <find>send(a.hasContent&amp;&amp;a.data||null)</find>
+      <find>ajaxListAllJob</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -378,12 +293,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/schema/SCOTT/table/T_HRSYS_ATTE/trigger/TRIG_ATTE_INSERT_FORBID.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/HistoryAttePage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empBonus.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/histBonusPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yao/model/Salary.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/219e35b6-4a06-4785-b387-5adb52db572b/console_33.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/AtteController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empAttendPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -418,17 +327,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/biz/EmpService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/EmpServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empDmsMana.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/DmsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/DmsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/InterViewController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/model/JobPosition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/biz/JobPosService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/biz/impl/JobPosServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java" />
       </list>
     </option>
   </component>
@@ -464,21 +379,15 @@
           <item name="projHRsys Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="projHRsys Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="net.sf.json-lib:json-lib:2.4" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-54" />
-    <option name="y" value="79" />
-    <option name="width" value="1603" />
-    <option name="height" value="919" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="27" />
+    <option name="y" value="139" />
+    <option name="width" value="1800" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -868,7 +777,7 @@
       <workItem from="1525395009916" duration="20125000" />
       <workItem from="1525505211555" duration="5395000" />
       <workItem from="1525510692330" duration="8649000" />
-      <workItem from="1525573787173" duration="38983000" />
+      <workItem from="1525573787173" duration="54811000" />
     </task>
     <task id="LOCAL-00001" summary="用户注册登录完成">
       <created>1524286575422</created>
@@ -888,7 +797,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492372000" />
+    <option name="totallyTimeSpent" value="508200000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -900,28 +809,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14798695" sideWeight="0.5021322" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15405117" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2321839" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32736573" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733408" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17519042" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.054406963" sideWeight="0.4978678" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25136018" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5788901" sideWeight="0.4978678" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2546246" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -980,322 +888,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/impl/RecoServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding>
-            <element signature="e#782#783#0" expanded="false" />
-            <element signature="e#836#837#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/RecoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/RecoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="10" column="46" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/RecoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="94" column="38" lean-forward="false" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2639#2655#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/RecruitController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/Resume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2901">
-          <caret line="166" column="18" lean-forward="false" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-          <folding>
-            <element signature="e#2359#2360#0" expanded="false" />
-            <element signature="e#2392#2393#0" expanded="false" />
-            <element signature="e#2444#2445#0" expanded="false" />
-            <element signature="e#2488#2489#0" expanded="false" />
-            <element signature="e#2524#2525#0" expanded="false" />
-            <element signature="e#2556#2557#0" expanded="false" />
-            <element signature="e#2606#2607#0" expanded="false" />
-            <element signature="e#2648#2649#0" expanded="false" />
-            <element signature="e#2682#2683#0" expanded="false" />
-            <element signature="e#2712#2713#0" expanded="false" />
-            <element signature="e#2758#2759#0" expanded="false" />
-            <element signature="e#2796#2797#0" expanded="false" />
-            <element signature="e#2832#2833#0" expanded="false" />
-            <element signature="e#2864#2865#0" expanded="false" />
-            <element signature="e#2914#2915#0" expanded="false" />
-            <element signature="e#2956#2957#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/schema/SCOTT/table/T_HRSYS_BM/trigger/TRIG_BM_INSERT_SEQ.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/219e35b6-4a06-4785-b387-5adb52db572b/console_35.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/SCOTT.T_HRSYS_RESUME">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/RecoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-          <folding>
-            <marker date="1525602950000" expanded="true" signature="910:1089" ph="INSERT INTO T_HRSYS_RECO... " />
-            <marker date="1525602950000" expanded="true" signature="1141:1257" ph="UPDATE T_HRSYS_RECO... " />
-            <marker date="1525602950000" expanded="true" signature="1309:1357" ph="DELETE FROM T_HRSYS_RECO... " />
-            <marker date="1525602950000" expanded="true" signature="1431:1574" ph="SELECT RECO_... T_HRSYS_RECO" />
-            <marker date="1525602950000" expanded="true" signature="1431:1591" ph="SELECT RECO_... T_HRSYS_RECO" />
-            <marker date="1525602950000" expanded="true" signature="1666:1787" ph="SELECT RECO_... T_HRSYS_RECO" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empRecoPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkEmpInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="336" column="13" lean-forward="false" selection-start-line="336" selection-start-column="13" selection-end-line="336" selection-end-column="13" />
-          <folding>
-            <marker date="1525602536000" expanded="false" signature="6389:6399" ph="..." />
-            <marker date="1525602536000" expanded="false" signature="6575:6585" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/emp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <marker date="1525656544000" expanded="true" signature="2829:2852" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/SCOTT.T_HRSYS_USER">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="158" column="18" lean-forward="false" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
-          <folding>
-            <element signature="e#3176#3177#0" expanded="false" />
-            <element signature="e#3208#3209#0" expanded="false" />
-            <element signature="e#3261#3262#0" expanded="false" />
-            <element signature="e#3303#3304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/interViewManag.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkUserPost.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#5;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#8;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myEmpInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/Dimission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myDimissPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="73" column="26" lean-forward="false" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-          <folding>
-            <marker date="1525662350000" expanded="true" signature="2487:2510" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/DmsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/impl/DmsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-          <folding>
-            <element signature="e#758#759#0" expanded="false" />
-            <element signature="e#815#816#0" expanded="false" />
-            <element signature="e#896#897#0" expanded="false" />
-            <element signature="e#955#956#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/EmpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/impl/EmpServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="65" column="46" lean-forward="false" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
-          <folding>
-            <element signature="e#1572#1573#0" expanded="false" />
-            <element signature="e#1627#1628#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/trainnManaPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="156" column="35" lean-forward="false" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResumePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1268">
-          <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/ResumeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="114" column="41" lean-forward="false" selection-start-line="111" selection-start-column="8" selection-end-line="114" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="113" column="4" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="123" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empDmsMana.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/DmsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1328,17 +920,9 @@
         <state relative-caret-position="372">
           <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2332#2348#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2332#2348#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empAttendPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="99" column="3" lean-forward="false" selection-start-line="99" selection-start-column="3" selection-end-line="118" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1382,22 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="97" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1085">
-          <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-440">
@@ -1412,9 +980,304 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/SCOTT.T_HRSYS_DEPT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding>
+            <marker date="1525679222000" expanded="true" signature="1156:1245" ph="UPDATE T_HRSYS_DEPT... " />
+            <marker date="1525679222000" expanded="true" signature="1297:1353" ph="DELETE FROM T_HRSYS_DEPT... " />
+            <marker date="1525679222000" expanded="true" signature="1430:1605" ph="SELECT dp.DE... T_HRSYS_DEPT" />
+            <marker date="1525679222000" expanded="true" signature="2189:2344" ph="SELECT dp.DE... T_HRSYS_DEPT" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addrBookPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1701">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkEmpInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364">
+          <caret line="336" column="13" lean-forward="false" selection-start-line="336" selection-start-column="13" selection-end-line="336" selection-end-column="13" />
+          <folding>
+            <marker date="1525602536000" expanded="false" signature="6389:6399" ph="..." />
+            <marker date="1525602536000" expanded="false" signature="6575:6585" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkMyInterView.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2065">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkUserPost.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1455">
+          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="53" selection-end-column="21" />
+          <folding>
+            <element signature="e#2025#2697#0#HTML" expanded="false" />
+            <element signature="e#5223#9405#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empAttendPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empBonus.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empDmsMana.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2039">
+          <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empHistSalary.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5116">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empInfoMana.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2835">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empMainPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1417">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/empRecoPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/guestPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1890">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/histBonusPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3820">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/interViewManag.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/managerPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1323">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myApplication.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2646">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myDimissPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myEmpInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-769">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResumePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1606">
+          <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myTrainnPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1512">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/newEmpSave.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1498">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/postResumePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2457">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1861">
+          <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitManager.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4347">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitMod.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1660">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/recruitPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2983">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registerPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2079">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/impl/JobPosServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#887#888#0" expanded="false" />
+            <element signature="e#932#933#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/biz/JobPosService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/model/JobPosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1323">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1525662350000" expanded="true" signature="2487:2510" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/EmpMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
+        <state relative-caret-position="-1498">
           <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
           <folding>
             <marker date="1525671972000" expanded="true" signature="3608:3909" ph="INSERT INTO T_HRSYS_EMP... " />
@@ -1434,56 +1297,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="282" column="17" lean-forward="false" selection-start-line="282" selection-start-column="17" selection-end-line="282" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jobPosPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="166" column="55" lean-forward="false" selection-start-line="166" selection-start-column="55" selection-end-line="166" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/JobPosMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+        <state relative-caret-position="304">
+          <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding>
-            <marker date="1525678970000" expanded="true" signature="1263:1653" ph="UPDATE T_HRSYS_JOB... " />
-            <marker date="1525678970000" expanded="true" signature="1707:1730" ph="DELETE FROM T_HRSYS_JOB... " />
-            <marker date="1525678970000" expanded="true" signature="2124:2171" ph="SELECT * FRO... T_HRSYS_JOB" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/dao/DeptMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding>
-            <marker date="1525679222000" expanded="true" signature="1156:1245" ph="UPDATE T_HRSYS_DEPT... " />
-            <marker date="1525679222000" expanded="true" signature="1297:1353" ph="DELETE FROM T_HRSYS_DEPT... " />
-            <marker date="1525679222000" expanded="true" signature="1430:1605" ph="SELECT dp.DE... T_HRSYS_DEPT" />
-            <marker date="1525679222000" expanded="true" signature="2189:2344" ph="SELECT dp.DE... T_HRSYS_DEPT" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/departPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-707">
-          <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#2025#2697#0#HTML" expanded="false" />
-            <element signature="e#5223#9405#0#HTML" expanded="false" />
+            <marker date="1525708014000" expanded="true" signature="1259:1775" ph="UPDATE T_HRSYS_JOB... " />
+            <marker date="1525708014000" expanded="true" signature="1829:1852" ph="DELETE FROM T_HRSYS_JOB... " />
+            <marker date="1525708014000" expanded="true" signature="2246:2293" ph="SELECT * FRO... T_HRSYS_JOB" />
+            <marker date="1525708014000" expanded="true" signature="2369:2490" ph="SELECT j.*, T_HRSYS_JOB" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/DeptController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="120" column="8" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="48" />
+        <state relative-caret-position="162">
+          <caret line="137" column="8" lean-forward="true" selection-start-line="137" selection-start-column="8" selection-end-line="138" selection-end-column="59" />
           <folding>
-            <element signature="e#5551#5567#0" expanded="true" />
+            <element signature="e#4056#4072#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/2abda99d/219e35b6-4a06-4785-b387-5adb52db572b/SCOTT.T_HRSYS_DEPT">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yao/controller/JobPosController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="74" column="59" lean-forward="false" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1287#1303#0" expanded="true" />
+            <element signature="e#3053#3069#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

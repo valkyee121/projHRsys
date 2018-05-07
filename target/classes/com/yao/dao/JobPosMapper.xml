@@ -9,14 +9,14 @@
     </resultMap>
 
     <!--With DEPT-->
-   <!-- <resultMap id="jobPosLinkDept" type="JobPosition" extends="findJobPosMap">
-        <collection property="departments" ofType="Department">
+    <resultMap id="jobPosLinkDept" type="JobPosition" extends="findJobPosMap">
+        <association property="department" javaType="Department">
             <id property="deptID" column="dept_id"/>
             <result property="deptName" column="dept_name"/>
             <result property="deptBuild" column="dept_build_time"/>
             <result property="deptStatus" column="dept_status"/>
-        </collection>
-    </resultMap>-->
+        </association>
+    </resultMap>
     <insert id="saveJobPos" statementType="CALLABLE">
         {call SAVEJOB(
         #{jobName, mode=IN,jdbcType=VARCHAR},
@@ -29,6 +29,9 @@
         UPDATE T_HRSYS_JOB
         <set>
             <choose>
+                <when test="jobName!=null and jobName!=''">
+                    JOB_NAME = #{jobName}
+                </when>
                 <when test="jobSalary!=null and jobSalary!=''">
                     JOB_SALARY = #{jobSalary}
                 </when>
@@ -55,15 +58,7 @@
     <select id="findJobPos" resultMap="findJobPosMap">
         SELECT * FROM T_HRSYS_JOB WHERE JOB_ID=#{jobID}
     </select>
-    <select id="listAll" statementType="CALLABLE" resultType="JobPosition">
-      {call PAGING_CURSOR(
-        #{tableName, mode=IN,jdbcType=VARCHAR},
-        #{sqlWhere, mode=IN,jdbcType=VARCHAR},
-        #{pageSize, mode=IN,jdbcType=INTEGER},
-        #{pageNow, mode=IN,jdbcType=INTEGER},
-        #{result, mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=findJobPosMap},
-        #{rows, mode=OUT,jdbcType=INTEGER},
-        #{pageCount, mode=OUT,jdbcType=INTEGER}
-        )}
+    <select id="listAll" resultMap="jobPosLinkDept">
+        SELECT j.*, d.DEPT_ID, d.DEPT_NAME FROM T_HRSYS_JOB j JOIN T_HRSYS_DEPT d ON j.JOB_DEPT_ID=d.DEPT_ID ORDER BY d.DEPT_NAME
     </select>
 </mapper>

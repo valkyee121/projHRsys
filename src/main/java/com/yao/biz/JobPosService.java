@@ -10,5 +10,5 @@ public interface JobPosService{
     boolean updateJobPos (JobPosition jp);
     boolean deleteJobPos (JobPosition jp);
     JobPosition findJobPos (JobPosition jp);
-    List<JobPosition> listAll (Map map);
+    List<JobPosition> listAll ();
 }

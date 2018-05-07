@@ -34,7 +34,7 @@ public class JobPosServiceImpl implements JobPosService {
     }
 
     @Override
-    public List<JobPosition> listAll(Map map) {
-        return jobPosMapper.listAll(map);
+    public List<JobPosition> listAll() {
+        return jobPosMapper.listAll();
     }
 }

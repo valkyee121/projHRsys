@@ -3,6 +3,8 @@ package com.yao.controller;
 import com.yao.biz.JobPosService;
 import com.yao.model.Department;
 import com.yao.model.JobPosition;
+
+import net.sf.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,45 +24,31 @@ public class JobPosController {
     private JobPosService jobPosService;
 
     @RequestMapping("/jobManager")
-    public String deptManager(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public String jobManager(HttpServletRequest request, HttpServletResponse response) throws Exception{
         return "jobPosPage";
     }
     @RequestMapping("/ajaxListAllJob")
-    public void ajaxListAllDept(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void ajaxListAllJob(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String sql = "";
-        int pageNo = 1;
-        Map<String,Object> param = new HashMap<String, Object>();
+        JSONObject json = new JSONObject();
+        List<JobPosition> jobPositions = jobPosService.listAll();
         Map<String,Object> jsonObj = new HashMap<String, Object>();
-        String strPageNo = request.getParameter("pageIndex");
-        if (null!=strPageNo && !"".equals(strPageNo)){
-            pageNo = Integer.parseInt(strPageNo);
+        JSONArray array = new JSONArray();
+        for (int i=0;i<jobPositions.size();i++){
+            jsonObj.put("jobID",jobPositions.get(i).getJobID());
+            jsonObj.put("jobName",jobPositions.get(i).getJobName());
+            jsonObj.put("deptName",jobPositions.get(i).getDepartment().getDeptName());
+            jsonObj.put("jobSalary",jobPositions.get(i).getJobSalary());
+            jsonObj.put("jobStatus",jobPositions.get(i).getJobStatus());
+            array.add(jsonObj);
         }
-        param.put("tableName","T_HRSYS_JOB");
-        param.put("sqlWhere",sql);
-        param.put("pageSize",100);
-        param.put("pageNow",pageNo);
-        jobPosService.listAll(param);
-        List<JobPosition> jobPositions = (List<JobPosition>) param.get("result");
-
-        int curPage = (Integer) param.get("pageNow");
-        int totalRows = (Integer) param.get("rows"); //总记录条数
-        int totalPages = (Integer) param.get("pageCount"); //总页数
-        jsonObj.put("resultList",jobPositions);
-        jsonObj.put("totalpage",totalPages);
-        JSONObject json = new JSONObject(jsonObj);
-        response.getWriter().print(json);
-        System.out.println(json);
-        /*PrintWriter out = response.getWriter();
-        out.print(json);*/
-        model.addAttribute("pageNo",curPage);
-        model.addAttribute("totalPages",totalPages);
+        response.getWriter().print(array);
     }
 
     @RequestMapping("/jobSave")
-    public void deptSave(Department department,JobPosition jobPosition, HttpServletRequest request) throws Exception{
+    public void jobSave(Department department,JobPosition jobPosition, HttpServletRequest request) throws Exception{
         request.setCharacterEncoding("UTF-8");
         System.out.println(jobPosition);
         jobPosition.setDepartment(department);
@@ -79,11 +68,21 @@ public class JobPosController {
         }
     }
 
-    @RequestMapping("/jobCancel")
-    public void deptCancel(JobPosition jobPosition) throws Exception{
-        jobPosition.setJobStatus(0);
-        jobPosService.updateJobPos(jobPosition);
+    @RequestMapping("/jobModify")
+    public void jobModify(JobPosition jobPosition, HttpServletResponse response) throws Exception{
+        /*jobPosition.setJobStatus(0);*/
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        if (jobPosService.updateJobPos(jobPosition)){
+            jsonObj.put("msg","更新成功");
+        }else {
+            jsonObj.put("msg","更新失败");
+        }
         System.out.println(jobPosition);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 
     @RequestMapping("/ajaxFindJob")
