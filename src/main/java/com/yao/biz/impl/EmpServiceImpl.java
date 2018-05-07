@@ -47,7 +47,22 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
+    public Employee findWithSal(int empID, int salStatus) {
+        return empMapper.findWithSal(empID,salStatus);
+    }
+
+    @Override
+    public Employee findWithDms(int empID) {
+        return empMapper.findWithDms(empID);
+    }
+
+    @Override
     public List<Employee> listAllEmp(Employee employee) {
         return empMapper.listAllEmp(employee);
+    }
+
+    @Override
+    public List<Employee> listAllByDms(int dmStatus) {
+        return empMapper.listAllByDms(dmStatus);
     }
 }

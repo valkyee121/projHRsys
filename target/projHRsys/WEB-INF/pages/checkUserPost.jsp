@@ -72,6 +72,18 @@
                 <input class="easyui-textbox" label="联系电话：" value="${userPostReRs.resuCell}" labelPosition="top" readonly style="width:100%;">
             </div>
             <div style="margin-bottom:20px">
+                <input class="easyui-textbox" label="学历：" value="${userPostReRs.resuDegree}" labelPosition="top" readonly style="width:100%;">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" label="专业：" value="${userPostReRs.resuMajor}" labelPosition="top" readonly style="width:100%;">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" label="教育经历:" value="${userPostReRs.resuEdu}"labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" label="工作经历:" value="${userPostReRs.resuJobEx}"labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
+            </div>
+            <div style="margin-bottom:20px">
                 <input class="easyui-textbox" label="其他信息:" value="${userPostReRs.resuInfo}"labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
             </div>
         </div>

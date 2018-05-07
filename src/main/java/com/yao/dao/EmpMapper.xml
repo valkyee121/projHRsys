@@ -46,6 +46,30 @@
             <result property="bmStatus" column="bm_status"/>
         </collection>
     </resultMap>
+    <!--With Salary-->
+    <resultMap id="empLinkSal" type="Employee" extends="findAll">
+        <collection property="salaries" ofType="Salary">
+            <id property="salID" column="sal_id"/>
+            <result property="salBasis" column="sal_basis"/>
+            <result property="salBonus" column="sal_bonus"/>
+            <result property="salOT" column="sal_overtime"/>
+            <result property="salPunish" column="sal_punish"/>
+            <result property="salSocial" column="sal_social"/>
+            <result property="salRecon" column="sal_reconsider"/>
+            <result property="salDate" column="sal_date"/>
+            <result property="salStatus" column="sal_status"/>
+            <result property="salTotal" column="sal_total"/>
+        </collection>
+    </resultMap>
+    <!--With Dimission-->
+    <resultMap id="empLinkDms" type="Employee" extends="empLinkdDeptJob">
+        <association property="dimission" javaType="Dimission">
+            <id property="dmID" column="dm_id"/>
+            <result property="dmContent" column="dm_content"/>
+            <result property="dmDate" column="dm_date"/>
+            <result property="dmStatus" column="dm_status"/>
+        </association>
+    </resultMap>
     <insert id="saveEmp">
         INSERT INTO T_HRSYS_EMP (EMP_NAME, EMP_SEX, EMP_BIRTH, EMP_CITY, EMP_EMAIL, EMP_DEPT_ID, EMP_JOB_ID, EMP_ATTEND, EMP_STATUS, EMP_HIRE_DATE,EMP_SALARY)
         VALUES (#{empName},#{empSex},#{empBirth},#{empCity},#{empEmail},#{empDept.deptID},#{empJob.jobID},#{empAttend},#{empStatus},sysdate,#{empSal})
@@ -63,7 +87,6 @@
                     EMP_JOB_ID=#{empJob.jobID},
                 </if>
             </if>
-
             <if test="empAttend!=null and empAttend!=''">
                 EMP_ATTEND=#{empAttend},
             </if>
@@ -110,7 +133,7 @@
 
     </select>
     <select id="listAllEmp" resultMap="empLinkdDeptJob">
-        SELECT e.*, d.*, j.* FROM T_HRSYS_EMP e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
+        SELECT e.*, d.*, j.* FROM (SELECT * FROM T_HRSYS_EMP WHERE EMP_STATUS BETWEEN 0 and 1) e JOIN T_HRSYS_DEPT d ON e.EMP_DEPT_ID=d.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID
         WHERE 1=1 AND  e.EMP_DEPT_ID=#{empDept.deptID}
     </select>
     <select id="findWithTr" resultMap="empLinkTrain">
@@ -119,5 +142,18 @@
     </select>
     <select id="findWithBM" resultMap="empLinkBonus">
 
+    </select>
+    <select id="findWithSal" resultMap="empLinkSal">
+        SELECT e.EMP_ID, s.* FROM T_HRSYS_EMP e JOIN T_HRSYS_SALARY s ON e.EMP_ID=s.SAL_EMP_ID WHERE e.EMP_ID=${arg0} AND s.SAL_STATUS=${arg1} ORDER BY s.SAL_DATE
+    </select>
+    <select id="findWithDms" resultMap="empLinkDms">
+        SELECT e.EMP_ID,e.EMP_NAME, e.EMP_EMAIL,dp.DEPT_NAME,j.JOB_NAME, dm.DM_ID,dm.DM_CONTENT,dm.DM_DATE FROM T_HRSYS_EMP e
+        JOIN T_HRSYS_DEPT dp ON e.EMP_DEPT_ID=dp.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID LEFT JOIN T_HRSYS_DIMISSION dm ON e.EMP_ID=dm.DM_EMP_ID
+        WHERE e.EMP_ID=#{arg0}
+    </select>
+    <select id="listAllByDms" resultMap="empLinkDms">
+        SELECT e.EMP_ID,e.EMP_NAME, dp.DEPT_NAME,j.JOB_NAME,dm.DM_CONTENT,dm.DM_DATE FROM T_HRSYS_EMP e
+        JOIN T_HRSYS_DEPT dp ON e.EMP_DEPT_ID=dp.DEPT_ID JOIN T_HRSYS_JOB j ON e.EMP_JOB_ID=j.JOB_ID JOIN T_HRSYS_DIMISSION dm ON e.EMP_ID=dm.DM_EMP_ID
+        WHERE dm.DM_STATUS=#{arg0}
     </select>
 </mapper>

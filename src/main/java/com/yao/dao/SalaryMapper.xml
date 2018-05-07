@@ -20,6 +20,10 @@
     </insert>
     <update id="updateSalary"></update>
     <delete id="deleteSalary"></delete>
-    <select id="findThis" resultType="com.yao.model.Salary"></select>
-    <select id="listByMon" resultType="com.yao.model.Salary"></select>
+    <select id="findThis" resultMap="findSalMap">
+        SELECT * FROM (SELECT * FROM T_HRSYS_SALARY WHERE TO_CHAR(SAL_DATE,'yyyy-MM')=TO_CHAR(add_months(trunc(sysdate),-1),'yyyy-MM')) WHERE SAL_EMP_ID=#{salEmpID}
+    </select>
+    <select id="listByMon" resultMap="findSalMap">
+        SELECT * FROM T_HRSYS_SALARY WHERE SAL_EMP_ID=#{salEmpID} and SAL_STATUS=#{salStatus} ORDER BY SAL_DATE
+    </select>
 </mapper>

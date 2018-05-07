@@ -29,6 +29,8 @@ public class BonusController {
 
     @RequestMapping("/ajaxMyBonus")
     public void ajaxMyBonus(HttpSession session, Employee employee, Bonus bonus, HttpServletRequest request, HttpServletResponse response) throws Exception{
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         employee = (Employee) session.getAttribute("myEmpInfo");
         bonus.setBmEmpID(employee.getEmpID());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yao.dao.DmsMapper">
+    <resultMap id="findDmsMap" type="Dimission">
+        <id property="dmID" column="dm_id"/>
+        <result property="dmContent" column="dm_content"/>
+        <result property="dmDate" column="dm_date"/>
+        <result property="dmStatus" column="dm_status"/>
+        <association property="employee" javaType="Employee">
+            <id property="empID" column="emp_id"/>
+            <result property="empName" column="emp_name"/>
+        </association>
+    </resultMap>
+    <insert id="saveDms">
+        INSERT INTO T_HRSYS_DIMISSION (DM_EMP_ID, DM_CONTENT, DM_DATE, DM_STATUS) VALUES (#{employee.empID},#{dmContent},#{dmDate},#{dmStatus})
+    </insert>
+    <update id="updateDms">
+        UPDATE T_HRSYS_DIMISSION
+        <set>
+            <if test="dmContent!=null and dmContent!=''">
+                DM_CONTENT=#{dmContent},
+            </if>
+            <if test="dmDate!=null">
+                DM_Date=#{dmDate},
+            </if>
+            <if test="dmStatus!=null and dmStatus!=''">
+                DM_STATUS=#{dmStatus}
+            </if>
+        </set>
+        WHERE DM_ID=#{dmID}
+    </update>
+    <delete id="deleteDms"></delete>
+    <select id="findByEmp" resultMap="findDmsMap">
+        SELECT DM_ID FROM T_HRSYS_DIMISSION WHERE DM_EMP_ID=#{arg0} AND DM_STATUS=#{arg1}
+    </select>
+    <select id="listAllByStatus" resultMap="findDmsMap">
+
+    </select>
+</mapper>

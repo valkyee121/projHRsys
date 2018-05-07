@@ -47,6 +47,7 @@ public class EmpController {
     public void saveNewEmp(User user,InterView interView, Employee employee, Department department, JobPosition jobPosition) throws Exception{
         employee.setEmpJob(jobPosition);
         employee.setEmpDept(department);
+        employee.setEmpSal(jobPosition.getJobSalary());
         user.setuEmail(employee.getEmpEmail());
         if (empService.saveEmp(employee)){
             user.setuType(2);
@@ -137,5 +138,13 @@ public class EmpController {
         System.out.println(employee1);
     }
 
-
+    @RequestMapping("/ajaxFindEmpSal")
+    public void ajaxFindEmpSal(Employee employee, Salary salary,HttpServletResponse response) throws Exception{
+        Employee employee1 = empService.findWithSal(employee.getEmpID(),salary.getSalStatus());
+        System.out.println(employee1);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        jsonObj.put("result",employee1);
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+    }
 }

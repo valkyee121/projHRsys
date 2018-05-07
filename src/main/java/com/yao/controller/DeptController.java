@@ -1,13 +1,18 @@
 package com.yao.controller;
 
 import com.yao.biz.DeptService;
+import com.yao.biz.EmpService;
+import com.yao.biz.JobPosService;
 import com.yao.dao.DeptMapper;
 import com.yao.model.Department;
+import com.yao.model.Employee;
+import com.yao.model.JobPosition;
 import com.yao.model.Recruit;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +25,10 @@ import java.util.Map;
 public class DeptController {
     @Resource
     private DeptService deptService;
-
+    @Resource
+    private EmpService empService;
+    @Resource
+    private JobPosService jobPosService;
     @RequestMapping("/deptManager")
     public String deptManager(HttpServletRequest request, HttpServletResponse response) throws Exception{
         return "departPage";
@@ -126,10 +134,24 @@ public class DeptController {
     }
 
     @RequestMapping("/deptCancel")
-    public void deptCancel(Department department) throws Exception{
-        department.setDeptStatus(0);
-        deptService.updateDept(department);
-        System.out.println(department);
+    public void deptCancel(Department department, Employee employee, JobPosition jobPosition,HttpServletResponse response) throws Exception{
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        employee.setEmpDept(department);
+        jobPosition.setDepartment(department);
+        List<Employee> employees = empService.listAllEmp(employee);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        if (employees.size()==0){
+            if (jobPosService.deleteJobPos(jobPosition) || deptService.findDept(department)==null){
+                deptService.deleteDept(department);
+                jsonObj.put("msg","删除成功");
+            }
+        }else {
+            jsonObj.put("msg","该部门下已有员工，无法删除");
+        }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 
 

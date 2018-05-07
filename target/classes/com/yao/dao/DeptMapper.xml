@@ -28,7 +28,10 @@
         SET DEPT_STATUS=#{deptStatus}
         WHERE DEPT_ID=#{deptID}
     </update>
-    <delete id="deleteDept"></delete>
+    <delete id="deleteDept">
+        DELETE FROM T_HRSYS_DEPT
+        WHERE DEPT_ID=#{deptID}
+    </delete>
     <select id="findDept" resultMap="deptLinkJobMap">
         SELECT dp.DEPT_ID, dp.DEPT_NAME, jb.JOB_ID, jb.JOB_NAME, jb.JOB_SALARY FROM T_HRSYS_DEPT dp JOIN T_HRSYS_JOB jb ON dp.DEPT_ID=jb.JOB_DEPT_ID
         WHERE dp.DEPT_ID=#{deptID}

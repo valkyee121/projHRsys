@@ -43,70 +43,21 @@
     <table class="table-7" style="width: 700px">
         <thead>
         <th>部门名称</th>
-        <th>状态</th>
         <th>创建部门</th>
         </thead>
         <tr>
             <td>
                 <input type="text" name="deptName">
             </td>
-            <td>
+          <%--  <td>
                 <input type="checkbox" name="deptStatus">
-            </td>
+            </td>--%>
             <td>
                 <input type="button" value="创建" onclick="createDept()">
             </td>
         </tr>
     </table>
 </form>
-
-<%--
-<table id="dg" class="easyui-datagrid" style="height:auto"
-       data-options="
-        title : '部门列表',
-        iconCls: 'icon-edit',
-         fit : true,
-        fitColumns : true,
-        pagination : true,
-        singleSelect : true,
-         border : false,
-        striped : true,
-        url: '#',
-        method:'post',
-        onClickCell: onClickCell,
-				onEndEdit: onEndEdit
-">
-    <thead>
-        <th data-options="field:'deptID',width:80,align: 'center'">部门编号</th>
-        <th data-options="field:'deptName',width:250,align: 'center',editor: 'textbox'">部门名称</th>
-        <th data-options="field:'deptBuild',width:250,align: 'center'">成立时间</th>
-        &lt;%&ndash;<form action="deptSave" method="post">
-            <tr>
-                <td></td>
-                <td>
-                    <input type="text" name="deptName" required>
-                </td>
-                <td></td>
-                <input type="submit" value="添加">
-            </tr>
-        </form>&ndash;%&gt;
-    </thead>
-    <div id="tb" style="height:auto">
-        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">Append</a>
-         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">Remove</a>
-         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">Accept</a>
-       &lt;%&ndash;  <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">Reject</a>
-         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>&ndash;%&gt;
-    </div>
-</table>
---%>
-
-
-  <%--  <table id="deptListUl">
-
-    </table>--%>
-
-
 <script type="text/javascript">
  /*   $('#dg').datagrid({
         title : '部门列表',
@@ -144,23 +95,20 @@
             dataType: 'json',
             success: function (data) {
                 var dept = data.resultList;
-
                 /*var intPageIndex = parseInt(pageIndex);*/
                 /*显示数据列表*/
                 var table = $("#deptListUl");
-
                 /*清除列表内容*/
                 /*$("#deptListUl tr").empty();*/
-
                 for (var i=0;i<dept.length;i++){
                     table.append(
                         $("<tr><td>"+
                             dept[i].deptID
                             +"</td><td>"+
-                            "<a href='findThisRecruit?riid="+dept[i].deptID+"'>"+
+                        /*    "<a href='findThisRecruit?riid="+dept[i].deptID+"'>"+*/
                             dept[i].deptName
-                            +"</a></td><td>" +
-                            dept[i].deptBuild
+                            +"</td><td>" +
+                            getTaskTime(dept[i].deptBuild)
                             +"</td><td>"+
                             dept[i].deptStatus
                             +"</td><td><input type='button' value='取消' onclick='cancelDept("+dept[i].deptID+")'/>"+
@@ -191,11 +139,31 @@
          type: 'post',
          url: 'deptCancel',
          data: {"deptID":did},
+         dataType: 'json',
          success: function (data) {
-             console.log(data);
+             alert(data.msg)
          }
      })
  }
+ function getTaskTime(strDate) {
+     if(null==strDate || ""==strDate){
+         return "";
+     }
+     var dateStr=strDate.trim().split(" ");
+     var strGMT = dateStr[0]+" "+dateStr[1]+" "+dateStr[2]+" "+dateStr[5]+" "+dateStr[3]+" GMT+0800";
+     var date = new Date(Date.parse(strGMT));
+     var y = date.getFullYear();
+     var m = date.getMonth() + 1;
+     m = m < 10 ? ('0' + m) : m;
+     var d = date.getDate();
+     d = d < 10 ? ('0' + d) : d;
+     var h = date.getHours();
+     var minute = date.getMinutes();
+     minute = minute < 10 ? ('0' + minute) : minute;
+     var second = date.getSeconds();
+     second = second < 10 ? ('0' + second) : second;
+     return y+"-"+m+"-"+d;
+ };
   /*  /!*编辑*!/
     $.extend($.fn.datagrid.methods, {
         editCell: function(jq,param){

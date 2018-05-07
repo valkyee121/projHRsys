@@ -27,7 +27,6 @@
 </head>
 <body>
 <div class="easyui-layout" data-options="fit:true">
-
     <div data-options="region:'center'" style="padding:10px;">
         <div style="margin-bottom:20px">
             <select name="trStatus" id="trStatus" label="查看培训记录" >

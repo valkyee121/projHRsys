@@ -65,7 +65,6 @@ public class InterViewController {
         }else {
             model.addAttribute("msg","请勿重复邀请");
         }
-        System.out.println("已进入");
         return null;
     }
 

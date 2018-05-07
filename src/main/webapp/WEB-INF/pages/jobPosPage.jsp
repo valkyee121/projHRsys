@@ -83,9 +83,9 @@
                             $("<tr><td>"+
                                 jobPos[i].jobPositions[j].jobID
                                 +"</td><td>"+
-                                "<a href='findThisRecruit?riid="+jobPos[i].jobPositions[j].jobID+"'>"+
+                                /*"<a href='findThisRecruit?riid="+jobPos[i].jobPositions[j].jobID+"'>"+*/
                                 jobPos[i].jobPositions[j].jobName
-                                +"</a></td><td>" +
+                                +"</td><td>" +
                                 jobPos[i].deptName
                                 +"</td><td>"+
                                 jobPos[i].jobPositions[j].jobSalary

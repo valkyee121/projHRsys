@@ -26,9 +26,9 @@ $(function () {
                     url : "empMyDetails"
                 }
             }, {
-                text : "NULL",
+                text : "离职申请",
                 attributes : {
-                    url : "#"
+                    url : "myDmsApply"
                 }
             }
             ]
@@ -66,14 +66,19 @@ $(function () {
             text : "薪资表",
             state : "closed",
             children : [{
-                text : "历史明细",
+                text : "工资明细",
                 attributes : {
-                    url : ""
+                    url : "empSalaryPage"
                 }
             }, {
                 text : "奖惩明细",
                 attributes : {
                     url : "myBonus"
+                }
+            }, {
+                text : "工资复议",
+                attributes : {
+                    url : "listMyReco"
                 }
             }
             ]

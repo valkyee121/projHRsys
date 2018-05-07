@@ -97,10 +97,7 @@
             }
         })
     }
-    /*ajaxJob*/
-    /*loadJob();*/
-    /*$("input[name='deptID']").bind("change",function () {*/
- /*   function loadJob() {*/
+
         $("#riDept").combobox({
             onChange:function (n,o) {
                 $.ajax({
@@ -116,15 +113,6 @@
                             valueField:'jobID',
                             textField:'jobName'
                         })
-                   /*     $("#riJob").empty();
-                        for (var i=0;i<job.length;i++){
-                            console.log(job[i]);
-                             $("#riJob").append(
-                                 $("<option value='"+job[i].jobID+"'>" +
-                                     job[i].jobName
-                                     +"</option>")
-                             )
-                        }*/
                     }
                 })
             }

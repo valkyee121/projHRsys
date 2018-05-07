@@ -24,6 +24,8 @@ public class Employee implements Serializable {
     private Double empSal;
     private List<Trainn> trainns = new ArrayList<>();
     private List<Bonus> bonuses = new ArrayList<>();
+    private List<Salary> salaries = new ArrayList<>();
+    private Dimission dimission;
 
     public int getEmpID() {
         return empID;
@@ -137,6 +139,22 @@ public class Employee implements Serializable {
         this.bonuses = bonuses;
     }
 
+    public List<Salary> getSalaries() {
+        return salaries;
+    }
+
+    public void setSalaries(List<Salary> salaries) {
+        this.salaries = salaries;
+    }
+
+    public Dimission getDimission() {
+        return dimission;
+    }
+
+    public void setDimission(Dimission dimission) {
+        this.dimission = dimission;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -154,6 +172,8 @@ public class Employee implements Serializable {
                 ", empSal=" + empSal +
                 ", trainns=" + trainns +
                 ", bonuses=" + bonuses +
+                ", salaries=" + salaries +
+                ", dimission=" + dimission +
                 '}';
     }
 }

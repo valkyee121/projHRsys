@@ -21,6 +21,14 @@
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
+    <style>
+        .div-inline{
+            display: inline;
+        }
+        .easyui-panel div {
+            margin: 10px 20px;
+        }
+    </style>
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
@@ -69,25 +77,21 @@
 
 </div>
 <div data-options="region:'center',title:'个人简历'">
-    <h2>Validate Form on Submit</h2>
-    ${myResume.uEmail}
-    <p>The form does not perform validation before being submitted.</p>
-    <div style="margin:20px 0;"></div>
-    <div class="easyui-panel" title="New Topic" style="width:100%;max-width:400px;padding:30px 60px;">
+    <div class="easyui-panel" title="简历填写" style="width:100%;max-width:800px;padding:30px 60px;">
         <form id="ff" class="easyui-form" method="post" action="saveMyResume" data-options="novalidate:true">
-            <div style="margin-bottom:20px">
+            <div class="div-inline"  style="margin-bottom:20px">
                 <input class="easyui-textbox" name="resuName" value="${myResume.resume.resuName}" style="width:100%" data-options="label:'姓名:',required:true">
             </div>
-            <div style="margin-bottom:20px">
+            <div class="div-inline"  style="margin-bottom:20px">
                 <label for="userSex" class="textbox-label">性别：</label>
                 <input id="userSex" type="radio" name="resuSex" value="0" checked>女
                 <input  type="radio" name="resuSex" value="1">男
             </div>
-            <div style="margin-bottom:20px">
-                <input class="easyui-datebox" id="birth" name="resuBirth" value="${myResume.resume.resuBirth}" label="出生日期：" labelPosition="top" style="width:100%;">
+            <div  style="margin-bottom:20px">
+                <input class="easyui-datebox" id="birth" name="resuBirth" value="${myResume.resume.resuBirth}" label="出生日期：" labelPosition="left" style="width:50%;">
             </div>
-            <div style="margin-bottom:20px">
-                <select class="easyui-combobox" name="resuCity" label="所在城市" style="width:100%">
+            <div  style="margin-bottom:20px">
+                <select class="easyui-combobox" name="resuCity" label="所在城市" style="width:50%">
                     <option value="北京" selected="selected">北京</option>
                     <option value="上海">上海</option>
                     <option value="杭州">杭州</option>
@@ -96,10 +100,22 @@
                 </select>
             </div>
             <div style="margin-bottom:20px">
-                <input class="easyui-textbox" name="resuCell" value="${myResume.resume.resuCell}" label="手机号码" >
+                <input class="easyui-textbox" name="resuCell" value="${myResume.resume.resuCell}" label="手机号码"  style="width:50%">
             </div>
             <div style="margin-bottom:20px">
-                <input class="easyui-textbox" name="resuEmail" value="${sessionScope.user.uEmail}" readonly style="width:100%" data-options="label:'Email:',required:true">
+                <input class="easyui-textbox" name="resuEmail" value="${sessionScope.user.uEmail}" readonly style="width:60%" data-options="label:'Email:',required:true">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="resuDegree" value="${myResume.resume.resuDegree}" style="width:50%" data-options="label:'学历:',required:true">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="resuMajor" value="${myResume.resume.resuMajor}" style="width:50%" data-options="label:'专业:',required:true">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="resuEdu" value="${myResume.resume.resuEdu}" style="width:100%;height:60px" data-options="label:'教育经历:',multiline:true">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="resuJobEx" value="${myResume.resume.resuJobEx}" style="width:100%;height:60px" data-options="label:'工作经历:',multiline:true">
             </div>
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" name="resuInfo" value="${myResume.resume.resuInfo}" style="width:100%;height:60px" data-options="label:'其他信息:',multiline:true">

@@ -12,6 +12,9 @@ public interface EmpMapper {
     Employee findEmp (Employee employee);
     Employee findWithTr (int empID);
     Employee findWithBM (int empID);
+    Employee findWithSal (int empID, int salStatus);
+    Employee findWithDms (int empID);
     List<Employee> listAllEmp (Employee employee);
+    List<Employee> listAllByDms (int dmStatus);
 
 }

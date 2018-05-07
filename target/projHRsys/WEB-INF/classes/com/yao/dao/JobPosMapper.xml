@@ -39,7 +39,19 @@
         </set>
         WHERE JOB_ID = #{jobID}
     </update>
-    <delete id="deleteJobPos"></delete>
+    <delete id="deleteJobPos">
+        DELETE FROM T_HRSYS_JOB
+        <where>
+            <choose>
+                <when test="jobID!=null and jobID!=''">
+                    JOB_ID=#{jobID}
+                </when>
+                <when test="department!=null">
+                    JOB_DEPT_ID=#{department.deptID}
+                </when>
+            </choose>
+        </where>
+    </delete>
     <select id="findJobPos" resultMap="findJobPosMap">
         SELECT * FROM T_HRSYS_JOB WHERE JOB_ID=#{jobID}
     </select>

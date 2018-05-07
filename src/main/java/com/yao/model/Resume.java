@@ -19,6 +19,10 @@ public class Resume implements Serializable{
     private int resuStatus;
     private String resuEmail;
     private int uid;
+    private String resuDegree;
+    private String resuMajor;
+    private String resuEdu;
+    private String resuJobEx;
     private InternalPost internalPost;
     private List<Recruit> recruits = new ArrayList<Recruit>();
     private List<InterView> interViews = new ArrayList<InterView>();
@@ -103,6 +107,38 @@ public class Resume implements Serializable{
         this.uid = uid;
     }
 
+    public String getResuDegree() {
+        return resuDegree;
+    }
+
+    public void setResuDegree(String resuDegree) {
+        this.resuDegree = resuDegree;
+    }
+
+    public String getResuMajor() {
+        return resuMajor;
+    }
+
+    public void setResuMajor(String resuMajor) {
+        this.resuMajor = resuMajor;
+    }
+
+    public String getResuEdu() {
+        return resuEdu;
+    }
+
+    public void setResuEdu(String resuEdu) {
+        this.resuEdu = resuEdu;
+    }
+
+    public String getResuJobEx() {
+        return resuJobEx;
+    }
+
+    public void setResuJobEx(String resuJobEx) {
+        this.resuJobEx = resuJobEx;
+    }
+
     public List<Recruit> getRecruits() {
         return recruits;
     }
@@ -140,8 +176,13 @@ public class Resume implements Serializable{
                 ", resuStatus=" + resuStatus +
                 ", resuEmail='" + resuEmail + '\'' +
                 ", uid=" + uid +
+                ", resuDegree='" + resuDegree + '\'' +
+                ", resuMajor='" + resuMajor + '\'' +
+                ", resuEdu='" + resuEdu + '\'' +
+                ", resuJobEx='" + resuJobEx + '\'' +
                 ", internalPost=" + internalPost +
                 ", recruits=" + recruits +
+                ", interViews=" + interViews +
                 '}';
     }
 }

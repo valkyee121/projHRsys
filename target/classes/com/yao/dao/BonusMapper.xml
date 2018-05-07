@@ -17,6 +17,6 @@
     <delete id="deleteBonus"></delete>
     <select id="findThis" resultType="com.yao.model.Bonus"></select>
     <select id="listBonusMon" resultMap="findBonusMap">
-        SELECT * FROM T_HRSYS_BM WHERE BM_EMP_ID=#{bmEmpID} AND TO_CHAR(BM_DATE,'yyyy-MM')=TO_CHAR(#{bmDate},'yyyy-MM')
+        SELECT * FROM T_HRSYS_BM WHERE BM_EMP_ID=#{bmEmpID} AND TO_CHAR(BM_DATE,'yyyy-MM')=TO_CHAR(#{bmDate},'yyyy-MM') ORDER BY BM_ID
     </select>
 </mapper>

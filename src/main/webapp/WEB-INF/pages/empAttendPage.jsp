@@ -23,7 +23,6 @@
     <link rel="stylesheet" type="text/css" href="resources/css/table.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
-
 </head>
 <body>
 <div class="easyui-layout" data-options="fit:true">

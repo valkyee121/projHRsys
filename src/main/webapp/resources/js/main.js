@@ -71,6 +71,11 @@ $(function () {
                     url : "empInfoPage"
                 }
             }, {
+                text : "员工离职申请",
+                attributes : {
+                    url : "empDmsPage"
+                }
+            }, {
                 text : "培训管理",
                 attributes : {
                     url : "trainnManaPage"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yao.dao.RecoMapper">
+    <resultMap id="findRecoMap" type="Reconsider">
+        <id property="recoID" column="reco_id"/>
+        <result property="recoContent" column="reco_content"/>
+        <result property="recoMoney" column="reco_money"/>
+        <result property="recoDate" column="reco_date"/>
+        <association property="employee" javaType="Employee">
+            <id property="empID" column="emp_id"/>
+            <result property="empName" column="emp_name"/>
+        </association>
+        <association property="salary" javaType="Salary">
+            <id property="salID" column="sal_id"/>
+            <result property="salDate" column="sal_date"/>
+        </association>
+    </resultMap>
+    <insert id="saveReco">
+        INSERT INTO T_HRSYS_RECO (RECO_CONTENT, RECO_MONEY, RECO_SAL_ID, RECO_EMP_ID, RECO_DATE)
+        VALUES (#{recoContent},#{recoMoney},#{salary.salID},#{employee.empID},#{recoDate})
+    </insert>
+    <update id="updateReco">
+        UPDATE T_HRSYS_RECO
+        SET RECO_CONTENT=#{recoContent}, RECO_MONEY=#{recoMoney}
+        WHERE RECO_ID=#{recoID}
+    </update>
+    <delete id="deleteReco">
+        DELETE FROM T_HRSYS_RECO WHERE RECO_ID=#{recoID}
+    </delete>
+    <select id="findByID" resultMap="findRecoMap">
+        SELECT re.RECO_ID, re.RECO_CONTENT, re.RECO_MONEY, e.EMP_ID,RECO_DATE FROM T_HRSYS_RECO re JOIN T_HRSYS_EMP e ON re.RECO_EMP_ID=e.EMP_ID WHERE RECO_ID=#{recoID}
+    </select>
+    <select id="listByEmp" resultMap="findRecoMap">
+        SELECT RECO_ID, RECO_CONTENT, RECO_SAL_ID, RECO_EMP_ID, RECO_MONEY, RECO_DATE FROM T_HRSYS_RECO WHERE RECO_EMP_ID=#{arg0}
+    </select>
+</mapper>
