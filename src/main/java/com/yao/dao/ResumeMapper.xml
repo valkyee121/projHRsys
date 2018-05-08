@@ -12,6 +12,10 @@
         <result property="resuEmail" column="resu_email"/>
         <result property="resuStatus" column="resu_status"/>
         <result property="uid" column="resu_uid"/>
+        <result property="resuDegree" column="resu_degree"/>
+        <result property="resuMajor" column="resu_major"/>
+        <result property="resuEdu" column="resu_edu"/>
+        <result property="resuJobEx" column="resu_jobex"/>
     </resultMap>
 
     <!--With Recruit-->

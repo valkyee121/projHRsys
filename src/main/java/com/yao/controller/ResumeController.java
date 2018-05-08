@@ -195,15 +195,22 @@ public class ResumeController {
     }
 
     @RequestMapping("/rejectPost")
-    public void rejectPost(HttpServletRequest request, Model model, InterView iv) throws Exception{
+    public void rejectPost(HttpServletRequest request, Model model, InterView iv, HttpServletResponse response) throws Exception{
         request.setCharacterEncoding("UTF-8");
         int resuID = Integer.parseInt(request.getParameter("resumeID"));
         int recruID = Integer.parseInt(request.getParameter("recruitID"));
         Resume resume = resumeService.findThisResume(resuID,recruID);
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
         if (resume.getInternalPost().getPostStatus()!=2){
             if (resumeService.updatePostResume(recruID,resuID,3)){
                 System.out.println("淘汰");
+                jsonObj.put("code","1");
             }
+        }else {
+            jsonObj.put("code","2");
         }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 }

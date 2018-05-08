@@ -67,9 +67,9 @@
                 for (var i=0;i<interV.length;i++){
                     table.append(
                         $("<tr><td> <input type='button' value='录用' id='accept' onclick='acceptIV("+interV[i].jivID+");'></td>"+
-                            "<td><a href='#'>"+
+                            "<td>"+
                             interV[i].resume.resuName
-                            +"</a></td><td>" +
+                            +"</td><td>" +
                             interV[i].recruit.riDept.deptName
                             +"</td><td>"+
                             interV[i].recruit.riJob.jobName

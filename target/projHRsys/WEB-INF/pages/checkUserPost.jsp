@@ -1,5 +1,6 @@
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %><%--
+<%@ page import="java.util.Date" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%--
   Created by IntelliJ IDEA.
   User: AllenYao
   Date: 2018.04.24
@@ -39,6 +40,12 @@
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" label="薪资标准：" value="${userPostReRs.recruits[0].riSalary}" labelPosition="top" readonly style="width:100%;">
             </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" prompt="${userPostReRs.recruits[0].riDept.deptName}" label="所属部门:" labelPosition="top" readonly  style="width:50%;" >
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" prompt="${userPostReRs.recruits[0].riJob.jobName}"  label="所属职位:" labelPosition="top" readonly style="width:50%;" />
+            </div>
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" label="岗位职责:" value="${userPostReRs.recruits[0].riDuty}"labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
             </div>
@@ -60,7 +67,7 @@
                 <input class="easyui-textbox" label="性别：" value="${userPostReRs.resuSex}" labelPosition="top" readonly style="width:100%;">
             </div>
             <div style="margin-bottom:20px">
-                <input class="easyui-textbox" label="出生日期：" value="${userPostReRs.resuBirth}" labelPosition="top" readonly style="width:100%;">
+                <input class="easyui-textbox" label="出生日期：" prompt="<fmt:formatDate value="${userPostReRs.resuBirth}" type="date" pattern="yyyy-MM-dd"/> " labelPosition="top" readonly style="width:100%;">
             </div>
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" label="所在城市：" value="${userPostReRs.resuCity}" labelPosition="top" readonly style="width:100%;">
@@ -109,8 +116,16 @@
             type: 'post',
             url :'interViewSave',
             data: $('#ff').serialize(),
+            dataType: 'json',
             success: function (data) {
-                console.log(data);
+                if (data.code=='1'){
+                    alert("邀请成功");
+                    window.location.href = "postResumePage";
+                }else if (data.code=='2'){
+                    alert("请勿重复邀请");
+                }
+            },error:function () {
+                alert("请填写完整信息")
             }
         })
         /*$('#ff').form('submit','action=interViewSave'),{
@@ -141,9 +156,16 @@
         $.ajax({
             type: 'post',
             url :'rejectPost',
+            dataType: 'json',
             data :$('#ff').serialize(),
             success: function (data) {
-                console.log(data)
+                if (data.code=='1'){
+                    alert("简历已淘汰");
+                }else if (data.code=='2'){
+                    alert("已发出面试邀请，无法更改");
+                }
+            },error:function () {
+                alert("操作错误")
             }
         })
     }

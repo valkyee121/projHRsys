@@ -36,7 +36,7 @@
         <input class="easyui-textbox" name="riCompany" value="${thisRecruit.riCompany}" label="企业:" labelPosition="top" style="width:100%;">
     </div>
     <div style="margin-bottom:20px">
-        <input class="easyui-textbox" name="riSalary" value="${thisRecruit.riSalary}" readonly label="薪酬标准:" labelPosition="top" style="width:100%;">
+        <input class="easyui-textbox" id="riSal" name="riSalary" value="${thisRecruit.riSalary}" readonly label="薪酬标准:" labelPosition="top" style="width:100%;">
     </div>
     <div style="margin-bottom:20px">
         <input class="easyui-combobox" id="riDept" name="deptID" prompt="${thisRecruit.riDept.deptName}" label="所属部门:" labelPosition="top"  style="width:50%;" >
@@ -114,7 +114,7 @@
                     $("#riJob").combobox({
                         data: job,
                         valueField:'jobID',
-                        textField:'jobName'
+                        textField:'jobName',
                     })
                 }
             })
@@ -130,13 +130,6 @@
                 async : false,
                 url : 'ajaxFindJob',
                 success : function (data) {
-                    console.log(data.result);
-                    /*$("#riSal").append({
-                        data: data,
-                        valueField: 'riSalary',
-                    })*/
-
-                    /*  $("#riSal").textbox("");*/
                     $("#riSal").textbox('setValue',data.result.jobSalary);
                 }
             })

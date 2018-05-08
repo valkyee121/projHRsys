@@ -1,4 +1,4 @@
-<%--
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%--
   Created by IntelliJ IDEA.
   User: AllenYao
   Date: 2018.04.26
@@ -35,7 +35,7 @@
             <input  type="radio" name="resuSex" value="1">男
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-datebox" id="birth" name="empBirth" value="${sessionScope.newEmpInfo.resume.resuBirth}" label="出生日期：" labelPosition="top" style="width:100%;">
+            <input class="easyui-textbox" id="birth" name="empBirth" value="<fmt:formatDate value='${sessionScope.newEmpInfo.resume.resuBirth}' type="date" pattern="yyyy-MM-dd"/>"   label="出生日期：" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" id="city" name="empCity" value="${sessionScope.newEmpInfo.resume.resuCity}" label="所在城市：" labelPosition="top" style="width:100%;">
@@ -47,10 +47,10 @@
             <input class="easyui-textbox" name="empEmail" value="${sessionScope.newEmpInfo.resume.resuEmail}" readonly style="width:100%" data-options="label:'Email:'">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" name="deptID" value="${sessionScope.newEmpInfo.recruit.riDept.deptID}" readonly style="width:100%" data-options="label:'所属部门:'">
+            <input class="easyui-textbox" name="deptID" value="${sessionScope.newEmpInfo.recruit.riDept.deptID}" readonly style="width:100%" data-options="label:'所属部门编号:'">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" name="jobID" value="${sessionScope.newEmpInfo.recruit.riJob.jobID}" readonly style="width:100%" data-options="label:'所属职位:'">
+            <input class="easyui-textbox" name="jobID" value="${sessionScope.newEmpInfo.recruit.riJob.jobID}" readonly style="width:100%" data-options="label:'所属职位编号:'">
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="jobSalary" value="${sessionScope.newEmpInfo.recruit.riJob.jobSalary}" readonly style="width:100%" data-options="label:'职位薪酬:'">

@@ -24,9 +24,9 @@
 </head>
 <body>
 <div class="easyui-panel" style="width:20%;max-width:400px;padding:30px 60px;">
-    <div style="margin-bottom:20px">
+    <div>
         <form id="ff" method="post">
-            <input class="easyui-datebox" id="checkMon" name="checkMon" label="Customized Format:" labelPosition="top" data-options="formatter:myformatter,parser:myparser" style="width:100%;">
+            <input class="easyui-datebox" id="checkMon" name="checkMon" data-options="formatter:myformatter,parser:myparser" style="width:100%;">
         </form>
         <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="confirm()" style="width:80px">确认查看</a>
     </div>

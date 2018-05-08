@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -27,6 +29,17 @@ public class UserController {
     public String backToIndex() throws Exception{
         return "../../index";
     }
+    @RequestMapping("/guestPage")
+    public String guestPage() throws Exception{
+        return "guestPage";
+    }
+
+    /**
+     *
+     * @param user
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/ajaxForRegist")
     public void ajaxForRegist(User user, HttpServletResponse response) throws Exception{
         System.out.println(user);
@@ -39,6 +52,13 @@ public class UserController {
             response.getWriter().print(1);
         }
     }
+
+    /**
+     *
+     * @param user
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/userRegister")
     public String userRegister(User user) throws Exception{
         user.setuType(1);
@@ -51,6 +71,14 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     * @param user
+     * @param session
+     * @param employee
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/userLogin")
     public String userLogin(User user, HttpSession session, Employee employee) throws Exception{
         User user1 = userService.loginUser(user);
@@ -74,6 +102,14 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     * @param resume
+     * @param model
+     * @param session
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/userMyResume")
     public String userMyResumes(Resume resume, Model model,HttpSession session) throws Exception{
         User user = (User) session.getAttribute("user");
@@ -84,5 +120,14 @@ public class UserController {
             model.addAttribute("msg","请先填写新简历");
         }
         return "myResumePage";
+    }
+
+    @RequestMapping("/checkOut")
+    public String checkOut(HttpSession session , HttpServletRequest request, Model model) throws Exception{
+        session = request.getSession(false); //防止创建session
+        session.removeAttribute("user");
+        session.removeAttribute("myEmpInfo");
+        model.addAttribute("myResume","null");
+        return "../../index";
     }
 }

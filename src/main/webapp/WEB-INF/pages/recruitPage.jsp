@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: AllenYao
@@ -20,55 +21,56 @@
     <link rel="stylesheet" type="text/css" href="resources/js/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/teal.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body class="easyui-layout">
-<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-    导航栏
-    <c:if test="${sessionScope.user != null}">
-        <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
-        <a href="myApplypage">我的职位申请</a>
-        <a href="interViewPage">我的面试</a>
-    </c:if>
 
+<div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
+    <nav class="nav">
+        <ul>
+            <c:if test="${sessionScope.user != null}">
+                <li ><a href="guestPage">Home</a></li>
+                <li><a href="userMyResume?uid=${sessionScope.user.uid}">个人简历 </a></li>
+                <li><a href="myApplypage">职位申请 </a></li>
+                <li><a href="interViewPage">我的面试 </a></li>
+                <!-- Regular Menu Ends -->
+            </c:if>
+        </ul>
+    </nav>
 </div>
-<div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
+<div data-options="region:'west',split:true,title:'West'" style="width:256px;padding:10px;">
     <%--LOGIN--%>
-    <h2>用户信息</h2>
-    <div style="margin:20px 0;"></div>
-    <div style="margin-bottom:10px">
-        <p>${user.uEmail}</p>
-        <table>
-            <tr>
-                <th>姓名</th>
-                <td>${myResume.resume.resuName}</td>
-            </tr>
-            <tr>
-                <th>性别</th>
-                <td>${myResume.resume.resuSex}</td>
-            </tr>
-            <tr>
-                <th>出生年月</th>
-                <td>${myResume.resume.resuBirth}</td>
-            </tr>
-            <tr>
-                <th>所在城市</th>
-                <td>${myResume.resume.resuCity}</td>
-            </tr>
-            <tr>
-                <th>联系电话</th>
-                <td>${myResume.resume.resuCell}</td>
-            </tr>
-            <tr>
-                <th>邮箱地址</th>
-                <td>${myResume.resume.resuEmail}</td>
-            </tr>
-            <tr>
-                <th>其他信息</th>
-                <td>${myResume.resume.resuInfo}</td>
-            </tr>
-        </table>
+    <div class="row flat">
+        <div class="col-lg-3 col-md-3 col-xs-6">
+            <ul class="plan plan1">
+                <li class="plan-name">
+                    用户信息
+                </li>
+                <li class="plan-price">
+                    姓名：<strong>${myResume.resume.resuName}</strong>
+                </li>
+                <li class="plan-price">
+                    出生年月：<strong><fmt:formatDate value='${myResume.resume.resuBirth}' type="date" pattern="yyyy-MM-dd"/></strong>
+                </li>
+                <li class="plan-price">
+                    居住地：<strong>${myResume.resume.resuCity}</strong>
+                </li>
+                <li class="plan-price">
+                    手机：<strong>${myResume.resume.resuCell}</strong>
+                </li>
+                <li class="plan-price">
+                    邮箱：<strong>${myResume.resume.resuEmail}</strong>
+                </li>
+                <c:if test="${sessionScope.user != null}">
+                <li class="plan-action">
+                    <a href="checkOut" class="btn btn-danger btn-lg">退出登录</a>
+                </li>
+                </c:if>
+            </ul>
+        </div>
     </div>
 </div>
 <div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
@@ -111,9 +113,9 @@
             <input type="button" class="easyui-linkbutton" onclick="submitForm()" value="申请该职位">
         </form>
     </div>
-    <a href="backToIndex">back</a>
+    <%--<a href="backToIndex">back</a>--%>
 </div>
-<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+<div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
     页脚
 </div>
 <script type="text/javascript">

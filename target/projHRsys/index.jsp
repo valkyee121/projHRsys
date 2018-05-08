@@ -27,8 +27,7 @@
 </head>
 <body class="easyui-layout">
     <%--MAINPAGE--%>
-    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-        导航栏
+    <div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
     </div>
     <div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
         <%--LOGIN--%>
@@ -54,7 +53,7 @@
     <%--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
 
     </div>--%>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+    <div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
         页脚
     </div>
     <div data-options="region:'center',title:'招聘资讯'">

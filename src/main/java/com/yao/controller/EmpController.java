@@ -7,13 +7,19 @@ import com.yao.model.*;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.beans.PropertyEditorSupport;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +32,23 @@ public class EmpController {
     private InterViewService interViewService;
     @Resource
     private UserService userService;
+
+    /*@InitBinder
+    public void InitBinder(WebDataBinder dataBinder)
+    {
+        dataBinder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
+            public void setAsText(String value) {
+                try {
+                    setValue(new SimpleDateFormat("yyyy-MM-dd").parse(value));
+                } catch(ParseException e) {
+                    setValue(null);
+                }
+            }
+            public String getAsText() {
+                return new SimpleDateFormat("yyyy-MM-dd").format((Date) getValue());
+            }
+        });
+    }*/
     @RequestMapping("/empInfoPage")
     public String empInfoPage() throws Exception{
         return "empInfoMana";
@@ -44,18 +67,25 @@ public class EmpController {
      * @throws Exception
      */
     @RequestMapping("/saveNewEmp")
-    public void saveNewEmp(User user,InterView interView, Employee employee, Department department, JobPosition jobPosition) throws Exception{
+    public void saveNewEmp(User user,InterView interView, Employee employee, Department department, JobPosition jobPosition, HttpServletResponse response) throws Exception{
         employee.setEmpJob(jobPosition);
         employee.setEmpDept(department);
         employee.setEmpSal(jobPosition.getJobSalary());
         user.setuEmail(employee.getEmpEmail());
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
         if (empService.saveEmp(employee)){
             user.setuType(2);
             interView.setJivStatus(5);
             System.out.println(user);
             userService.updateUser(user);
             interViewService.updateInterView(interView);
+            jsonObj.put("code","1");
+        }else {
+            jsonObj.put("code","2");
         }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 
     /**

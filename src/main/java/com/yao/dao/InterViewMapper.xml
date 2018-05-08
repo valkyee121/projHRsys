@@ -19,6 +19,10 @@
             <result property="riName" column="ri_name"/>
             <result property="riCompany" column="ri_company"/>
             <result property="riSalary" column="ri_salary"/>
+            <result property="riDuty" column="ri_duty"/>
+            <result property="riDesired" column="ri_desired"/>
+            <result property="riAddtion" column="ri_addtion"/>
+            <result property="riLocation" column="ri_location"/>
             <association property="riDept" javaType="Department">
                 <id property="deptID" column="dept_id"/>
                 <result property="deptName" column="dept_name"/>
@@ -65,10 +69,10 @@
     </select>
     <select id="listAll" resultMap="findIVMap">
         SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, re.RI_ID, re.RI_NAME, re.RI_COMPANY, re.RI_SALARY FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
-        WHERE iv.JIV_RESUME_ID=#{arg0}
+        WHERE iv.JIV_RESUME_ID=#{arg0} AND iv.JIV_STATUS=#{arg1}
     </select>
     <select id="finfIvById" resultMap="findIVMap">
-          SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, rs.RESU_SEX,rs.RESU_BIRTH,rs.RESU_CITY,rs.RESU_EMAIL,re.RI_ID, re.RI_NAME, re.RI_COMPANY, re.RI_SALARY, dp.DEPT_ID, jb.JOB_ID, jb.JOB_SALARY FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
+          SELECT iv.*, rs.RESU_ID, rs.RESU_NAME, rs.RESU_SEX,rs.RESU_BIRTH,rs.RESU_CITY,rs.RESU_EMAIL,re.*,dp.DEPT_ID, dp.DEPT_NAME,jb.JOB_ID, jb.JOB_NAME,jb.JOB_SALARY FROM T_HRSYS_INTERVIEW iv JOIN T_HRSYS_RESUME rs ON iv.JIV_RESUME_ID=rs.RESU_ID JOIN T_HRSYS_RECRUITINF re ON iv.JIV_RECRUIT_ID=re.RI_ID
         JOIN T_HRSYS_JOB jb ON jb.JOB_ID=re.RI_JOBPOS_ID JOIN T_HRSYS_DEPT dp ON dp.DEPT_ID=re.RI_DEPT_ID
         WHERE iv.JIV_ID=#{jivID}
     </select>

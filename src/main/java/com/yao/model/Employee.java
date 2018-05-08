@@ -11,7 +11,7 @@ public class Employee implements Serializable {
     private int empID;
     private String empName;
     private int empSex;
-    /*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date empBirth;
     private String empCity;
     private String empEmail;

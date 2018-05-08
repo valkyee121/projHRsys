@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
     <link rel="stylesheet" type="text/css" href="resources/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/teal.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
     <style>
@@ -33,10 +34,16 @@
     </style>
 </head>
 <body class="easyui-layout">
-<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-    <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
-    <a href="myApplypage">我的职位申请</a>
-    <a href="interViewPage">我的面试</a>
+<div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
+    <nav class="nav">
+        <ul >
+            <li ><a href="guestPage">Home</a></li>
+            <li><a href="userMyResume?uid=${sessionScope.user.uid}">个人简历 </a></li>
+            <li><a href="myApplypage">职位申请 </a></li>
+            <li><a href="interViewPage">我的面试 </a></li>
+            <!-- Regular Menu Ends -->
+        </ul>
+    </nav>
 </div>
 <div data-options="region:'west',split:true,title:'West'" style="width:256px;padding:10px;">
     <%--LOGIN--%>
@@ -62,7 +69,7 @@
                     邮箱：<strong>${myResume.resume.resuEmail}</strong>
                 </li>
                 <li class="plan-action">
-                    <a href="#" class="btn btn-danger btn-lg">退出登录</a>
+                    <a href="checkOut" class="btn btn-danger btn-lg">退出登录</a>
                 </li>
             </ul>
         </div>
@@ -151,9 +158,9 @@
             </table>
         </form>
     </div>--%>
-    <a href="backToIndex">back</a>
+    <%--<a href="backToIndex">back</a>--%>
 </div>
-<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+<div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
     页脚
 </div>
 <script type="text/javascript">

@@ -21,15 +21,23 @@
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
     <link rel="stylesheet" type="text/css" href="resources/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/teal.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body class="easyui-layout">
 <%--MAINPAGE--%>
-<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-    <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
-    <a href="myApplypage">我的职位申请</a>
-    <a href="interViewPage">我的面试</a>
+<div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
+    <nav class="nav">
+        <ul >
+            <li ><a href="guestPage">Home</a></li>
+            <li><a href="userMyResume?uid=${sessionScope.user.uid}">个人简历 </a></li>
+            <li><a href="myApplypage">职位申请 </a></li>
+            <li><a href="interViewPage">我的面试 </a></li>
+            <!-- Regular Menu Ends -->
+        </ul>
+    </nav>
 </div>
 <div data-options="region:'west',split:true,title:'West'" style="width:256px;padding:10px;">
     <%--LOGIN--%>
@@ -55,7 +63,7 @@
                     邮箱：<strong>${myResume.resume.resuEmail}</strong>
                 </li>
                 <li class="plan-action">
-                    <a href="#" class="btn btn-danger btn-lg">退出登录</a>
+                    <a href="checkOut" class="btn btn-danger btn-lg">退出登录</a>
                 </li>
             </ul>
         </div>
@@ -64,7 +72,7 @@
 <%--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
 
 </div>--%>
-<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+<div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
     页脚
 </div>
 <div data-options="region:'center',title:'面试信息'">
@@ -75,8 +83,15 @@
             <option value="2">已拒绝</option>
         </select>
     </div>
-    <table id="intervListUl">
-
+    <table class="table-7" id="intervListUl" style="width: 100%">
+        <thead>
+        <th>应聘职位</th>
+        <th>公司名称</th>
+        <th>薪资待遇</th>
+        <th>应聘者姓名</th>
+        <th>面试时间</th>
+        <th>面试地点</th>
+        </thead>
     </table>
     <%-- <ul class="easyui-datalist" id="recruitListUl" style="display: block">
          &lt;%&ndash;<c:forEach items="${recruitList}" var="rec">
@@ -88,7 +103,8 @@
     $("#jivStatus").bind("change",function () {
         var jivStatus = $(this).val();
         var resuID = ${myResume.resume.resuID};
-        console.log(jivStatus);
+        /*清除列表内容*/
+        $("#intervListUl tr td").remove();
         $.ajax({
             type: 'post',
             url: 'ajaxUserInterV',
@@ -100,9 +116,8 @@
 
                 /*显示数据列表*/
                 var table = $("#intervListUl");
-                table.empty();
-                /*清除列表内容*/
-                $("#intervListUl tr").remove();
+                /*table.empty();*/
+
                 /*填入内容*/
                 console.log(apply);
                 for (var i=0;i<apply.length;i++){

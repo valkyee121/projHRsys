@@ -38,8 +38,8 @@ public class InterViewServiceImpl implements InterViewService {
     }
 
     @Override
-    public List<InterView> listAll(int resuID) {
-        return interViewMapper.listAll(resuID);
+    public List<InterView> listAll(int resuID, int status) {
+        return interViewMapper.listAll(resuID, status);
     }
 
     @Override

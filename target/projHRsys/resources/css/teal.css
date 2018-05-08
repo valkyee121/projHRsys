@@ -14,12 +14,11 @@
 
 .nav ul {
     margin: 0px;
-    padding: 0px 10px;
 }
 
 .nav ul li {
     margin: 0 5px 10px 0;
-    padding: 0;
+    padding: 0 ;
     list-style: none;
     float: left;
     font-size: 18px;
@@ -29,15 +28,18 @@
 .nav a {
     padding: 3px 12px;
     text-decoration: none;
-    color: #eeeeee;
+    color: #505050;
     line-height: 100%;
     height: 50px;
 }
 
 .nav a:hover {
-    background-color:#2f96b4;
+    background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);
+    opacity: 0.5;
+    color: #3c3c3c;
     /*border:10px solid #2f96b4;*/
-    padding: 20px 5px;
+    padding: 20px 0px;
+
 }
 
 .nav .current a {

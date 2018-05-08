@@ -28,11 +28,11 @@
 </head>
 <body class="easyui-layout">
 <%--MAINPAGE--%>
-    <div data-options="region:'north',border:true" style="height:60px;background:#95d2de;padding:10px">
+    <div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
         <div>
             <nav class="nav">
                 <ul >
-                    <li ><a href="#">Home</a></li>
+                    <li ><a href="guestPage">Home</a></li>
                     <li><a href="userMyResume?uid=${sessionScope.user.uid}">个人简历 </a></li>
                     <li><a href="myApplypage">职位申请 </a></li>
                     <li><a href="interViewPage">我的面试 </a></li>
@@ -69,7 +69,7 @@
                         邮箱：<strong>${myResume.resume.resuEmail}</strong>
                     </li>
                     <li class="plan-action">
-                        <a href="#" class="btn btn-danger btn-lg">退出登录</a>
+                        <a href="checkOut" class="btn btn-danger btn-lg">退出登录</a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
     <%--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
 
     </div>--%>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+    <div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
         页脚
     </div>
     <div data-options="region:'center',title:'招聘资讯'">
