@@ -23,11 +23,9 @@
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
-<h2>Multiline TextBox</h2>
-<p>This example shows how to define a textbox for the user to enter multi-line text input.</p>
 <div style="margin:20px 0;"></div>
 <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
-    <form id="ff" class="easyui-form" method="post" action="#" data-options="novalidate:true">
+    <form id="ff" class="easyui-form" method="post" <%--action="recruitUpdate"--%> data-options="novalidate:true">
     <div>
         <input type="hidden" name="riid" value="${thisRecruit.riid}">
     </div>
@@ -38,7 +36,13 @@
         <input class="easyui-textbox" name="riCompany" value="${thisRecruit.riCompany}" label="企业:" labelPosition="top" style="width:100%;">
     </div>
     <div style="margin-bottom:20px">
-        <input class="easyui-textbox" name="riSalary" value="${thisRecruit.riSalary}" label="薪酬标准:" labelPosition="top" style="width:100%;">
+        <input class="easyui-textbox" name="riSalary" value="${thisRecruit.riSalary}" readonly label="薪酬标准:" labelPosition="top" style="width:100%;">
+    </div>
+    <div style="margin-bottom:20px">
+        <input class="easyui-combobox" id="riDept" name="deptID" prompt="${thisRecruit.riDept.deptName}" label="所属部门:" labelPosition="top"  style="width:50%;" >
+    </div>
+    <div style="margin-bottom:20px">
+        <select class="easyui-combobox"  id="riJob" name="jobID" prompt="${thisRecruit.riJob.jobName}"  label="所属职位:" labelPosition="top"  style="width:50%;" />
     </div>
     <div style="margin-bottom:20px">
         <input class="easyui-textbox" name="riDuty" value="${thisRecruit.riDuty}" label="岗位职责:" labelPosition="top" multiline="true" style="width:100%;height:120px">
@@ -50,11 +54,11 @@
         <input class="easyui-textbox" name="riAddtion" value="${thisRecruit.riAddtion}" label="其他信息:" labelPosition="top" multiline="true" style="width:100%;height:120px">
     </div>
     <div style="margin-bottom:20px">
-        <input class="easyui-textbox" name="riLocation" value="${thisRecruit.riLocation}" label="工作地点:" labelPosition="top" multiline="true" style="width:100%;height:120px">
+        <input class="easyui-textbox" name="riLocation" value="${thisRecruit.riLocation}" label="工作地点:" labelPosition="top" style="width:100%">
     </div>
         <div style="text-align:center;padding:5px 0">
             <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>--%>
-            <input class="easyui-linkbutton" type="submit" value="SAVE" style="width:80px">
+            <input class="easyui-linkbutton" type="button" onclick="submitForm()" value="SAVE" style="width:80px">
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
         </div>
     </form>
@@ -62,15 +66,82 @@
 
 <script>
     function submitForm(){
-        $('#ff').form('save',{
-            onSubmit:function(){
-                return $(this).form('validate');
+        $.ajax({
+            type: 'post',
+            url: 'recruitUpdate',
+            dataType: 'json',
+            data: $('#ff').serialize(),
+            success: function (data) {
+                alert(data.msg)
             }
-        });
+        })
     }
     function clearForm(){
         $('#ff').form('clear');
     }
+
+    loadDept();
+    function loadDept() {
+        $.ajax({
+            type: 'post',
+            dataType : 'json',
+            data: {"pageIndex": 1},
+            async: false,
+            url : 'ajaxListAllDept',
+            success:function (data) {
+                var dept = data.resultList;
+                for (var i=0;i<dept.length;i++){
+                    $("#riDept").append(
+                        $("<option value='"+dept[i].deptID+"'>" +
+                            dept[i].deptName
+                            +"</option>")
+                    )
+                }
+            }
+        })
+    }
+
+    $("#riDept").combobox({
+        onChange:function (n) {
+            $.ajax({
+                type: 'post',
+                dataType : 'json',
+                data: {"deptID":n},
+                async: false,
+                url : 'ajaxFindJobByDept',
+                success:function (data) {
+                    var job = data.result.jobPositions;
+                    $("#riJob").combobox({
+                        data: job,
+                        valueField:'jobID',
+                        textField:'jobName'
+                    })
+                }
+            })
+        }
+    })
+
+    $("#riJob").combobox({
+        onChange:function (n) {
+            $.ajax({
+                type: 'post',
+                dataType : 'json',
+                data: {'jobID':n},
+                async : false,
+                url : 'ajaxFindJob',
+                success : function (data) {
+                    console.log(data.result);
+                    /*$("#riSal").append({
+                        data: data,
+                        valueField: 'riSalary',
+                    })*/
+
+                    /*  $("#riSal").textbox("");*/
+                    $("#riSal").textbox('setValue',data.result.jobSalary);
+                }
+            })
+        }
+    })
 </script>
 </body>
 </html>

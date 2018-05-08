@@ -8,7 +8,7 @@ public class Recruit implements Serializable {
     private int riid;
     private String riName;
     private String riCompany;
-    private String riSalary;
+    private double riSalary;
     private String riDuty;
     private String riDesired;
     private String riAddtion;
@@ -43,11 +43,11 @@ public class Recruit implements Serializable {
         this.riCompany = riCompany;
     }
 
-    public String getRiSalary() {
+    public double getRiSalary() {
         return riSalary;
     }
 
-    public void setRiSalary(String riSalary) {
+    public void setRiSalary(double riSalary) {
         this.riSalary = riSalary;
     }
 

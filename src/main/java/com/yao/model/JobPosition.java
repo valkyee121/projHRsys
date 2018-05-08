@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JobPosition implements Serializable {
-    private int jobID;
+    private Integer jobID;
     private String jobName;
     private double jobSalary;
     private int jobStatus;
     private Department department;
-    public int getJobID() {
+
+    public Integer getJobID() {
         return jobID;
     }
 
-    public void setJobID(int jobID) {
+    public void setJobID(Integer jobID) {
         this.jobID = jobID;
     }
 

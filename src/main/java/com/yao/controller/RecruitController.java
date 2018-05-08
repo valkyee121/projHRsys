@@ -159,6 +159,26 @@ public class RecruitController {
         model.addAttribute("thisRecruit",recruit);
         return "recruitMod";
     }
+    @RequestMapping("/recruitUpdate")
+    public void recruitUpdate(Recruit recruit, JobPosition jobPosition, Department department,HttpServletResponse response, HttpServletRequest request) throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        if (department!=null && jobPosition!=null){
+            recruit.setRiDept(department);
+            recruit.setRiJob(jobPosition);
+        }
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
+        if (null!=recruit){
+            recruitService.updateRecruit(recruit);
+            jsonObj.put("msg","更新成功");
+        }else {
+            jsonObj.put("msg","更新失败");
+        }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
+    }
 
     @RequestMapping("/recruitSaveManag")
     public String recruitSaveManag(Recruit recruit, Department dt, JobPosition jp, HttpServletRequest request) throws Exception{

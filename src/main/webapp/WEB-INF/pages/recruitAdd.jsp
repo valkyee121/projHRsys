@@ -23,8 +23,6 @@
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
-<h2>Multiline TextBox</h2>
-<p>This example shows how to define a textbox for the user to enter multi-line text input.</p>
 <div style="margin:20px 0;"></div>
 <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
     <form id="ff" class="easyui-form" method="post" action="recruitSaveManag" data-options="novalidate:true">
@@ -36,7 +34,7 @@
             <input class="easyui-textbox" name="riCompany"  label="企业:" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
-            <input  id="riSal" name="riSalary"  label="薪酬标准:" labelPosition="top" readonly style="width:100%;">
+            <input class="easyui-textbox"  id="riSal" name="riSalary"  label="薪酬标准:" labelPosition="top" readonly style="width:50%;">元
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-combobox" id="riDept" name="deptID" label="所属部门:" labelPosition="top"  style="width:50%;" >
@@ -111,7 +109,8 @@
                         $("#riJob").combobox({
                             data: job,
                             valueField:'jobID',
-                            textField:'jobName'
+                            textField:'jobName',
+
                         })
                     }
                 })
@@ -126,9 +125,7 @@
                 async : false,
                 url : 'ajaxFindJob',
                 success : function (data) {
-                    console.log(data.result);
-                    $("#riSal").val("");
-                    $("#riSal").val(data.result.jobSalary);
+                    $("#riSal").textbox('setValue',data.result.jobSalary);
                 }
             })
         }

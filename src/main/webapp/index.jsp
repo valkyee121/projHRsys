@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="resources/js/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
@@ -40,10 +41,10 @@
             <div style="margin-bottom:20px">
                 <input name="uPass" class="easyui-textbox" type="password" style="width:100%;height:40px;padding:12px" data-options="prompt:'请输入密码',iconCls:'icon-lock',iconWidth:38">
             </div>
-            <div style="margin-bottom:20px">
+            <%--<div style="margin-bottom:20px">
                 <input type="checkbox" checked="checked">
                 <span>Remember me</span>
-            </div>
+            </div>--%>
             <div>
                 <input type="submit" value="Login" class="easyui-linkbutton"  style="padding:5px 0px;width:100%;font-size:14px;">
                 <a href="userRegPage" style="padding:5px 0px;width:100%;font-size:14px;">还没有帐号？立即注册</a>
@@ -57,10 +58,13 @@
         页脚
     </div>
     <div data-options="region:'center',title:'招聘资讯'">
-        <a href="testPage">search</a>
 
-        <table id="recruitListUl">
-
+        <table class="table-7" id="recruitListUl" style="width: 100%">
+            <thead>
+            <th>招聘职位</th>
+            <th>公司名称</th>
+            <th>薪酬</th>
+            </thead>
         </table>
        <%-- <ul class="easyui-datalist" id="recruitListUl" style="display: block">
             &lt;%&ndash;<c:forEach items="${recruitList}" var="rec">
@@ -84,6 +88,7 @@
                 console.log(pageIndex);
                 console.log(totalPage);
                 console.log(spanInterval);
+               /* $("#recruitListUl tr").remove();*/
                 $.ajax({
                     type: 'post',
                     url: 'listAllRecruit',
@@ -98,7 +103,7 @@
                         /*显示数据列表*/
                         var table = $("#recruitListUl");
                         /*清除列表内容*/
-                        $("#recruitListUl tr").remove();
+
                         /*填入内容*/
                         for (var i=0;i<recruit.length;i++){
                             table.append(
@@ -109,7 +114,7 @@
                                     recruit[i].riCompany
                                     +"</td><td>"+
                                     recruit[i].riSalary
-                                    +"</td></tr>")
+                                    +"元</td></tr>")
                             );
                         }
                         /*创建分页*/

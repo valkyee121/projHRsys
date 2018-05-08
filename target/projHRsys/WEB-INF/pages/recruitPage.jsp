@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: AllenYao
@@ -25,6 +26,12 @@
 <body class="easyui-layout">
 <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
     导航栏
+    <c:if test="${sessionScope.user != null}">
+        <a href="userMyResume?uid=${sessionScope.user.uid}">我的简历</a>
+        <a href="myApplypage">我的职位申请</a>
+        <a href="interViewPage">我的面试</a>
+    </c:if>
+
 </div>
 <div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
     <%--LOGIN--%>
@@ -68,51 +75,40 @@
 
 </div>
 <div data-options="region:'center',title:'招聘信息'">
-    <h2></h2>
-    <p></p>
     <div style="margin:20px 0;"></div>
-    <div <%--class="easyui-dialog"--%>class="easyui-panel" style="width:400px;padding:50px 60px; position: absolute;left: 50%;top: 50%; transform: translate(-50%,-50%);">
-        <form id="ff" method="post" action="applyThisJob">
-            <table cellpadding="0" cellspacing="0" border="1">
+    <div <%--class="easyui-dialog"--%>class="easyui-panel" style="width:600px;padding:10px 10px; position: absolute;left: 50%;top: 50%; transform: translate(-50%,-50%);">
+        <form id="ff" method="post" <%--action="applyThisJob"--%>>
+            <div>
                 <input type="hidden" name="riid" value="${thisRecruit.riid}">
-                <tr>
-                    <th>招聘信息标题</th>
-                    <td>${thisRecruit.riName}</td>
-                </tr>
-                <tr>
-                    <th>企业名称</th>
-                    <td>${thisRecruit.riCompany}</td>
-                </tr>
-                <tr>
-                    <th>所属部门</th>
-                    <td>${thisRecruit.riDept.deptName}</td>
-                </tr>
-                <tr>
-                    <th>职位职位</th>
-                    <td>${thisRecruit.riJob.jobName}</td>
-                </tr>
-                <tr>
-                    <th>职位薪酬</th>
-                    <td>${thisRecruit.riJob.jobSalary}</td>
-                </tr>
-                <tr>
-                    <th>职位职责</th>
-                    <td>${thisRecruit.riDuty}</td>
-                </tr>
-                <tr>
-                    <th>职位要求</th>
-                    <td>${thisRecruit.riDesired}</td>
-                </tr>
-                <tr>
-                    <th>其他描述</th>
-                    <td>${thisRecruit.riAddtion}</td>
-                </tr>
-                <tr>
-                    <th>工作地点</th>
-                    <td>${thisRecruit.riLocation}</td>
-                </tr>
-            </table>
-            <input type="submit" value="申请该职位">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riName}" label="标题:" labelPosition="top" readonly style="width:100%;">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riCompany}" label="企业名称:" labelPosition="top" readonly style="width:100%;">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riSalary}" label="薪酬标准:" labelPosition="top" readonly style="width:50%;">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" prompt="${thisRecruit.riDept.deptName}" label="所属部门:" labelPosition="top" readonly  style="width:50%;" >
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" prompt="${thisRecruit.riJob.jobName}"  label="所属职位:" labelPosition="top" readonly style="width:50%;" />
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riDuty}" label="岗位职责:" labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riDesired}" label="岗位要求:" labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riAddtion}" label="其他信息:" labelPosition="top" multiline="true" readonly style="width:100%;height:120px">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" value="${thisRecruit.riLocation}" label="工作地点:" labelPosition="top" style="width:100%">
+            </div>
+            <input type="button" class="easyui-linkbutton" onclick="submitForm()" value="申请该职位">
         </form>
     </div>
     <a href="backToIndex">back</a>
@@ -120,6 +116,28 @@
 <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
     页脚
 </div>
-
+<script type="text/javascript">
+    function submitForm(){
+        $.ajax({
+            type: 'post',
+            url: 'applyThisJob',
+            dataType: 'json',
+            data: $('#ff').serialize(),
+            success: function (data) {
+                if (data.code=='1'){
+                    alert("申请成功");
+                    window.location.href = "myApplypage";
+                }else if (data.code=="2"){
+                    alert("请先填写简历");
+                    window.location.href = "userMyResume?uid=${sessionScope.user.uid}";
+                }else {
+                    alert("请先登录游客帐号");
+                    window.location.href = "index.jsp";
+                }
+               /* alert(data.code)*/
+            }
+        })
+    }
+</script>
 </body>
 </html>

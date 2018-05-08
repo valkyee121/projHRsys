@@ -31,35 +31,45 @@
         </collection>
     </resultMap>
     <insert id="saveResume">
-        INSERT INTO T_HRSYS_RESUME (RESU_NAME, RESU_SEX, RESU_BIRTH, RESU_CITY, RESU_CELL, RESU_INFO, RESU_STATUS, RESU_UID, RESU_EMAIL)
-        VALUES (#{resuName},#{resuSex},#{resuBirth},#{resuCity},#{resuCell},#{resuInfo},#{resuStatus},${uid},#{resuEmail})
+        INSERT INTO T_HRSYS_RESUME (RESU_NAME, RESU_SEX, RESU_BIRTH, RESU_CITY, RESU_CELL, RESU_INFO, RESU_STATUS, RESU_UID, RESU_EMAIL, RESU_DEGREE, RESU_MAJOR, RESU_EDU, RESU_JOBEX)
+        VALUES (#{resuName},#{resuSex},#{resuBirth},#{resuCity},#{resuCell},#{resuInfo},#{resuStatus},${uid},#{resuEmail},#{resuDegree},#{resuMajor},#{resuEdu},#{resuJobEx})
     </insert>
     <update id="updateResume">
         UPDATE T_HRSYS_RESUME
         <set>
-            <choose>
-                <when test="resuName!=null and resuName!=''">
-                    RESU_NAME = #{resuName}
-                </when>
-                <when test="resuSex!=null and resuSex!=''">
-                    RESU_SEX = #{resuSex}
-                </when>
-                <when test="resuBirth!=null and resuBirth!=''">
-                    RESU_BIRTH = #{resuBirth}
-                </when>
-                <when test="resuCity!=null and resuCity!=''">
-                    RESU_CITY = #{resuCity}
-                </when>
-                <when test="resuCell!=null and resuCell!=''">
-                    RESU_CELL = #{resuCell}
-                </when>
-                <when test="resuInfo!=null and resuInfo!=''">
-                    RESU_INFO = #{resuInfo}
-                </when>
-                <when test="resuStatus!=null and resuStatus!=''">
-                    RESU_STATUS = #{resuStatus}
-                </when>
-            </choose>
+            <if test="resuName!=null and resuName!=''">
+                RESU_NAME = #{resuName},
+            </if>
+            <if test="resuSex!=null and resuSex!=''">
+                RESU_SEX = #{resuSex},
+            </if>
+            <if test="resuBirth!=null and resuBirth!=''">
+                RESU_BIRTH = #{resuBirth},
+            </if>
+            <if test="resuCity!=null and resuCity!=''">
+                RESU_CITY = #{resuCity},
+            </if>
+            <if test="resuCell!=null and resuCell!=''">
+                RESU_CELL = #{resuCell},
+            </if>
+            <if test="resuInfo!=null and resuInfo!=''">
+                RESU_INFO = #{resuInfo},
+            </if>
+            <if test="resuStatus!=null and resuStatus!=''">
+                RESU_STATUS = #{resuStatus},
+            </if>
+            <if test="resuDegree!=null and resuDegree!=''">
+                RESU_DEGREE = #{resuDegree},
+            </if>
+            <if test="resuMajor!=null and resuMajor!=''">
+                RESU_MAJOR = #{resuMajor},
+            </if>
+            <if test="resuEdu!=null and resuEdu!=''">
+                RESU_EDU = #{resuEdu},
+            </if>
+            <if test="resuJobEx!=null and resuJobEx!=''">
+                RESU_JOBEX = #{resuJobEx}
+            </if>
         </set>
         WHERE RESU_EMAIL=#{resuEmail}
     </update>

@@ -86,34 +86,6 @@
                    }else if (result==1){
                        return true;
                    }
-/*                   var result=true;
-                   $(this).blur(function () {
-                       $.ajax({
-                           type:'post',
-                           url:'ajaxForRegist',
-                           data:{"uEmail":$("input[name='uEmail']").val().trim()},
-                           async: false,
-                           success:function (data) {
-                               console.log(data);
-                               if (data == 1){
-                                  result=true;
-                               }else if (data == 0){
-                                   result=false;
-                               }
-                               /!*value == data;
-                               console.log(value);
-                               console.log(email);*!/
-                               /!*if ("no"==data){
-                                   mailResult = false;
-                                   $("#showmsg").html("该用户已经存在").css({"color":"red"});
-                               }else if ("yes"==data){
-                                   mailResult = true;
-                                   $("#showmsg").html("用户名可用").css({"color":"green"});
-                               }
-                               checkAll()*!/
-                           }
-                       });
-                   })*/
                    console.log(result);
                },
                message: '用户名已经占用'

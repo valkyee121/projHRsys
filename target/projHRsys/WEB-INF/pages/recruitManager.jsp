@@ -19,18 +19,19 @@
     <link rel="stylesheet" type="text/css" href="resources/js/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
-<table id="recruitListUl" style="border: black;">
-    <tr>
+<table id="recruitListUl" class="table-7" style="width: 100%">
+    <thead>
         <th>序号</th>
         <th>标题</th>
         <th>企业</th>
         <th>薪酬标准</th>
         <th>信息状态</th>
-    </tr>
+    </thead>
 </table>
 <div style="margin:20px 0;"></div>
 <div class="easyui-panel">
@@ -46,9 +47,8 @@
             pageClick (1,totalPage,3);
         },"json");
         pageClick = function (pageIndex, totalPage, spanInterval) {
-            console.log(pageIndex);
-            console.log(totalPage);
-            console.log(spanInterval);
+            /*/!*清除列表内容*!/
+            $("#recruitListUl tr").remove();*/
             $.ajax({
                 type: 'post',
                 url: 'listAllRecruit',
@@ -56,32 +56,12 @@
                 dataType: 'json',
                 async: false,
                 success:function (data) {
-
                     var recruit = data.resultList;
-                    console.log(recruit);
                     /*首页显示*/
                     var intPageIndex = parseInt(pageIndex);
                     /*显示数据列表*/
                     var table = $("#recruitListUl");
-                    /*清除列表内容*/
-                    $("#recruitListUl tr").remove();
                     /*填入内容*/
-                    /*table.append(
-                        $("<tr><th>序号"+
-
-                            +"</th><th>标题"+
-
-                            +"</th><th>企业"+
-
-                            +"</th><th>薪酬标准"+
-
-                            +"</th><th>信息状态"+
-
-                            +"</th><th>删除"+
-
-                            +"</th></tr>"
-                        )
-                    );*/
                     for (var i=0;i<recruit.length;i++){
                         table.append(
                             $("<tr><td>"+

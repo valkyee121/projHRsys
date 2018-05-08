@@ -17,6 +17,10 @@
             <result property="resuCell" column="resu_cell"/>
             <result property="resuInfo" column="resu_info"/>
             <result property="resuEmail" column="resu_email"/>
+            <result property="resuDegree" column="resu_degree"/>
+            <result property="resuMajor" column="resu_major"/>
+            <result property="resuEdu" column="resu_edu"/>
+            <result property="resuJobEx" column="resu_jobex"/>
             <result property="resuStatus" column="resu_status"/>
         </association>
     </resultMap>
@@ -47,7 +51,7 @@
     <select id="findUserResume" resultMap="findUserMap">
         SELECT u.U_ID, u.U_EMAIL,
         resu.RESU_ID, resu.RESU_NAME, resu.RESU_SEX, resu.RESU_BIRTH, resu.RESU_CITY,
-        resu.RESU_CELL, resu.RESU_INFO, resu.RESU_EMAIL,resu.RESU_STATUS
+        resu.RESU_CELL, resu.RESU_INFO, resu.RESU_EMAIL, resu.RESU_DEGREE, resu.RESU_MAJOR, resu.RESU_EDU, resu.RESU_JOBEX,resu.RESU_STATUS
         FROM T_HRSYS_USER u JOIN T_HRSYS_RESUME resu ON u.U_ID=resu.RESU_UID WHERE u.U_ID=#{uid}
     </select>
 </mapper>

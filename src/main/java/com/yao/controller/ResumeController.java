@@ -9,12 +9,19 @@ import com.yao.model.User;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.beans.PropertyEditorSupport;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +33,22 @@ public class ResumeController {
     @Resource
     private UserService userService;
 
+    @InitBinder
+    public void InitBinder(WebDataBinder dataBinder)
+    {
+        dataBinder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
+            public void setAsText(String value) {
+                try {
+                    setValue(new SimpleDateFormat("yyyy-MM-dd").parse(value));
+                } catch(ParseException e) {
+                    setValue(null);
+                }
+            }
+            public String getAsText() {
+                return new SimpleDateFormat("yyyy-MM-dd").format((Date) getValue());
+            }
+        });
+    }
     @RequestMapping("/myApplypage")
     public String myApplypage() throws Exception{
         return "myApplication";
@@ -47,7 +70,6 @@ public class ResumeController {
         user = (User) session.getAttribute("user");
         User user1 = userService.findUserResume(user);
         resume.setUid(user.getUid());
-
         if (null!=user1 && !"".equals(user1)){
             resumeService.updateResume(resume);
         }else {
@@ -66,26 +88,35 @@ public class ResumeController {
      * @throws Exception
      */
     @RequestMapping("/applyThisJob")
-    public String applyThisJob(HttpSession session, Recruit recruit, HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void applyThisJob(HttpSession session, Recruit recruit, HttpServletRequest request, HttpServletResponse response) throws Exception{
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         User user1 = (User) session.getAttribute("user");
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
         if (null!=user1 && !"".equals(user1)){
             User user = userService.findUserResume(user1);
             if (null!=user && !"".equals(user)){
                 System.out.println(recruit);
                 resumeService.savePostResume(recruit.getRiid(),user.getResume().getResuID(),0);
-                return "../../index";
+                jsonObj.put("code","1");
+                /*mav.setViewName("/myApplypage");*/
             }else {
                 System.out.println("请先填写简历");
-                return "forward:/userMyResume";
+           /*     mav.addObject("msg","请先填写简历");*/
+                jsonObj.put("code","2");
+                /*mav.setViewName("/userMyResume");*/
             }
         }else {
             System.out.println("请先登录游客帐号");
-            return "../../index";
+            /*mav.addObject("msg","请先登录游客帐号");*/
+            jsonObj.put("code","3");
+            /*mav.setViewName("../../index");*/
+           /* return "../../index";*/
         }
-
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 
     /**

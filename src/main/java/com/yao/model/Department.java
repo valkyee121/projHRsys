@@ -8,18 +8,18 @@ import java.util.Date;
 import java.util.List;
 
 public class Department implements Serializable {
-    private int deptID;
+    private Integer deptID;
     private String deptName;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date deptBuild;
     private int deptStatus;
     private List<JobPosition> jobPositions = new ArrayList<JobPosition>();
 
-    public int getDeptID() {
+    public Integer getDeptID() {
         return deptID;
     }
 
-    public void setDeptID(int deptID) {
+    public void setDeptID(Integer deptID) {
         this.deptID = deptID;
     }
 

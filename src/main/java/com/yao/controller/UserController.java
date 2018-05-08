@@ -77,11 +77,7 @@ public class UserController {
     @RequestMapping("/userMyResume")
     public String userMyResumes(Resume resume, Model model,HttpSession session) throws Exception{
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
         user = userService.findUserResume(user);
-        System.out.println("**********");
-        System.out.println(user);
-        System.out.println("**********");
         if (null!=user){
             model.addAttribute("myResume",user);
         }else {

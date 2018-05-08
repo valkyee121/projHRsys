@@ -48,7 +48,7 @@ public class AtteController {
      * @throws Exception
      */
     @RequestMapping("/saveAtteToday")
-    public String saveAtteToday(HttpSession session, Attend attend) throws Exception{
+    public String saveAtteToday(HttpSession session, Attend attend, Bonus bonus) throws Exception{
         Employee employee = (Employee) session.getAttribute("myEmpInfo");
         System.out.println(employee);
         attend.setAtteEmpID(employee.getEmpID());
@@ -58,6 +58,16 @@ public class AtteController {
         atteService.saveAtte(attend);
         List<Attend> attends = atteService.listThisMon(attend);     //每月第一次打卡，进行上月工资结算
         if (attends.size()<=1){
+            Employee employee1 = empService.findEmp(employee);
+            int count = 22-employee1.getEmpAttend();
+            if (count>0){
+                bonus.setBmEmpID(employee.getEmpID());
+                bonus.setBmStatus(1);
+                bonus.setBmMoney(-(employee.getEmpSal()/22)*count);
+                bonus.setBmDetail("旷工"+count+"天");
+                bonus.setBmDate(new Date());
+                bonusService.saveBonus(bonus);
+            }
             return "redirect:/saveSalary";
         }else {
             return "redirect:/empAttend";

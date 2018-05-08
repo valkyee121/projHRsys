@@ -31,34 +31,42 @@
     </insert>
     <update id="updateRecruit">
         UPDATE T_HRSYS_RECRUITINF
-        <set>
-            <choose>
-                <when test="riName!=null and riName!=''">
-                    RI_NAME = #{riName}
-                </when>
-                <when test="riCompany!=null and riCompany!=''">
-                    RI_COMPANY = #{riCompany}
-                </when>
-                <when test="riSalary!=null and riSalary!=''">
-                    RI_SALARY = #{riSalary}
-                </when>
-                <when test="riDuty!=null and riDuty!=''">
-                    RI_DUTY = #{riDuty}
-                </when>
-                <when test="riDesired!=null and riDesired!=''">
-                    RI_DESIRED = #{riDesired}
-                </when>
-                <when test="riAddtion!=null and riAddtion!=''">
-                    RI_ADDTION = #{riAddtion}
-                </when>
-                <when test="riLocation!=null and riLocation!=''">
-                    RI_LOCATION = #{riLocation}
-                </when>
-                <when test="riStatus!=null and riStatus!=''">
-                    RI_STATUS = #{riStatus}
-                </when>
-            </choose>
-        </set>
+        <trim prefix="set" suffixOverrides=",">
+            <if test="riName!=null and riName!=''">
+                RI_NAME = #{riName},
+            </if>
+            <if test="riCompany!=null and riCompany!=''">
+                RI_COMPANY = #{riCompany},
+            </if>
+            <if test="riDept!=null">
+                <if test="riDept.deptID!=null and riDept.deptID!=''">
+                    RI_DEPT_ID = #{riDept.deptID},
+                </if>
+            </if>
+            <if test="riJob!=null">
+                <if test="riJob.jobID!=null and riJob.jobID!=''">
+                    RI_JOBPOS_ID = #{riJob.jobID},
+                </if>
+            </if>
+            <if test="riSalary!=null and riSalary!=''">
+                RI_SALARY = #{riSalary},
+            </if>
+            <if test="riDuty!=null and riDuty!=''">
+                RI_DUTY = #{riDuty},
+            </if>
+            <if test="riDesired!=null and riDesired!=''">
+                RI_DESIRED = #{riDesired},
+            </if>
+            <if test="riAddtion!=null and riAddtion!=''">
+                RI_ADDTION = #{riAddtion},
+            </if>
+            <if test="riLocation!=null and riLocation!=''">
+                RI_LOCATION = #{riLocation},
+            </if>
+            <if test="riStatus!=null and riStatus!=''">
+                RI_STATUS = #{riStatus}
+            </if>
+        </trim>
         WHERE RI_ID=#{riid}
     </update>
     <delete id="deleteRecruit"></delete>

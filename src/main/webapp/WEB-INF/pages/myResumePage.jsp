@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: AllenYao
@@ -19,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="resources/js/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="resources/js/demo.css">
     <link rel="stylesheet" type="text/css" href="resources/css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/sidebar.css">
     <script type="text/javascript" src="resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
     <style>
@@ -36,41 +38,34 @@
     <a href="myApplypage">我的职位申请</a>
     <a href="interViewPage">我的面试</a>
 </div>
-<div data-options="region:'west',split:true,title:'West'" style="width:220px;padding:10px;">
+<div data-options="region:'west',split:true,title:'West'" style="width:256px;padding:10px;">
     <%--LOGIN--%>
-    <h2>简历信息</h2>
-    <div style="margin:20px 0;"></div>
-    <div style="margin-bottom:10px">
-        <table>
-            <tr>
-                <th>姓名</th>
-                <td>${myResume.resume.resuName}</td>
-            </tr>
-            <tr>
-                <th>性别</th>
-                <td>${myResume.resume.resuSex}</td>
-            </tr>
-            <tr>
-                <th>出生年月</th>
-                <td>${myResume.resume.resuBirth}</td>
-            </tr>
-            <tr>
-                <th>所在城市</th>
-                <td>${myResume.resume.resuCity}</td>
-            </tr>
-            <tr>
-                <th>联系电话</th>
-                <td>${myResume.resume.resuCell}</td>
-            </tr>
-            <tr>
-                <th>邮箱地址</th>
-                <td>${myResume.resume.resuEmail}</td>
-            </tr>
-            <tr>
-                <th>其他信息</th>
-                <td>${myResume.resume.resuInfo}</td>
-            </tr>
-        </table>
+    <div class="row flat">
+        <div class="col-lg-3 col-md-3 col-xs-6">
+            <ul class="plan plan1">
+                <li class="plan-name">
+                    用户信息
+                </li>
+                <li class="plan-price">
+                    姓名：<strong>${myResume.resume.resuName}</strong>
+                </li>
+                <li class="plan-price">
+                    出生年月：<strong><fmt:formatDate value='${myResume.resume.resuBirth}' type="date" pattern="yyyy-MM-dd"/></strong>
+                </li>
+                <li class="plan-price">
+                    居住地：<strong>${myResume.resume.resuCity}</strong>
+                </li>
+                <li class="plan-price">
+                    手机：<strong>${myResume.resume.resuCell}</strong>
+                </li>
+                <li class="plan-price">
+                    邮箱：<strong>${myResume.resume.resuEmail}</strong>
+                </li>
+                <li class="plan-action">
+                    <a href="#" class="btn btn-danger btn-lg">退出登录</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 <div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
@@ -88,7 +83,7 @@
                 <input  type="radio" name="resuSex" value="1">男
             </div>
             <div  style="margin-bottom:20px">
-                <input class="easyui-datebox" id="birth" name="resuBirth" value="${myResume.resume.resuBirth}" label="出生日期：" labelPosition="left" style="width:50%;">
+                <input class="easyui-datebox" id="birth" name="resuBirth" prompt="<fmt:formatDate value="${myResume.resume.resuBirth}" type="date" pattern="yyyy-MM-dd"/> "  label="出生日期：" labelPosition="left" style="width:50%;">
             </div>
             <div  style="margin-bottom:20px">
                 <select class="easyui-combobox" name="resuCity" label="所在城市" style="width:50%">
@@ -100,7 +95,7 @@
                 </select>
             </div>
             <div style="margin-bottom:20px">
-                <input class="easyui-textbox" name="resuCell" value="${myResume.resume.resuCell}" label="手机号码"  style="width:50%">
+                <input class="easyui-numberbox" name="resuCell" value="${myResume.resume.resuCell}" label="手机号码"  style="width:50%">
             </div>
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" name="resuEmail" value="${sessionScope.user.uEmail}" readonly style="width:60%" data-options="label:'Email:',required:true">
@@ -132,6 +127,7 @@
         </div>--%>
     </div>
     <script>
+        /*$("#birth").datebox("setValue",${myResume.resume.resuBirth})*/
         function submitForm(){
             $('#ff').form('save',{
                 onSubmit:function(){
