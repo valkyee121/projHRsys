@@ -26,7 +26,7 @@
 <body>
 <div class="easyui-layout" data-options="fit:true">
     <div data-options="region:'east',split:true" style="width:800px">
-        <table class="table-7" id="trainnListUl" style="width: 700px">
+        <table class="table-7" id="trainnListUl" style="width: 100%">
             <thead>
             <th>员工编号</th>
             <th>员工姓名</th>
@@ -38,7 +38,7 @@
             </div>
             <form id="ff" method="post">
                 <input type="hidden" id="trIDm" name="trIDm" value="${trainn.trID}">
-                <table class="table-7" id="empListUl" style="width: 700px">
+                <table class="table-7" id="empListUl" style="width: 100%">
                     <thead>
                     <th>参加培训</th>
                     <th>员工编号</th>

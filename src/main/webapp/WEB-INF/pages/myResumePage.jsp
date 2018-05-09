@@ -90,7 +90,7 @@
                 <input  type="radio" name="resuSex" value="1">男
             </div>
             <div  style="margin-bottom:20px">
-                <input class="easyui-datebox" id="birth" name="resuBirth" prompt="<fmt:formatDate value="${myResume.resume.resuBirth}" type="date" pattern="yyyy-MM-dd"/> "  label="出生日期：" labelPosition="left" style="width:50%;">
+                <input class="easyui-datebox" id="birth" name="resuBirth" value="${myResume.resume.resuBirth}"   label="出生日期：" labelPosition="left" style="width:50%;">
             </div>
             <div  style="margin-bottom:20px">
                 <select class="easyui-combobox" name="resuCity" label="所在城市" style="width:50%">
@@ -134,7 +134,7 @@
         </div>--%>
     </div>
     <script>
-        /*$("#birth").datebox("setValue",${myResume.resume.resuBirth})*/
+
         function submitForm(){
             $('#ff').form('save',{
                 onSubmit:function(){

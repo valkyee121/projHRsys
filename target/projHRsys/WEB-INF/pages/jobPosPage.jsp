@@ -84,7 +84,7 @@
         </thead>
         <tr>
             <td>
-                <input class="easyui-combobox" onchange="" id="riDept" name="deptID"   style="width:50%;" >
+                <input class="easyui-combobox" onchange="" id="riDept" name="deptID"   style="width:100%;" >
             </td>
             <td>
                 <input type="text" name="jobName">

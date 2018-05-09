@@ -32,7 +32,7 @@
     </select>
 </div>
 <form id="ff" method="post">
-    <table class="table-7" id="interViewListUl" style="width: 700px">
+    <table class="table-7" id="interViewListUl" style="width: 100%">
         <thead>
         <th>录用</th>
         <th>应聘者姓名</th>

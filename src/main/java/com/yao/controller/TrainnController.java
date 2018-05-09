@@ -119,16 +119,26 @@ public class TrainnController {
      * @throws Exception
      */
     @RequestMapping("/newTrainSave")
-    public void newTrainSave(Trainn trainn) throws Exception{
+    public void newTrainSave(Trainn trainn, HttpServletResponse response) throws Exception{
       /*  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH24:mm:ss");
         trainn.setTrBegin();
         trainn.setTrEnd(sdf.format(trainn.getTrEnd()));*/
         System.out.println(trainn);
         trainn.setTrStatus(0);
 /*        trainn.setEmployees(null);*/
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
         if (trainn!=null && !"".equals(trainn)){
             System.out.println(trainn);
-            trainnService.saveTrainn(trainn);
+            if (trainnService.saveTrainn(trainn)){
+                jsonObj.put("code","1");
+            }else {
+                jsonObj.put("code","2");
+            }
+        }else {
+            jsonObj.put("code","3");
         }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 }

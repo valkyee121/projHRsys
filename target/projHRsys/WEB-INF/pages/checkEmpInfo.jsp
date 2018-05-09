@@ -65,7 +65,7 @@
                 <div>
                     <input type="hidden" name="empID" value="${empInfo.empID}">
                     <input class="easyui-textbox"  name="empAttend" value="${empInfo.empAttend}" readonly label="当月考勤次数:" labelPosition="top" style="width:50%;">
-                    <input type="submit" value="考勤记录">
+                    <%--<input type="submit" value="考勤记录">--%>
                 </div>
             </form>
         </div>

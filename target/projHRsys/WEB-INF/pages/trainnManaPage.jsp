@@ -34,7 +34,7 @@
                 <option value="1">往期培训</option>
             </select>
         </div>
-        <table class="table-7" id="trainnListUl" style="width: 700px">
+        <table class="table-7" id="trainnListUl" style="width: 100%">
             <thead>
             <th>序号</th>
             <th>标题</th>
@@ -100,7 +100,13 @@
                     url: 'newTrainSave',
                     data: $('#ff').serialize(),
                     success: function (data) {
-                        console.log(data);
+                        if (data.code=="1"){
+                            alert("添加培训成功");
+                        }else if (data.code=="2"){
+                            alert("添加失败")
+                        }
+                    },error:function () {
+                        alert("开始时间大于结束时间")
                     }
                 })
             }

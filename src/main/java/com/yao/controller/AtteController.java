@@ -74,7 +74,6 @@ public class AtteController {
         }
     }
 
-
     @RequestMapping("/updateAtteToday")
     public String updateAtteToday(HttpSession session,Attend attend) throws Exception{
         Employee employee = (Employee) session.getAttribute("myEmpInfo");

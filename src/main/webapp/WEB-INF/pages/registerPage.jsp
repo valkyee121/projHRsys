@@ -22,12 +22,9 @@
 </head>
 <body class="easyui-layout">
 <%--MAINPAGE--%>
-    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-        导航栏
-    </div>
+<div data-options="region:'north',border:true" style="height:60px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px">
+</div>
     <div data-options="region:'center',title:'用户注册'">
-        <h2>Validate Password</h2>
-        <p>This example shows how to validate whether a user enters the same password.</p>
         <div style="margin:20px 0;"></div>
         <div <%--class="easyui-dialog"--%>class="easyui-panel" style="width:400px;padding:50px 60px; position: absolute;left: 50%;top: 50%; transform: translate(-50%,-50%);">
             <form id="ff" method="post" action="userRegister">
@@ -47,11 +44,11 @@
                 </div>
             </form>
         </div>
-        <a href="backToIndex">back</a>
+        <%--<a href="backToIndex">back</a>--%>
     </div>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
-        页脚
-    </div>
+<div data-options="region:'south',border:false" style="height:50px;background:-webkit-linear-gradient(bottom,#EFF5FF,#E0ECFF);padding:10px;">
+    页脚
+</div>
     <script type="text/javascript">
         /*密码一致性验证*/
         $.extend($.fn.validatebox.defaults.rules, {

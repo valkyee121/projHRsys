@@ -29,7 +29,7 @@
     SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date currentTime = new Date();
 %>
-<table class="table-7" id="deptListUl" style="width: 700px">
+<table class="table-7" id="deptListUl" style="width: 100%">
     <thead>
         <th>部门编号</th>
         <th>部门名称</th>
@@ -40,7 +40,7 @@
     <tr></tr>
 </table >
 <form method="post" id="ff">
-    <table class="table-7" style="width: 700px">
+    <table class="table-7" style="width: 100%">
         <thead>
         <th>部门名称</th>
         <th>创建部门</th>
@@ -126,9 +126,14 @@
      $.ajax({
          type: 'post',
          url: 'deptSave',
+         dataType: 'json',
          data: $('#ff').serialize(),
          success: function (data) {
-             console.log(data);
+             if (data.code=="1"){
+                 alert("新建成功")
+             }else if (data.code=="2"){
+                 alert("部门已存在")
+             }
          }
      })
  }

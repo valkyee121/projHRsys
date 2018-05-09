@@ -11,7 +11,7 @@ public class Resume implements Serializable{
     private int resuID;
     private String resuName;
     private int resuSex;
-    /*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
+   /* @DateTimeFormat(pattern = "yyyy-MM-dd")*/
     private Date resuBirth;
     private String resuCity;
     private int resuCell;

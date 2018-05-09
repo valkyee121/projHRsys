@@ -33,7 +33,7 @@ public class ResumeController {
     @Resource
     private UserService userService;
 
-    @InitBinder
+   /* @InitBinder
     public void InitBinder(WebDataBinder dataBinder)
     {
         dataBinder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
@@ -48,7 +48,7 @@ public class ResumeController {
                 return new SimpleDateFormat("yyyy-MM-dd").format((Date) getValue());
             }
         });
-    }
+    }*/
     @RequestMapping("/myApplypage")
     public String myApplypage() throws Exception{
         return "myApplication";

@@ -32,7 +32,7 @@
                 <option value="2">已处理申请</option>
             </select>
         </div>
-        <table class="table-7" id="dmsListUl" style="width: 700px">
+        <table class="table-7" id="dmsListUl" style="width: 100%">
             <thead>
             <th>员工编号</th>
             <th>员工姓名</th>

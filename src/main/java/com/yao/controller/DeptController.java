@@ -116,7 +116,7 @@ public class DeptController {
      * @throws Exception
      */
     @RequestMapping("/deptSave")
-    public void deptSave(Department department, HttpServletRequest request) throws Exception{
+    public void deptSave(Department department, HttpServletRequest request, HttpServletResponse response) throws Exception{
         System.out.println(department);
         int status = department.getDeptStatus();
         request.setCharacterEncoding("UTF-8");
@@ -124,13 +124,19 @@ public class DeptController {
         param.put("deptName",department.getDeptName());
       /*  param.put("deptBuild",department.getDeptBuild());*/
        /* param.put("deptStatus",1);*/
+        Map<String,Object> jsonObj = new HashMap<String, Object>();
         deptService.saveDept(param);
         int flag = (Integer) param.get("msg");
         if (flag==1){
             System.out.println("success");
+            jsonObj.put("code","1");
         }else {
             System.out.println("error");
+            jsonObj.put("code","2");
         }
+        JSONObject json = new JSONObject(jsonObj);
+        response.getWriter().print(json);
+        return;
     }
 
     @RequestMapping("/deptCancel")

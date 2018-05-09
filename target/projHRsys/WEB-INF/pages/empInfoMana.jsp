@@ -27,11 +27,11 @@
 <div >
     <select id="riDept" name="deptID" ></select>
 </div>
-<table class="table-7" id="empListUl" style="width: 700px">
+<table class="table-7" id="empListUl" style="width: 100%">
     <thead>
     <th>员工编号</th>
     <th>员工姓名</th>
-    <th>员工性别</th>
+    <th>出生年月</th>
     <th>员工年龄</th>
     <th>所属部门</th>
     <th>所属职位</th>
@@ -86,7 +86,7 @@
                             +"</a></td><td>" +
                             emp[i].empSex
                             +"</td><td>"+
-                            emp[i].empBirth
+                            getTaskTime(emp[i].empBirth)
                             +"</td><td>"+
                             emp[i].empDept.deptName
                             +"</td><td>"+
@@ -97,7 +97,25 @@
             }
         })
     })
-
+    function getTaskTime(strDate) {
+        if(null==strDate || ""==strDate){
+            return "";
+        }
+        var dateStr=strDate.trim().split(" ");
+        var strGMT = dateStr[0]+" "+dateStr[1]+" "+dateStr[2]+" "+dateStr[5]+" "+dateStr[3]+" GMT+0800";
+        var date = new Date(Date.parse(strGMT));
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        var h = date.getHours();
+        var minute = date.getMinutes();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        var second = date.getSeconds();
+        second = second < 10 ? ('0' + second) : second;
+        return y+"-"+m+"-"+d;
+    };
     /*员工*/
    /* $("#riDept").combobox({
         onChange:function (deptId) {
